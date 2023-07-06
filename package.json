@@ -1,6 +1,6 @@
 {
   "name": "@uoguelph/web-components",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "University of Guelph Web Components Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -17,8 +17,8 @@
   "scripts": {
     "build": "NODE_ENV=production stencil build --docs",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
+    "test": "stencil test --spec --e2e --passWithNoTests",
+    "test.watch": "stencil test --spec --e2e --passWithNoTests --watchAll",
     "generate": "stencil generate",
     "format": "npx prettier --write .",
     "prepare": "npm run build && npmignore --auto"
