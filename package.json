@@ -1,0 +1,54 @@
+{
+  "name": "@uoguelph/web-components",
+  "version": "0.0.14",
+  "description": "University of Guelph Web Components Library",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/uofg-web-components/uofg-web-components.esm.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "NODE_ENV=production stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "format": "npx prettier --write .",
+    "prepare": "npm run build && npmignore --auto"
+  },
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/pro-regular-svg-icons": "^6.4.0",
+    "@fortawesome/pro-solid-svg-icons": "^6.4.0",
+    "@stencil/core": "^4.0.0"
+  },
+  "devDependencies": {
+    "@stencil/sass": "^3.0.4",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "npmignore": "^0.3.0",
+    "prettier": "^3.0.0",
+    "puppeteer": "^20.7.3",
+    "stencil-inline-svg": "^1.1.0",
+    "typescript": "^5.1.6"
+  },
+  "publishConfig": {
+    "ignore": [
+      "!dist/",
+      "!loader/",
+      "src/"
+    ],
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": ""
+}

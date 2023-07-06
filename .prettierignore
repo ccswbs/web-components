@@ -1,0 +1,11 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+dist
+www
+loader
+.idea
+.vscode
+package-lock.json
+src/components.d.ts

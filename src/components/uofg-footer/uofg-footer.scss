@@ -1,0 +1,185 @@
+:host {
+  display: block;
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid #ffc72a;
+  outline-offset: 0.5rem;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px dotted transparent;
+  transition-property: border-color;
+  width: fit-content;
+  color: inherit;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 0.2rem;
+
+  &:hover,
+  &:focus {
+    border-color: currentColor;
+  }
+}
+
+svg {
+  fill: currentColor;
+  height: 1.6rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: unset;
+
+  li {
+    display: contents;
+  }
+}
+
+#uofg-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+}
+
+#uofg-footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1370px;
+
+  @media (min-width: 570px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 962px) {
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    justify-items: center;
+    gap: 2rem 4.75vw;
+  }
+}
+
+.uofg-footer-content-separator {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+#uofg-footer-improve-life {
+  transition-property: opacity;
+  border: 0;
+
+  > svg {
+    height: 2.5rem;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+#uofg-footer-social-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+  gap: 0.75rem;
+
+  a {
+    transition-property: color;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      &[aria-label='Twitter'] {
+        color: #1da1f2;
+      }
+
+      &[aria-label='Facebook'] {
+        color: #4267b2;
+      }
+
+      &[aria-label='Instagram'] {
+        color: #e1306c;
+      }
+
+      &[aria-label='Youtube'] {
+        color: #f00;
+      }
+
+      &[aria-label='LinkedIn'] {
+        color: #0077b5;
+      }
+
+      &[aria-label='TikTok'] {
+        color: #f00;
+      }
+
+      color: #ffc72a;
+    }
+  }
+
+  svg {
+    height: 2rem;
+  }
+}
+
+#uofg-footer-links {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  svg {
+    color: #ffc72a;
+  }
+
+  @media (min-width: 570px) {
+    grid-template-columns: 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  @media (min-width: 962px) {
+    grid-row: unset;
+    grid-column: unset;
+    gap: 0.75rem 9.5vw;
+  }
+}
+
+#uofg-footer-address {
+  font-style: normal;
+  white-space: nowrap;
+
+  a {
+    color: #69a3b9;
+  }
+
+  @media (min-width: 570px) {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  @media (min-width: 962px) {
+    grid-row: unset;
+    grid-column: unset;
+  }
+}

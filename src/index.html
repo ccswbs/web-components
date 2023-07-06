@@ -1,0 +1,42 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>UofG Web Components Demo Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/build/uofg-web-components.css" />
+    <script type="module" src="/build/uofg-web-components.esm.js"></script>
+
+    <style>
+      main {
+        min-height: calc(100vh - 5rem);
+      }
+
+      @media screen and (min-width: 1024px) {
+        main {
+          min-height: calc(100vh - 13.7rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <uofg-header page-title="Example Page" page-url="#">
+      <a href="#">Example Link 1</a>
+      <a href="#">Example Link 2</a>
+      <ul data-title="Example Menu">
+        <li><a href="#">Example Menu Link 1</a></li>
+        <li><a href="#">Example Menu Link 2</a></li>
+        <li><a href="#">Example Menu Link 3</a></li>
+      </ul>
+      <a href="#">Example Link 3</a>
+    </uofg-header>
+
+    <main></main>
+
+    <uofg-footer></uofg-footer>
+  </body>
+</html>
