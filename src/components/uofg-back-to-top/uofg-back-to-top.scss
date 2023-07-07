@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid #ffc72a;
+  outline-offset: 0.5rem;
+}
+
+#uofg-back-to-top {
+  position: fixed;
+  margin: 10px;
+  height: 35px;
+  width: 35px;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-property: opacity, visibility, background-color;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 50%;
+  border: 1px solid #fff;
+
+  &:hover {
+    background-color: #d50029;
+  }
+
+  > svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
