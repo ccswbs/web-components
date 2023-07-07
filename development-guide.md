@@ -8,7 +8,7 @@ give you a good understanding of how the components are built and how to develop
 To start, clone this repo to a new directory:
 
 ```bash
-git clone git@ssh.dev.azure.com:v3/uofgcpa/U%20of%20G%20Website%20Redesign/web-components
+git clone git@github.com:ccswbs/web-components.git
 cd web-components
 ```
 
