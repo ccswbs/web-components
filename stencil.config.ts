@@ -20,6 +20,8 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
+      dir: 'docs',
+      footer: '[University of Guelph Web Components](https://github.com/ccswbs/web-components)',
     },
     {
       type: 'docs-vscode',

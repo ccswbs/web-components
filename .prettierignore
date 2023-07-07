@@ -5,6 +5,7 @@
 dist
 www
 loader
+docs
 .idea
 .vscode
 package-lock.json

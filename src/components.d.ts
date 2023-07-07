@@ -10,11 +10,11 @@ export namespace Components {
     }
     interface UofgHeader {
         /**
-          * The title of the pages that the header is being used on. For example, for the Convocation pages, this would be set to "Convocation".
+          * The title of the department/topic that the header is being used for. For example, for the Convocation pages, this would be set to "Convocation".
          */
         "pageTitle": string;
         /**
-          * The URL to the home/landing page for the pages the header is being used on. For example, for the Convocation pages, this would be set to "https://www.uoguelph.ca/convocation/".
+          * The URL to the home/landing page of the department/topic the header is being used for. For example, for the Convocation pages, this would be set to "https://www.uoguelph.ca/convocation/".
          */
         "pageUrl": string;
     }
@@ -84,11 +84,11 @@ declare namespace LocalJSX {
     }
     interface UofgHeader {
         /**
-          * The title of the pages that the header is being used on. For example, for the Convocation pages, this would be set to "Convocation".
+          * The title of the department/topic that the header is being used for. For example, for the Convocation pages, this would be set to "Convocation".
          */
         "pageTitle"?: string;
         /**
-          * The URL to the home/landing page for the pages the header is being used on. For example, for the Convocation pages, this would be set to "https://www.uoguelph.ca/convocation/".
+          * The URL to the home/landing page of the department/topic the header is being used for. For example, for the Convocation pages, this would be set to "https://www.uoguelph.ca/convocation/".
          */
         "pageUrl"?: string;
     }

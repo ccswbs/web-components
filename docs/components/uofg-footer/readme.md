@@ -9,3 +9,8 @@ This component is the footer that appears at the bottom of most University of Gu
 ```
 
 <!-- Auto Generated Below -->
+
+
+----------------------------------------------
+
+[University of Guelph Web Components](https://github.com/ccswbs/web-components)

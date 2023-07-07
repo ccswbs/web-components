@@ -45,3 +45,29 @@ For example, [https://www.uoguelph.ca/convocation](https://www.uoguelph.ca/convo
 Note that page-title and page-url are meaningless unless sub nav/page specific content is provided.
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property    | Attribute    | Description                                                                                                                                                                                 | Type     | Default |
+| ----------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `pageTitle` | `page-title` | The title of the department/topic that the header is being used for. For example, for the Convocation pages, this would be set to "Convocation".                                            | `string` | `''`    |
+| `pageUrl`   | `page-url`   | The URL to the home/landing page of the department/topic the header is being used for. For example, for the Convocation pages, this would be set to "https://www.uoguelph.ca/convocation/". | `string` | `''`    |
+
+
+## Dependencies
+
+### Depends on
+
+- [uofg-menu](../uofg-menu)
+
+### Graph
+```mermaid
+graph TD;
+  uofg-header --> uofg-menu
+  style uofg-header fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+[University of Guelph Web Components](https://github.com/ccswbs/web-components)

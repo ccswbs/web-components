@@ -45,7 +45,8 @@
     "ignore": [
       "!dist/",
       "!loader/",
-      "src/"
+      "src/",
+      "docs/"
     ],
     "access": "public"
   },
