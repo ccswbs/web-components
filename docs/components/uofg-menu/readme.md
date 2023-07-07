@@ -24,13 +24,15 @@ The content container can be any html element but must have the attribute slot="
 
 ## CSS Custom Properties
 
-This component uses CSS Custom Properties to define the parameters of the animation it plays when expanding or collapsing.
+This component uses [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to define the parameters of the animation it plays when expanding or collapsing.
 
 | Property                       | Description                                | Type                                                                                    | Default       |
 | ------------------------------ | ------------------------------------------ | --------------------------------------------------------------------------------------- | ------------- |
 | --uofg-menu-animation-type     | Determines the animation that is used      | `none`, `slide`, `fade`                                                                 | `none`        |
 | --uofg-menu-animation-duration | Determines how long the animation runs for | [CSS Time](https://developer.mozilla.org/en-US/docs/Web/CSS/time)                       | `200ms`       |
 | --uofg-menu-animation-easing   | Determines the easing function used        | [CSS Easing Function](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) | `ease-in-out` |
+
+
 
 <!-- Auto Generated Below -->
 
