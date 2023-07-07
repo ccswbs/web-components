@@ -4,7 +4,11 @@ This component adds a button that appears when the user scrolls down far enough 
 
 # Usage
 
-Ensure this component is only used once, and is the last element on the page.
+Ensure this component is only used once, and is the last element in the page body.
+
+```html
+<uofg-back-to-top></uofg-back-to-top>
+```
 
 <!-- Auto Generated Below -->
 
