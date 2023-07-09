@@ -36,7 +36,7 @@ export const config: Config = {
     browserHeadless: 'new',
   },
   devServer: {
-    reloadStrategy: 'pageReload',
+    reloadStrategy: 'hmr',
   },
   validatePrimaryPackageOutputTarget: true,
   plugins: [inlineSvg(), sass()],
