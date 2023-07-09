@@ -1,5 +1,5 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { PREFERS_REDUCED_MOTION, WEB_ANIMATIONS_SUPPORTED } from '../../utils/feature-check';
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import { PREFERS_REDUCED_MOTION, WEB_ANIMATIONS_SUPPORTED } from '../../utils/utils';
 
 const DURATION_REGEX = /^(\d*\.?\d+)(s|ms)$/;
 const EASING_FUNCTION_REGEX =
@@ -8,16 +8,6 @@ const EASING_FUNCTION_REGEX =
 type UofGMenuAnimation = {
   keyframes: Keyframe[] | PropertyIndexedKeyframes;
   callback?: () => void;
-};
-
-const observer = new MutationObserver(mutations => {
-  for (const mutation of mutations) {
-    mutation.target.dispatchEvent(new CustomEvent('childListChange', { bubbles: false }));
-  }
-});
-
-const observerConfig = {
-  childList: true,
 };
 
 @Component({ tag: 'uofg-menu', shadow: false })
@@ -54,28 +44,46 @@ export class UofgMenu {
   private button: HTMLElement | null = null;
   private content: HTMLElement | null = null;
   private contentComputedStyle: CSSStyleDeclaration | null = null;
+  private observer: MutationObserver = new MutationObserver(this.handleMutation);
 
   connectedCallback() {
     // Bind functions so that "this" correctly refers to the component's instance.
-    this.handleChildListChange = this.handleChildListChange.bind(this);
-    this.updateButton = this.updateButton.bind(this);
-    this.updateContent = this.updateContent.bind(this);
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleMutation = this.handleMutation.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
 
     this.computedStyle = window.getComputedStyle(this.el);
 
-    this.isExpanded = false;
-
-    this.handleChildListChange();
-    observer.observe(this.el, observerConfig);
+    this.handleMutation();
+    this.observer.observe(this.el, { childList: true });
   }
 
-  @Listen('onChildListChange')
-  private handleChildListChange() {
-    this.updateButton();
-    this.updateContent();
+  disconnectedCallback() {
+    this.observer.disconnect();
+  }
+
+  private handleMutation() {
+    // Update the button element
+    const button = this.el.querySelector('[slot="button"]') as HTMLElement;
+
+    // Set up the new button
+    button?.setAttribute('aria-expanded', this.isExpanded ? 'true' : 'false');
+    button?.setAttribute('aria-haspopup', 'true');
+
+    this.button = button;
+    
+    // Update the content element
+    const content = this.el.querySelector('[slot="content"]') as HTMLElement;
+
+    if (content == null) {
+      this.content = null;
+      this.contentComputedStyle = null;
+    } else {
+      this.content = content;
+      this.content.style.display = this.isExpanded ? '' : 'none';
+      this.contentComputedStyle = window.getComputedStyle(this.content);
+    }
   }
 
   private handleKeyUp(e: KeyboardEvent) {
@@ -90,37 +98,12 @@ export class UofgMenu {
     }
   }
 
-  private updateButton() {
-    const button = this.el.querySelector('[slot="button"]') as HTMLElement;
-
-    // Clean up the old button before setting the new one
-    this.button?.removeEventListener('click', this.handleButtonClick);
-    this.button?.removeAttribute('aria-expanded');
-    this.button?.removeAttribute('aria-haspopup');
-
-    // Set up the new button
-    button?.setAttribute('aria-expanded', this.isExpanded ? 'true' : 'false');
-    button?.setAttribute('aria-haspopup', 'true');
-    button?.addEventListener('click', this.handleButtonClick);
-
-    this.button = button;
-  }
-
-  private updateContent() {
-    const content = this.el.querySelector('[slot="content"]') as HTMLElement;
-
-    if (content == null) {
-      this.content = null;
-      this.contentComputedStyle = null;
-    } else {
-      this.content = content;
-      this.content.style.display = this.isExpanded ? '' : 'none';
-      this.contentComputedStyle = window.getComputedStyle(this.content);
+  private handleClick(e: MouseEvent) {
+    //Check if the click was on the button or a descendant of the button
+    if (this.button && this.button.contains(e.target as Node)) {
+      this.isExpanded = !this.isExpanded;
+      return;
     }
-  }
-
-  private handleButtonClick() {
-    this.isExpanded = !this.isExpanded;
   }
 
   private handleFocusout(e: FocusEvent) {
@@ -266,16 +249,17 @@ export class UofgMenu {
   render() {
     return (
       <Host
-        tabindex={-1}
         data-expanded={this.isExpanded}
+        tabindex={-1}
         onFocusout={this.handleFocusout}
         onKeyUp={this.handleKeyUp}
+        onClick={this.handleClick}
       ></Host>
     );
   }
 
   /**
-   * Get the current expanded state of the menu.
+   * Get the current expanded  state of the menu.
    * @returns A promise which will resolve to the current expanded state.
    */
   @Method()

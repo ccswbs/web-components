@@ -40,7 +40,7 @@ export namespace Components {
          */
         "expand": () => Promise<void>;
         /**
-          * Get the current expanded state of the menu.
+          * Get the current expanded  state of the menu.
           * @returns A promise which will resolve to the current expanded state.
          */
         "getExpanded": () => Promise<boolean>;
@@ -52,6 +52,36 @@ export namespace Components {
         /**
           * Toggle the expanded state of the menu.
           * @returns A promise which will resolve to the new expanded state.
+         */
+        "toggle": () => Promise<boolean>;
+    }
+    interface UofgModal {
+        "alert": boolean;
+        "centered": boolean;
+        /**
+          * Closes the modal.
+          * @returns empty Promise.
+         */
+        "close": () => Promise<void>;
+        /**
+          * Get the current state of the modal.
+          * @returns A promise which will resolve to true when the modal is open, or false when the modal is closed.
+         */
+        "getState": () => Promise<boolean>;
+        "label": string;
+        /**
+          * Opens the modal.
+          * @returns empty Promise.
+         */
+        "open": () => Promise<void>;
+        /**
+          * Set the state of the modal.
+          * @param value The new state, set it to true to open the modal, or false to close the modal.
+         */
+        "setState": (value: boolean) => Promise<void>;
+        /**
+          * Toggle the state of the modal.
+          * @returns A promise which will resolve to true (if the modal opened) or false (if the modal closed).
          */
         "toggle": () => Promise<boolean>;
     }
@@ -85,11 +115,18 @@ declare global {
         prototype: HTMLUofgMenuElement;
         new (): HTMLUofgMenuElement;
     };
+    interface HTMLUofgModalElement extends Components.UofgModal, HTMLStencilElement {
+    }
+    var HTMLUofgModalElement: {
+        prototype: HTMLUofgModalElement;
+        new (): HTMLUofgModalElement;
+    };
     interface HTMLElementTagNameMap {
         "uofg-back-to-top": HTMLUofgBackToTopElement;
         "uofg-footer": HTMLUofgFooterElement;
         "uofg-header": HTMLUofgHeaderElement;
         "uofg-menu": HTMLUofgMenuElement;
+        "uofg-modal": HTMLUofgModalElement;
     }
 }
 declare namespace LocalJSX {
@@ -133,11 +170,17 @@ declare namespace LocalJSX {
          */
         "onExpanded"?: (event: UofgMenuCustomEvent<void>) => void;
     }
+    interface UofgModal {
+        "alert"?: boolean;
+        "centered"?: boolean;
+        "label"?: string;
+    }
     interface IntrinsicElements {
         "uofg-back-to-top": UofgBackToTop;
         "uofg-footer": UofgFooter;
         "uofg-header": UofgHeader;
         "uofg-menu": UofgMenu;
+        "uofg-modal": UofgModal;
     }
 }
 export { LocalJSX as JSX };
@@ -148,6 +191,7 @@ declare module "@stencil/core" {
             "uofg-footer": LocalJSX.UofgFooter & JSXBase.HTMLAttributes<HTMLUofgFooterElement>;
             "uofg-header": LocalJSX.UofgHeader & JSXBase.HTMLAttributes<HTMLUofgHeaderElement>;
             "uofg-menu": LocalJSX.UofgMenu & JSXBase.HTMLAttributes<HTMLUofgMenuElement>;
+            "uofg-modal": LocalJSX.UofgModal & JSXBase.HTMLAttributes<HTMLUofgModalElement>;
         }
     }
 }
