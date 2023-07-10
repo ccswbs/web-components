@@ -43,7 +43,7 @@ export class UofgModal {
     // Bind event handlers so that 'this' is always the component instance.
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleFocusout = this.handleFocusout.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
 
     if (this.autoOpen) {
       this.isOpen = true;
@@ -62,21 +62,19 @@ export class UofgModal {
     }
   }
 
-  handleFocusout(e: FocusEvent) {
-    // If the focus is leaving the modal, we need to trap the focus within the modal.
-    const isFocusLeavingModal = !this.el.contains(e.relatedTarget as Element);
-    if (!isFocusLeavingModal) return;
+  handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Tab') {
+      const focusableElements = getAllFocusableElements(this.el);
+      const firstFocusable = this.dismissButton; // The dismiss button is always the first focusable element in the modal.
+      const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
 
-    const focusableElements = getAllFocusableElements(this.el);
-    const firstFocusable = this.dismissButton; // The dismiss button is always the first focusable element in the modal.
-    const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-    e.preventDefault();
-
-    if (e.target === firstFocusable) {
-      lastFocusable?.focus();
-    } else if (e.target === lastFocusable) {
-      firstFocusable?.focus();
+      if (e.target === firstFocusable && e.shiftKey) {
+        e.preventDefault();
+        lastFocusable?.focus();
+      } else if (e.target === lastFocusable && !e.shiftKey) {
+        e.preventDefault();
+        firstFocusable?.focus();
+      }
     }
   }
 
@@ -103,9 +101,9 @@ export class UofgModal {
         aria-label={this.label}
         aria-hidden={!this.isOpen}
         tabIndex={-1}
-        onKeyUp={this.handleKeyUp}
         onClick={this.handleClick}
-        onFocusout={this.handleFocusout}
+        onKeyUp={this.handleKeyUp}
+        onKeyDown={this.handleKeyDown}
       >
         <button
           id="uofg-modal-dismiss"
