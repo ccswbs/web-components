@@ -105,16 +105,15 @@ export class UofgModal {
         onKeyUp={this.handleKeyUp}
         onKeyDown={this.handleKeyDown}
       >
-        <button
-          id="uofg-modal-dismiss"
-          aria-label="Close modal"
-          ref={(el: HTMLButtonElement) => (this.dismissButton = el)}
-          onClick={() => (this.isOpen = false)}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-
         <div id="uofg-modal-content" class={{ centered: this.centered }}>
+          <button
+            id="uofg-modal-dismiss"
+            aria-label="Close modal"
+            ref={(el: HTMLButtonElement) => (this.dismissButton = el)}
+            onClick={() => (this.isOpen = false)}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
           <slot></slot>
         </div>
       </div>

@@ -5,7 +5,6 @@
 
 :focus-visible {
   outline: 2px solid #ffc72a;
-  outline-offset: 0.5rem;
 }
 
 * {
@@ -27,34 +26,28 @@
   transition-timing-function: ease-in-out;
   transition-property: visibility, opacity;
 
-  > #uofg-modal-dismiss {
+  #uofg-modal-dismiss {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
     padding: 0.5rem;
     height: 3.5rem;
     width: 3.5rem;
     font-size: 2rem;
     line-height: 1;
-    color: #fff;
-    background-color: #000;
-    border: 1px solid white;
-    border-radius: 50%;
+    color: var(--uofg-modal-dismiss-color, #fff);
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
     z-index: 2;
 
     > svg {
       display: block;
       height: 1em;
       fill: currentColor;
-    }
-
-    &:hover {
-      background-color: #d50029;
     }
   }
 
