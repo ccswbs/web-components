@@ -1,6 +1,7 @@
 :host {
   visibility: visible !important;
   position: relative !important;
+  z-index: 100000 !important;
 }
 
 :focus-visible {
