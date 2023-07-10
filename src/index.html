@@ -35,9 +35,28 @@
       <a href="#">Example Link 3</a>
     </uofg-header>
 
-    <main></main>
+    <main>
+      <button id="modal-btn">Open Modal</button>
+      <uofg-modal static-backdrop label="Example Modal" alert-dialog auto-open>
+        <div style="background-color: white;">
+          <h2>Example Modal</h2>
+          <p>Example modal content.</p>
+          <button>Close</button>
+          <button>Test</button>
+        </div>
+      </uofg-modal>
+    </main>
 
     <uofg-footer></uofg-footer>
     <uofg-back-to-top></uofg-back-to-top>
   </body>
+
+  <script>
+    const modalBtn = document.getElementById('modal-btn');
+    const modal = document.querySelector('uofg-modal');
+
+    modalBtn.addEventListener('click', () => {
+      modal.open();
+    });
+  </script>
 </html>

@@ -259,7 +259,7 @@ export class UofgMenu {
   }
 
   /**
-   * Get the current expanded  state of the menu.
+   * Get the current expanded state of the menu.
    * @returns A promise which will resolve to the current expanded state.
    */
   @Method()

@@ -40,7 +40,7 @@ export namespace Components {
          */
         "expand": () => Promise<void>;
         /**
-          * Get the current expanded  state of the menu.
+          * Get the current expanded state of the menu.
           * @returns A promise which will resolve to the current expanded state.
          */
         "getExpanded": () => Promise<boolean>;
@@ -56,7 +56,17 @@ export namespace Components {
         "toggle": () => Promise<boolean>;
     }
     interface UofgModal {
-        "alert": boolean;
+        /**
+          * Used to determine whether the modal should be rendered as an alert dialog. This is useful for when you want to use the modal to alert the user of something, rather than to ask the user to make a decision. If this is set to true, the modal will be rendered with a role of "alertdialog" instead of "dialog".
+         */
+        "alertDialog": boolean;
+        /**
+          * Used to determine whether the modal should open automatically when the component is first rendered. It is important to ensure this is only set to true for ONE modal on the page.
+         */
+        "autoOpen": boolean;
+        /**
+          * Used to determine whether the modal content is centered vertically.
+         */
         "centered": boolean;
         /**
           * Closes the modal.
@@ -68,6 +78,9 @@ export namespace Components {
           * @returns A promise which will resolve to true when the modal is open, or false when the modal is closed.
          */
         "getState": () => Promise<boolean>;
+        /**
+          * The label for the modal. It is recommended that you set this to describe the modal's content. This is required for accessibility.
+         */
         "label": string;
         /**
           * Opens the modal.
@@ -79,6 +92,10 @@ export namespace Components {
           * @param value The new state, set it to true to open the modal, or false to close the modal.
          */
         "setState": (value: boolean) => Promise<void>;
+        /**
+          * Used to determine whether clicking on the backdrop of the modal will close the modal. If this is set to true, clicking on the backdrop will NOT close the modal.
+         */
+        "staticBackdrop": boolean;
         /**
           * Toggle the state of the modal.
           * @returns A promise which will resolve to true (if the modal opened) or false (if the modal closed).
@@ -171,9 +188,26 @@ declare namespace LocalJSX {
         "onExpanded"?: (event: UofgMenuCustomEvent<void>) => void;
     }
     interface UofgModal {
-        "alert"?: boolean;
+        /**
+          * Used to determine whether the modal should be rendered as an alert dialog. This is useful for when you want to use the modal to alert the user of something, rather than to ask the user to make a decision. If this is set to true, the modal will be rendered with a role of "alertdialog" instead of "dialog".
+         */
+        "alertDialog"?: boolean;
+        /**
+          * Used to determine whether the modal should open automatically when the component is first rendered. It is important to ensure this is only set to true for ONE modal on the page.
+         */
+        "autoOpen"?: boolean;
+        /**
+          * Used to determine whether the modal content is centered vertically.
+         */
         "centered"?: boolean;
+        /**
+          * The label for the modal. It is recommended that you set this to describe the modal's content. This is required for accessibility.
+         */
         "label"?: string;
+        /**
+          * Used to determine whether clicking on the backdrop of the modal will close the modal. If this is set to true, clicking on the backdrop will NOT close the modal.
+         */
+        "staticBackdrop"?: boolean;
     }
     interface IntrinsicElements {
         "uofg-back-to-top": UofgBackToTop;
