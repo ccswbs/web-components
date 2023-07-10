@@ -38,12 +38,23 @@
     <main>
       <button id="modal-btn">Open Modal</button>
       <uofg-modal static-backdrop label="Example Modal" alert-dialog auto-open>
-        <div style="background-color: white;">
-          <h2>Example Modal</h2>
-          <p>Example modal content.</p>
-          <button>Close</button>
-          <button>Test</button>
-        </div>
+        <uofg-alert>
+          <span slot="title">University of Guelph Alert</span>
+          <span slot="subtitle">
+            ATTENTION: Evacuate Rozanski Hall, Bullring, Landscape Architecture IMMEDIATELY due to Security Risk
+          </span>
+          <span slot="message">
+            Repudiandae repudiandae fuga animi nostrum cumque quia repellendus. Nesciunt rem molestias. Dolores nostrum
+            omnis fuga debitis eius quaerat culpa et. Saepe placeat laudantium corrupti. Placeat laboriosam doloribus
+            voluptatum officia quisquam eaque adipisci molestiae. Quas quisquam excepturi modi nihil vero. Aut soluta
+            eius fugiat adipisci ipsa. Eligendi quidem perferendis excepturi ipsa possimus omnis in accusantium eum. Ex
+            vel nam. Reiciendis necessitatibus similique a in. Vel nesciunt amet impedit amet accusantium commodi
+            quisquam. Ut dolor eius facere porro mollitia adipisci cumque deserunt. Ratione quaerat neque doloremque
+            officiis sint magni aut labore. Quibusdam accusamus praesentium quaerat nesciunt voluptatem.
+            For more information, please visit the <a href="https://news.uoguelph.ca/alert">news.uoguelph.ca/alert</a>.
+          </span>
+          <span slot="footer">Last updated 07/07/2023 9:34 AM</span>
+        </uofg-alert>
       </uofg-modal>
     </main>
 
