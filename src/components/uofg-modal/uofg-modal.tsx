@@ -37,6 +37,7 @@ export class UofgModal {
 
   @State() isOpen: boolean = false;
   @Element() el: HTMLUofgModalElement;
+  private container: HTMLDivElement;
   private dismissButton: HTMLButtonElement;
 
   connectedCallback() {
@@ -66,9 +67,9 @@ export class UofgModal {
     // If the modal is open and the user presses the tab key, we need to ensure that focus is trapped within the modal.
     if (e.key === 'Tab' && this.isOpen) {
       const focusableElements = getAllFocusableElements(this.el);
-      
+
       // If there are no focusable elements in the modal, focus the dismiss button.
-      if(focusableElements.length === 0) { 
+      if (focusableElements.length === 0) {
         e.preventDefault();
         this.dismissButton.focus();
       }
@@ -92,7 +93,8 @@ export class UofgModal {
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
           window.requestAnimationFrame(() => {
-            this.dismissButton.focus();
+            // Focus the container element when the modal is opened, so that the screen reader's will announce the modal when it opens.
+            this.container.focus();
           });
         });
       });
@@ -115,6 +117,7 @@ export class UofgModal {
         onClick={this.handleClick}
         onKeyUp={this.handleKeyUp}
         onKeyDown={this.handleKeyDown}
+        ref={(el: HTMLDivElement) => (this.container = el)}
       >
         <div id="uofg-modal-content" part="content" class={{ centered: this.centered }}>
           <button
