@@ -63,8 +63,16 @@ export class UofgModal {
   }
 
   handleKeyDown(e: KeyboardEvent) {
-    if (e.key === 'Tab') {
+    // If the modal is open and the user presses the tab key, we need to ensure that focus is trapped within the modal.
+    if (e.key === 'Tab' && this.isOpen) {
       const focusableElements = getAllFocusableElements(this.el);
+      
+      // If there are no focusable elements in the modal, focus the dismiss button.
+      if(focusableElements.length === 0) { 
+        e.preventDefault();
+        this.dismissButton.focus();
+      }
+
       const firstFocusable = this.dismissButton; // The dismiss button is always the first focusable element in the modal.
       const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
 
@@ -105,9 +113,10 @@ export class UofgModal {
         onKeyUp={this.handleKeyUp}
         onKeyDown={this.handleKeyDown}
       >
-        <div id="uofg-modal-content" class={{ centered: this.centered }}>
+        <div id="uofg-modal-content" part="content" class={{ centered: this.centered }}>
           <button
             id="uofg-modal-dismiss"
+            part="dismiss-button"
             aria-label="Close modal"
             ref={(el: HTMLButtonElement) => (this.dismissButton = el)}
             onClick={() => (this.isOpen = false)}
