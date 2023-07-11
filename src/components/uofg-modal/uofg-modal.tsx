@@ -97,6 +97,9 @@ export class UofgModal {
         });
       });
     }
+
+    // Prevent scrolling of the body when the modal is open.
+    document.body.style.overflow = newValue ? 'hidden' : '';
   }
 
   render() {
