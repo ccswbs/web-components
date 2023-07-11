@@ -2,16 +2,16 @@ import { FunctionalComponent, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import {
   faBriefcase,
-  faCalendarRange,
+  faCalendar,
   faCircleCheck,
   faHandHoldingHeart,
   faKey,
   faList,
   faSitemap,
-  faTrees,
+  faTree,
   faUniversalAccess,
   type IconDefinition,
-} from '@fortawesome/pro-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';
 
 type FooterLinkProps = { text: string; url: string; icon: IconDefinition; title?: string };
 const FooterLink: FunctionalComponent<FooterLinkProps> = props => (
@@ -36,7 +36,7 @@ export const FooterLinks: FunctionalComponent = () => (
     <FooterLink
       text="Land Acknowledgement"
       url="https://www.uoguelph.ca/land-acknowledgement/"
-      icon={faTrees}
+      icon={faTree}
       title="The University of Guelph resides on the treaty lands and territory of the Mississaugas of the Credit. We recognize that today this gathering place is home to many First Nations, Inuit and Métis peoples and acknowledging them reminds us of our collective responsibility to the land where we learn and work."
     />
     <FooterLink
@@ -47,12 +47,12 @@ export const FooterLinks: FunctionalComponent = () => (
     <FooterLink
       text="Undergraduate Calendar"
       url="https://www.uoguelph.ca/registrar/calendars/undergraduate/current/"
-      icon={faCalendarRange}
+      icon={faCalendar}
     />
     <FooterLink
       text="Graduate Calendar"
       url="https://www.uoguelph.ca/registrar/calendars/graduate/current/"
-      icon={faCalendarRange}
+      icon={faCalendar}
     />
     <FooterLink text="Program Plans" url="https://admission.uoguelph.ca/programs" icon={faList} />
     <FooterLink

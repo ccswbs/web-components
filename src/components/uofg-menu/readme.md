@@ -32,6 +32,4 @@ This component uses [CSS Custom Properties](https://developer.mozilla.org/en-US/
 | --uofg-menu-animation-duration | Determines how long the animation runs for | [CSS Time](https://developer.mozilla.org/en-US/docs/Web/CSS/time)                       | `200ms`       |
 | --uofg-menu-animation-easing   | Determines the easing function used        | [CSS Easing Function](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) | `ease-in-out` |
 
-
-
 <!-- Auto Generated Below -->

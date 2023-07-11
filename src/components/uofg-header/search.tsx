@@ -1,6 +1,6 @@
 import { FunctionalComponent, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
-import { faSearch } from '@fortawesome/pro-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export const SearchBar: FunctionalComponent = () => (
   <form class="uofg-header-search-bar" method="get" role="search" action="https://uoguelph.ca/search/">

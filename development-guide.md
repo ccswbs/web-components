@@ -12,14 +12,6 @@ git clone git@github.com:ccswbs/web-components.git
 cd web-components
 ```
 
-### Setting up Font Awesome
-
-The components use [Font Awesome](https://fontawesome.com/) for icons. As we use the pro version, you will need to do some setup to get it working.
-
-1. Login to the C&M Web Team Font Awesome account or another account with access to the pro version.
-2. Navigate to this [page](https://fontawesome.com/account) and copy the Package Manager Token.
-3. Set the FONTAWESOME_NPM_AUTH_TOKEN environment variable to the token value. [Here is a good guide for how to do so](https://www.twilio.com/blog/how-to-set-environment-variables-html).
-
 ### Installing dependencies
 
 We use [npm](https://www.npmjs.com/) to manage dependencies. If you don't have npm installed, you can download it [here](https://www.npmjs.com/get-npm).

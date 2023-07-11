@@ -10,7 +10,7 @@ import FullSizeLogo from './logo-full-size.svg';
 import ReducedSizeLogo from './logo-reduced-size.svg';
 import { GlobalLinks } from './global-links';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
-import { faBars, faRightToBracket, faSearch } from '@fortawesome/pro-solid-svg-icons';
+import { faBars, faRightToBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { HelloYou } from './hello-you';
 import { SearchBar } from './search';
 

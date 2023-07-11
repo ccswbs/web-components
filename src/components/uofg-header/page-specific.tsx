@@ -1,6 +1,6 @@
 import { type FunctionalComponent, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
-import { faCaretDown } from '@fortawesome/pro-solid-svg-icons';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 export interface PageSpecificLink {
   text: string;

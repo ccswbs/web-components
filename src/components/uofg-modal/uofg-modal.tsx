@@ -1,6 +1,6 @@
 import { Component, Watch, Element, State, Prop, Method, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
-import { faTimes } from '@fortawesome/pro-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { getAllFocusableElements } from 'utils/utils';
 
 @Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.scss', shadow: true })

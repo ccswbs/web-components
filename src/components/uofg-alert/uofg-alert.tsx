@@ -1,6 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
-import { faCircleExclamation } from '@fortawesome/pro-regular-svg-icons';
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({ tag: 'uofg-alert', styleUrl: 'uofg-alert.scss', shadow: true })
 export class UofgAlert {

@@ -2,7 +2,7 @@ import { Component, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import { SocialLinks } from './social-links';
 import { FooterLinks } from './footer-links';
-import { faPhoneFlip } from '@fortawesome/pro-solid-svg-icons';
+import { faPhoneFlip } from '@fortawesome/free-solid-svg-icons';
 import improveLifeLogo from './improve-life.svg';
 
 @Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.scss', shadow: true })

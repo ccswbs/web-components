@@ -1,6 +1,6 @@
 import { Component, Listen, Prop, State, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
-import { faChevronUp } from '@fortawesome/pro-solid-svg-icons';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({ tag: 'uofg-back-to-top', styleUrl: 'uofg-back-to-top.scss', shadow: true })
 export class UofgBackToTop {

@@ -17,7 +17,7 @@
     font-size: 2.25rem;
     padding: 2rem;
     color: white;
-    background-color: #C10631;
+    background-color: #c10631;
 
     > svg {
       margin-right: 1rem;
@@ -32,13 +32,13 @@
     padding: 1.5rem 2rem;
     background-color: white;
 
-    slot[name="subtitle"]::slotted(*) {
+    slot[name='subtitle']::slotted(*) {
       font-size: 2rem;
       margin-bottom: 2rem;
       font-weight: bold;
     }
 
-    slot[name="message"]::slotted(*) {
+    slot[name='message']::slotted(*) {
       font-size: 1.6rem;
     }
   }
@@ -46,7 +46,7 @@
   #uofg-alert-footer {
     display: flex;
     padding: 1rem 2rem;
-    background-color: #DDDDDD;
+    background-color: #dddddd;
     font-size: 1.4rem;
   }
 }

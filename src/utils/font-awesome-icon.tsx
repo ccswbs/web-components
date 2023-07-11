@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from '@stencil/core';
-import { IconDefinition } from '@fortawesome/pro-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 export const FontAwesomeIcon: FunctionalComponent<{ icon: IconDefinition }> = props => {
   const width = props.icon.icon[0];

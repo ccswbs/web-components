@@ -72,7 +72,7 @@ export class UofgMenu {
     button?.setAttribute('aria-haspopup', 'true');
 
     this.button = button;
-    
+
     // Update the content element
     const content = this.el.querySelector('[slot="content"]') as HTMLElement;
 
