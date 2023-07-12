@@ -1,7 +1,7 @@
 import { Component, FunctionalComponent, Element, h, Listen, Prop, State } from '@stencil/core';
 import Decoration from './decoration.svg';
-import FullSizeLogo from './logo-full-size.svg';
-import ReducedSizeLogo from './logo-reduced-size.svg';
+import FullSizeLogo from './logo-full.svg';
+import ReducedSizeLogo from './logo-reduced.svg';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons/faRightToBracket';

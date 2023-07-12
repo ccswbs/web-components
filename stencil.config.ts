@@ -46,7 +46,7 @@ export const config: Config = {
     inlineSvg(),
     sass(),
     postcss({
-      plugins: [autoprefixer(['> 1%'])],
+      plugins: [autoprefixer(['> 2%'])],
     }),
   ],
 };
