@@ -1,6 +1,8 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
+import { postcss } from '@stencil-community/postcss';
+import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'uofg-web-components',
@@ -39,5 +41,13 @@ export const config: Config = {
     reloadStrategy: 'hmr',
   },
   validatePrimaryPackageOutputTarget: true,
-  plugins: [inlineSvg(), sass()],
+  plugins: [
+    inlineSvg(),
+    sass(),
+    postcss({
+      plugins: [
+        autoprefixer(['last 6 versions']),
+      ],
+    }),
+  ],
 };
