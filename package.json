@@ -1,6 +1,6 @@
 {
   "name": "@uoguelph/web-components",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "University of Guelph Web Components Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
