@@ -56,6 +56,9 @@
     position: absolute;
     width: fit-content;
     height: fit-content;
+    // Fit content is not supported in Firefox AND autoprefixer uses -moz-fit-content instead of -moz-max-content which doesn't work as expected
+    width: -moz-max-content;
+    height: -moz-max-content;
     padding: 2rem;
     max-width: 100%;
     max-height: 100%;
@@ -63,6 +66,7 @@
     transition: transform 0.3s ease-in-out;
     transform: translate(-50%, -50px);
     z-index: 1;
+    overflow: auto;
 
     @media (prefers-reduced-motion: reduce) {
       transition: none;
