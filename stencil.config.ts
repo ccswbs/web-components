@@ -39,15 +39,14 @@ export const config: Config = {
   },
   devServer: {
     reloadStrategy: 'hmr',
+    openBrowser: false,
   },
   validatePrimaryPackageOutputTarget: true,
   plugins: [
     inlineSvg(),
     sass(),
     postcss({
-      plugins: [
-        autoprefixer(['last 6 versions']),
-      ],
+      plugins: [autoprefixer(['> 1%'])],
     }),
   ],
 };

@@ -1,18 +1,142 @@
-import { Component, Element, h, Listen, Prop, State } from '@stencil/core';
-import {
-  PageSpecific,
-  type PageSpecificContent,
-  type PageSpecificLink,
-  type PageSpecificSubMenu,
-} from './page-specific';
+import { Component, FunctionalComponent, Element, h, Listen, Prop, State } from '@stencil/core';
 import Decoration from './decoration.svg';
 import FullSizeLogo from './logo-full-size.svg';
 import ReducedSizeLogo from './logo-reduced-size.svg';
-import { GlobalLinks } from './global-links';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
-import { faBars, faRightToBracket, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { HelloYou } from './hello-you';
-import { SearchBar } from './search';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons/faRightToBracket';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+
+const TopLinks: FunctionalComponent = () => (
+  <ul>
+    <li>
+      <a href="https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg">GIVE</a>
+    </li>
+    <li>
+      <a href="https://uoguelph.ca/apply">APPLY</a>
+    </li>
+    <li>
+      <a href="https://news.uoguelph.ca/">NEWS</a>
+    </li>
+  </ul>
+);
+
+const HelloYouMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
+  <uofg-menu class="uofg-header-hello-you-menu" auto-collapse={props.autoCollapse}>
+    <button slot="button" aria-label="Hello, YOU! menu">
+      <span>Hello, YOU!</span>
+      <FontAwesomeIcon icon={faCaretDown} />
+    </button>
+    <ul slot="content">
+      <li>
+        <a href="https://uoguelph.ca/future-students">Future Students</a>
+      </li>
+      <li>
+        <a href="https://uoguelph.ca/current-students">Current Students</a>
+      </li>
+      <li>
+        <a href="https://uoguelph.ca/alumni-and-donors">Alumni & Donors</a>
+      </li>
+      <li>
+        <a href="https://uoguelph.ca/staff-and-faculty">Staff & Faculty</a>
+      </li>
+      <li>
+        <a href="https://uoguelph.ca/parents-and-visitors">Parents & Visitors</a>
+      </li>
+      <li>
+        <a href="https://uoguelph.ca/employers-and-partners">Employers & Partners</a>
+      </li>
+    </ul>
+  </uofg-menu>
+);
+
+const MainLinks: FunctionalComponent = () => (
+  <ul class="uofg-header-global-links">
+    <li>
+      <a href="https://uoguelph.ca/about">About</a>
+    </li>
+    <li>
+      <a href="https://uoguelph.ca/academics">Academics</a>
+    </li>
+    <li>
+      <a href="https://uoguelph.ca/admissions">Admissions</a>
+    </li>
+    <li>
+      <a href="https://uoguelph.ca/research">Research</a>
+    </li>
+    <li>
+      <a href="https://uoguelph.ca/student-life">Student Life</a>
+    </li>
+  </ul>
+);
+
+const AccountLink: FunctionalComponent = () => (
+  <a href="https://uoguelph.ca/intranet" aria-label="University of Guelph Intranet">
+    <FontAwesomeIcon icon={faRightToBracket} />
+  </a>
+);
+
+const SearchLink: FunctionalComponent = () => (
+  <a href="https://uoguelph.ca/search" aria-label="Search University of Guelph">
+    <FontAwesomeIcon icon={faSearch} />
+  </a>
+);
+
+interface PageSpecificLink {
+  text: string;
+  href: string;
+  attributes?: Record<string, string>;
+}
+
+interface PageSpecificSubMenu {
+  title: string;
+  links: PageSpecificLink[];
+}
+
+type PageSpecificContent = Array<PageSpecificLink | PageSpecificSubMenu | null | undefined>;
+
+const PageSpecific: FunctionalComponent<{ content: PageSpecificContent; autoCollapse?: boolean }> = props => (
+  <ul class="uofg-header-page-specific">
+    {props.content
+      ?.map(item => {
+        if (!item) {
+          return null;
+        }
+
+        if ('text' in item) {
+          return (
+            <li>
+              <a href={item.href} {...item.attributes}>
+                {item.text}
+              </a>
+            </li>
+          );
+        }
+
+        return (
+          <li>
+            <uofg-menu autoCollapse={props.autoCollapse}>
+              <button slot="button">
+                <span>{item.title}</span>
+                <FontAwesomeIcon icon={faCaretDown} />
+              </button>
+              <ul slot="content" role="menu">
+                {item.links.map(link => (
+                  <li>
+                    <a href={link.href} {...link.attributes}>
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </uofg-menu>
+          </li>
+        );
+      })
+      .filter(Boolean)}
+  </ul>
+);
 
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.scss', shadow: true })
 export class UofgHeader {
@@ -80,19 +204,8 @@ export class UofgHeader {
       <header id="uofg-header">
         {this.isFullSize && (
           <div id="uofg-header-top-content-container">
-            <ul>
-              <li>
-                <a href="https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg">GIVE</a>
-              </li>
-              <li>
-                <a href="https://uoguelph.ca/apply">APPLY</a>
-              </li>
-              <li>
-                <a href="https://news.uoguelph.ca/">NEWS</a>
-              </li>
-            </ul>
-
-            <HelloYou autoCollapse={true} />
+            <TopLinks />
+            <HelloYouMenu autoCollapse={true} />
           </div>
         )}
 
@@ -110,46 +223,22 @@ export class UofgHeader {
 
           {this.isFullSize ? (
             <div id="uofg-header-full-main-content" class="uofg-header-main-content">
-              <GlobalLinks />
-
-              <a href="https://intranet.uoguelph.ca" aria-label="Intranet">
-                <FontAwesomeIcon icon={faRightToBracket} />
-              </a>
-
-              <uofg-menu class="uofg-header-search-menu" auto-collapse={true}>
-                <button slot="button" aria-label="Search Menu">
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-                <div slot="content">
-                  <span>Search the University of Guelph</span>
-                  <SearchBar />
-                </div>
-              </uofg-menu>
+              <MainLinks />
+              <AccountLink />
+              <SearchLink />
             </div>
           ) : (
             <div id="uofg-header-reduced-main-content" class="uofg-header-main-content">
-              <a href="https://intranet.uoguelph.ca" aria-label="Intranet">
-                <FontAwesomeIcon icon={faRightToBracket} />
-              </a>
-
-              <uofg-menu class="uofg-header-search-menu" auto-collapse={true}>
-                <button slot="button" aria-label="Search Menu">
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-                <div slot="content">
-                  <span>Search the University of Guelph</span>
-                  <SearchBar />
-                </div>
-              </uofg-menu>
-
+              <AccountLink />
+              <SearchLink />
               <uofg-menu id="uofg-header-main-menu" auto-collapse={true}>
                 <button slot="button" aria-label="Main Menu">
                   <FontAwesomeIcon icon={faBars} />
                 </button>
                 <div slot="content">
                   <span>University of Guelph</span>
-                  <GlobalLinks />
-                  <HelloYou autoCollapse={false} />
+                  <MainLinks />
+                  <HelloYouMenu autoCollapse={false} />
                 </div>
               </uofg-menu>
             </div>
@@ -169,7 +258,7 @@ export class UofgHeader {
 
             {this.isFullSize ? (
               <div id="uofg-header-full-sub-content" class="uofg-header-sub-content">
-                <PageSpecific content={this.pageSpecificContent} autoCollapseMenus={true} />
+                <PageSpecific content={this.pageSpecificContent} autoCollapse={true} />
               </div>
             ) : (
               <div id="uofg-header-reduced-sub-content" class="uofg-header-sub-content">
