@@ -1,57 +1,22 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:string';
-
-$breakpoints: (
-  'sm': 512px,
-  'md': 768px,
-  'lg': 1024px,
-);
-
-$top-content-height: 3.5rem;
-$main-content-height: 5rem;
-$main-content-height-full: 8rem;
-$sub-content-height: 4rem;
-
-@mixin transition($properties) {
-  transition-property: string.unquote($properties);
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-
-// Max content width
-$max-content-width: 1500px;
+@use '../../styles/theme.scss' as theme;
 
 :host {
   height: auto !important;
 }
 
-// Default styles
-* {
-  box-sizing: border-box;
-}
-
-:focus-visible {
-  outline: 2px solid #ffc72a;
-  outline-offset: 0.5rem;
-}
+@include theme.reset;
 
 a {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
-  @include transition('color, background-color');
+  @include theme.transition('color, background-color');
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  > li {
-    display: contents;
-  }
+li {
+  display: contents;
 }
 
 button {
@@ -64,34 +29,7 @@ button {
   line-height: inherit;
   word-spacing: inherit;
   letter-spacing: inherit;
-  @include transition('color, background-color');
-
-  &[type='submit'] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #d50029;
-    color: #fff;
-    padding: 0.5rem;
-    font-size: inherit;
-    font-family: inherit;
-  }
-}
-
-input[type='text'],
-input[type='password'] {
-  background-color: #eff6f7;
-  border: 1px solid #69a3b9;
-  padding: 1rem;
-  color: #555555;
-  font-size: inherit;
-  font-family: inherit;
-
-  &:focus-visible,
-  &:focus {
-    outline: none;
-    background-color: #fffdf7;
-  }
+  @include theme.transition('color, background-color');
 }
 
 uofg-menu {
@@ -111,7 +49,7 @@ uofg-menu {
     > svg {
       height: 1em;
       fill: currentColor;
-      @include transition('transform');
+      @include theme.transition('transform');
     }
   }
 
@@ -148,12 +86,12 @@ uofg-menu {
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  padding: 0 calc((100vw - $max-content-width) / 2);
+  padding: 0 calc((100vw - theme.$max-content-width) / 2);
 }
 
 // Top bar on desktop
 #uofg-header-top-content-container {
-  height: $top-content-height;
+  height: map.get(theme.$header-content-heights, 'top');
   background-color: #fff;
   color: #000;
   z-index: 3;
@@ -220,7 +158,7 @@ uofg-menu {
 
 // Main content container (middle bar on desktop)
 #uofg-header-main-content-container {
-  height: $main-content-height;
+  height: map.get(theme.$header-content-heights, 'main');
   background-color: #000;
   color: #fff;
   z-index: 2;
@@ -230,7 +168,7 @@ uofg-menu {
   }
 
   &.full-height {
-    height: $main-content-height-full;
+    height: map.get(theme.$header-content-heights, 'main-full');
   }
 }
 
@@ -258,13 +196,13 @@ uofg-menu {
     height: 100%;
   }
 
-  @media screen and (max-width: $max-content-width) {
+  @media screen and (max-width: theme.$max-content-width) {
     position: static;
   }
 }
 
 #uofg-header-logo {
-  $decorative-img-width: math.div($main-content-height-full * 3, 4) + 1;
+  $decorative-img-width: math.div(map.get(theme.$header-content-heights, 'main-full') * 3, 4) + 1;
   height: 100%;
   position: relative;
   margin-left: 1rem;
@@ -279,7 +217,7 @@ uofg-menu {
     opacity: 0.8;
   }
 
-  @media screen and (min-width: $max-content-width) and (max-width: calc($max-content-width + $decorative-img-width)) {
+  @media screen and (min-width: theme.$max-content-width) and (max-width: calc(theme.$max-content-width + $decorative-img-width)) {
     position: absolute;
     left: 0;
     margin-left: $decorative-img-width;
@@ -313,7 +251,7 @@ uofg-menu {
     height: 100%;
     padding: 0 1.5rem;
     font-size: 1.8rem;
-    @include transition('color, background-color');
+    @include theme.transition('color, background-color');
 
     &:hover,
     &:focus-visible {
@@ -387,7 +325,7 @@ uofg-menu {
 #uofg-header-main-menu {
   > [slot='content'] {
     overflow-y: auto;
-    max-height: calc(100vh - $main-content-height);
+    max-height: calc(100vh - map.get(theme.$header-content-heights, 'main'));
   }
 
   uofg-menu {
@@ -426,7 +364,7 @@ uofg-menu {
       > li > a {
         padding: 0.75rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        @include transition('color, background-color');
+        @include theme.transition('color, background-color');
 
         &:hover,
         &:focus-visible {
@@ -454,7 +392,7 @@ uofg-menu {
     width: 100%;
     color: inherit;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    @include transition('color, background-color');
+    @include theme.transition('color, background-color');
 
     &:hover,
     &:focus-visible,
@@ -466,7 +404,7 @@ uofg-menu {
 
 // Sub page specific bar
 #uofg-header-sub-content-container {
-  height: $sub-content-height;
+  height: map.get(theme.$header-content-heights, 'sub');
   background-color: #ddd;
   color: #000;
   z-index: 1;
@@ -520,7 +458,7 @@ uofg-menu {
     align-items: center;
     justify-content: center;
     height: 100%;
-    @include transition('color, background-color');
+    @include theme.transition('color, background-color');
 
     &:hover,
     &:focus-visible {
@@ -578,7 +516,9 @@ uofg-menu {
       color: #000;
       padding: 2rem;
       overflow-y: auto;
-      max-height: calc(100vh - $main-content-height - $sub-content-height);
+      max-height: calc(
+        100vh - map.get(theme.$header-content-heights, 'main') - map.get(theme.$header-content-heights, 'sub')
+      );
       width: 100%;
 
       > span {

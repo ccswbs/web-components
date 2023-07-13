@@ -1,3 +1,14 @@
+@use '../../styles/theme.scss' as theme;
+
+$socials: (
+  'Twitter': #1da1f2,
+  'Facebook': #4267b2,
+  'Instagram': #e1306c,
+  'Youtube': #f00,
+  'LinkedIn': #0077b5,
+  'TikTok': #f00,
+);
+
 :host {
   display: block;
   width: 100%;
@@ -5,28 +16,19 @@
   font-family: sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-:focus-visible {
-  outline: 2px solid #ffc72a;
-  outline-offset: 0.5rem;
-}
+@include theme.focus-visible;
+@include theme.reset;
 
 a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   border-bottom: 2px dotted transparent;
-  transition-property: border-color;
   width: fit-content;
   color: inherit;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
-  text-decoration: none;
   white-space: nowrap;
   padding-bottom: 0.2rem;
+  @include theme.transition('border-color');
 
   &:hover,
   &:focus {
@@ -39,14 +41,8 @@ svg {
   height: 1.6rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: unset;
-
-  li {
-    display: contents;
-  }
+li {
+  display: contents;
 }
 
 #uofg-footer {
@@ -63,7 +59,7 @@ ul {
   grid-template-columns: 1fr;
   gap: 2rem;
   width: 100%;
-  max-width: 1370px;
+  max-width: theme.$max-content-width;
 
   @media (min-width: 570px) {
     grid-template-columns: 1fr 1fr;
@@ -84,7 +80,7 @@ ul {
 }
 
 #uofg-footer-improve-life {
-  transition-property: opacity;
+  @include theme.transition('opacity');
   border: 0;
 
   > svg {
@@ -106,33 +102,15 @@ ul {
   gap: 0.75rem;
 
   a {
-    transition-property: color;
+    @include theme.transition('color');
     border: 0;
 
     &:hover,
     &:focus {
-      &[aria-label='Twitter'] {
-        color: #1da1f2;
-      }
-
-      &[aria-label='Facebook'] {
-        color: #4267b2;
-      }
-
-      &[aria-label='Instagram'] {
-        color: #e1306c;
-      }
-
-      &[aria-label='Youtube'] {
-        color: #f00;
-      }
-
-      &[aria-label='LinkedIn'] {
-        color: #0077b5;
-      }
-
-      &[aria-label='TikTok'] {
-        color: #f00;
+      @each $social, $color in $socials {
+        &[aria-label='#{$social}'] {
+          color: $color;
+        }
       }
 
       color: #ffc72a;

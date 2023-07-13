@@ -6,7 +6,7 @@ import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'uofg-web-components',
-  globalStyle: 'src/global.scss',
+  globalStyle: 'src/styles/global.scss',
   sourceMap: process.env.NODE_ENV !== 'production',
   taskQueue: 'congestionAsync',
   outputTargets: [

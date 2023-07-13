@@ -11,43 +11,43 @@
   display: flex;
   flex-direction: column;
   font-size: 2rem;
+}
 
-  #uofg-alert-title {
-    display: flex;
-    align-items: center;
-    font-size: 2.25rem;
-    padding: 2rem;
-    color: white;
-    background-color: #c10631;
+#uofg-alert-title {
+  display: flex;
+  align-items: center;
+  font-size: 2.25rem;
+  padding: 2rem;
+  color: white;
+  background-color: #c10631;
 
-    > svg {
-      margin-right: 1rem;
-      fill: currentColor;
-      height: 1.5em;
-    }
+  > svg {
+    margin-right: 1rem;
+    fill: currentColor;
+    height: 1.5em;
+  }
+}
+
+#uofg-alert-body {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  background-color: white;
+
+  slot[name='subtitle']::slotted(*) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
   }
 
-  #uofg-alert-body {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 2rem;
-    background-color: white;
-
-    slot[name='subtitle']::slotted(*) {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-
-    slot[name='message']::slotted(*) {
-      font-size: 1.6rem;
-    }
+  slot[name='message']::slotted(*) {
+    font-size: 1.6rem;
   }
+}
 
-  #uofg-alert-footer {
-    display: flex;
-    padding: 1rem 2rem;
-    background-color: #dddddd;
-    font-size: 1.4rem;
-  }
+#uofg-alert-footer {
+  display: flex;
+  padding: 1rem 2rem;
+  background-color: #dddddd;
+  font-size: 1.4rem;
 }
