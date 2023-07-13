@@ -109,6 +109,10 @@ export interface UofgMenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUofgMenuElement;
 }
+export interface UofgModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUofgModalElement;
+}
 declare global {
     interface HTMLUofgAlertElement extends Components.UofgAlert, HTMLStencilElement {
     }
@@ -215,6 +219,14 @@ declare namespace LocalJSX {
           * The label for the modal. It is recommended that you set this to describe the modal's content. This is required for accessibility.
          */
         "label"?: string;
+        /**
+          * Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()).
+         */
+        "onClosed"?: (event: UofgModalCustomEvent<void>) => void;
+        /**
+          * Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()).
+         */
+        "onOpened"?: (event: UofgModalCustomEvent<void>) => void;
         /**
           * Used to determine whether clicking on the backdrop of the modal will close the modal. If this is set to true, clicking on the backdrop will NOT close the modal.
          */

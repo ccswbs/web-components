@@ -1,7 +1,7 @@
-import { Component, Watch, Element, State, Prop, Method, h } from '@stencil/core';
+import { Component, Watch, Element, Event, EventEmitter, State, Prop, Method, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { getAllFocusableElements, IS_INERT_SUPPORTED } from 'utils/utils';
+import { getAllFocusableElements } from 'utils/utils';
 
 @Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.scss', shadow: true })
 export class UofgModal {
@@ -35,6 +35,16 @@ export class UofgModal {
    */
   @Prop() autoOpen: boolean = false;
 
+  /**
+   * Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()).
+   */
+  @Event({ bubbles: false, cancelable: false }) opened: EventEmitter<void>;
+
+  /**
+   * Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()).
+   */
+  @Event({ bubbles: false, cancelable: false }) closed: EventEmitter<void>;
+
   @State() isOpen: boolean = false;
   @Element() el: HTMLUofgModalElement;
   private container: HTMLDivElement;
@@ -45,7 +55,7 @@ export class UofgModal {
     // Bind event handlers so that 'this' is always the component instance.
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleFocusOut = this.handleFocusOut.bind(this);
 
     if (this.autoOpen) {
       this.isOpen = true;
@@ -71,26 +81,22 @@ export class UofgModal {
     }
   }
 
-  handleKeyDown(e: KeyboardEvent) {
-    // If the modal is open and the user presses the tab key, we need to ensure that focus is trapped within the modal.
-    if (e.key === 'Tab' && this.isOpen) {
-      const focusableElements = getAllFocusableElements(this.el);
+  handleFocusOut(e: FocusEvent) {
+    if (!this.isOpen) return; // Don't do anything if the modal is closed.
 
-      // If there are no focusable elements in the modal, focus the dismiss button.
-      if (focusableElements.length === 0) {
-        e.preventDefault();
+    const relatedTarget = e.relatedTarget as HTMLElement;
+
+    // If the focus is moving outside of the modal
+    if (!this.container.contains(relatedTarget) && !this.el.contains(relatedTarget)) {
+      e.preventDefault();
+
+      // If the focus is moving away from the dismiss button, focus the last focusable element in the modal.
+      if (e.target === this.dismissButton) {
+        const focusableElements = getAllFocusableElements(this.el);
+        (focusableElements[focusableElements.length - 1] as HTMLElement)?.focus();
+      } else {
+        // Otherwise, focus the dismiss button.
         this.dismissButton.focus();
-      }
-
-      const firstFocusable = this.dismissButton; // The dismiss button is always the first focusable element in the modal.
-      const lastFocusable = focusableElements[focusableElements.length - 1] as HTMLElement;
-
-      if (e.target === firstFocusable && e.shiftKey) {
-        e.preventDefault();
-        lastFocusable?.focus();
-      } else if (e.target === lastFocusable && !e.shiftKey) {
-        e.preventDefault();
-        firstFocusable?.focus();
       }
     }
   }
@@ -136,6 +142,8 @@ export class UofgModal {
         }
 
         current = parent;
+
+        this.opened.emit();
       }
     } else {
       // Remove the inert attribute from all elements that we marked as inert when the modal was opened.
@@ -145,6 +153,8 @@ export class UofgModal {
 
       // Clear the array of inert elements. This is important because we don't want to keep a reference to elements as they may be removed from the DOM and we could cause a memory leak.
       this.inertElements = [];
+
+      this.closed.emit();
     }
 
     // Prevent scrolling of the body when the modal is open.
@@ -162,7 +172,7 @@ export class UofgModal {
         tabIndex={-1}
         onClick={this.handleClick}
         onKeyUp={this.handleKeyUp}
-        onKeyDown={IS_INERT_SUPPORTED() ? undefined : this.handleKeyDown}
+        onFocusout={this.handleFocusOut}
         ref={(el: HTMLDivElement) => (this.container = el)}
       >
         <div id="uofg-modal-content" part="content" class={{ centered: this.centered }}>

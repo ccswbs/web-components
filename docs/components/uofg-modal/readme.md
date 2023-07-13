@@ -70,6 +70,14 @@ This component uses [CSS Custom Properties](https://developer.mozilla.org/en-US/
 | `staticBackdrop` | `static-backdrop` | Used to determine whether clicking on the backdrop of the modal will close the modal. If this is set to true, clicking on the backdrop will NOT close the modal.                                                                                                                                                  | `boolean` | `false`     |
 
 
+## Events
+
+| Event    | Description                                                                                               | Type                |
+| -------- | --------------------------------------------------------------------------------------------------------- | ------------------- |
+| `closed` | Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()).   | `CustomEvent<void>` |
+| `opened` | Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()). | `CustomEvent<void>` |
+
+
 ## Methods
 
 ### `close() => Promise<void>`
