@@ -1,7 +1,7 @@
 import { Component, Watch, Element, State, Prop, Method, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { getAllFocusableElements } from 'utils/utils';
+import { getAllFocusableElements, IS_INERT_SUPPORTED } from 'utils/utils';
 
 @Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.scss', shadow: true })
 export class UofgModal {
@@ -39,6 +39,7 @@ export class UofgModal {
   @Element() el: HTMLUofgModalElement;
   private container: HTMLDivElement;
   private dismissButton: HTMLButtonElement;
+  private inertElements: HTMLElement[] = [];
 
   connectedCallback() {
     // Bind event handlers so that 'this' is always the component instance.
@@ -48,6 +49,13 @@ export class UofgModal {
 
     if (this.autoOpen) {
       this.isOpen = true;
+    }
+  }
+
+  disconnectedCallback() {
+    // Just in case the modal is removed from the DOM before it is closed, make sure to remove the inert attribute from all elements that we marked as inert when the modal was opened.
+    for (const element of this.inertElements) {
+      element.removeAttribute('inert');
     }
   }
 
@@ -98,6 +106,45 @@ export class UofgModal {
           });
         });
       });
+
+      // Mark outer elements as inert when the modal is open.
+      let current: HTMLElement | null = this.el;
+
+      // We want to mark all elements outside of the modal as inert, so we need to traverse up the DOM tree until we reach the body element.
+
+      while (current !== null && current !== document.body) {
+        const parent = current.parentElement;
+
+        // If parent is null, then we may be inside a shadow root. If so, we get the host element and continue traversing up the DOM tree.
+        if (parent === null) {
+          const root = current.getRootNode();
+
+          if (root instanceof ShadowRoot) {
+            current = root.host as HTMLElement;
+            continue;
+          }
+        }
+
+        if (parent !== null) {
+          for (const child of parent.children) {
+            if (child !== current && !child.inert) {
+              // Mark the element as inert and store it in an array so that we can remove the inert attribute when the modal closes.
+              child.inert = true;
+              this.inertElements.push(child as HTMLElement);
+            }
+          }
+        }
+
+        current = parent;
+      }
+    } else {
+      // Remove the inert attribute from all elements that we marked as inert when the modal was opened.
+      for (const element of this.inertElements) {
+        element.removeAttribute('inert');
+      }
+
+      // Clear the array of inert elements. This is important because we don't want to keep a reference to elements as they may be removed from the DOM and we could cause a memory leak.
+      this.inertElements = [];
     }
 
     // Prevent scrolling of the body when the modal is open.
@@ -109,14 +156,13 @@ export class UofgModal {
       <div
         id="uofg-modal"
         class={{ open: this.isOpen }}
-        role={this.isOpen ? (this.alertDialog ? 'alertdialog' : 'dialog') : ''}
-        aria-modal={this.isOpen}
+        role={this.alertDialog ? 'alertdialog' : 'dialog'}
+        aria-modal={this.isOpen ? 'true' : ''}
         aria-label={this.label}
-        aria-hidden={!this.isOpen}
         tabIndex={-1}
         onClick={this.handleClick}
         onKeyUp={this.handleKeyUp}
-        onKeyDown={this.handleKeyDown}
+        onKeyDown={IS_INERT_SUPPORTED() ? undefined : this.handleKeyDown}
         ref={(el: HTMLDivElement) => (this.container = el)}
       >
         <div id="uofg-modal-content" part="content" class={{ centered: this.centered }}>
