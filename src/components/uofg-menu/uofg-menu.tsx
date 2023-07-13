@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { PREFERS_REDUCED_MOTION, WEB_ANIMATIONS_SUPPORTED } from '../../utils/utils';
+import { PREFERS_REDUCED_MOTION, WEB_ANIMATIONS_SUPPORTED } from 'utils/utils';
 
 const DURATION_REGEX = /^(\d*\.?\d+)(s|ms)$/;
 const EASING_FUNCTION_REGEX =
@@ -126,7 +126,7 @@ export class UofgMenu {
     const type: string = this.getAnimationType();
 
     // If Web Animations API isn't supported, or the user requested no animation, we can simply set display style
-    if (!WEB_ANIMATIONS_SUPPORTED || PREFERS_REDUCED_MOTION || type === 'none') {
+    if (!WEB_ANIMATIONS_SUPPORTED() || PREFERS_REDUCED_MOTION() || type === 'none') {
       this.content.style.display = newValue ? '' : 'none';
       return;
     }
