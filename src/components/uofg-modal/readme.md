@@ -31,7 +31,7 @@ uofg-modal::part(dismiss-button) {
 
 This works for any CSS property, but make note that changing the style too much may cause issues with the default styles.
 
-Also, make sure the dismiss button is always visible, this is not only important for accessibility but internally, the component relies on the button being focusable to trap the focus inside the modal when it is open.
+Also, make sure the dismiss button is always visible, this is not only important for accessibility but internally, the component relies on the button being focusable to trap the focus inside the modal when it is open (ONLY ON BROWSERS WITHOUT INERT SUPPORT).
 
 For example, this is bad and under no circumstances should be done:
 
@@ -50,5 +50,10 @@ This component uses [CSS Custom Properties](https://developer.mozilla.org/en-US/
 | Property                   | Description                                     | Type                                                                      | Default |
 | -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------- | ------- |
 | --uofg-modal-dismiss-color | Determines the color of the dismiss button icon | [CSS Color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | `#fff`  |
+
+
+# Known Issues
+
+- On older browsers (particularly ones who do not support the [inert attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert)), VoiceOver on macOS/IPadOS/IOS can focus outside the modal when it is open and the user uses reading mode rather than tabbing. 
 
 <!-- Auto Generated Below -->
