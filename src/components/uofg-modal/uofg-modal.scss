@@ -40,6 +40,9 @@
   width: 3.5rem;
   font-size: 2rem;
   line-height: 1;
+  /**
+  * @prop --uofg-modal-dismiss-color: The color of the dismiss button's icon (Default is #fff)
+  */
   color: var(--uofg-modal-dismiss-color, #fff);
   z-index: 2;
 

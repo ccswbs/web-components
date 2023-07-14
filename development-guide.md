@@ -1,7 +1,6 @@
 # University of Guelph Web Components Library
 
-It is recommended that you read the [Stencil docs](https://stenciljs.com/docs/overview) before continuing. This will
-give you a good understanding of how the components are built and how to develop them.
+It is recommended that you read the [Stencil docs](https://stenciljs.com/docs/overview) and read about the various technologies under [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) before continuing. This will give you a good understanding of how the components are built and how to develop them.
 
 ## Getting Started
 
@@ -44,6 +43,7 @@ There are a few important folders in this repo:
 - `www`: This is where the demo page is built to. This directory is automatically generated and should not be modified.
 - `dist`: This is where the components are built to. This directory is automatically generated and should not be
   modified.
+- `docs`: This is where documentation of each individual component lives, this should not be modified directly, instead follow the guide [here](#documenting-a-component).
 
 ## Building the components
 
@@ -87,3 +87,39 @@ component's main file.
 And that's it! You can now start developing your new component. For more information on actual development, see
 the [Stencil docs](https://stenciljs.com/docs/overview) or take a look at some of the existing component's source code
 for examples.
+
+## Documenting a component
+
+Its important the whenever a new component is added, or an older one has new features, that there is good documentation explaining the additions/changes.
+
+To document a component, create a readme.md file in the component's src folder (ex. `src/components/YOURCOMPONENT`) following this template.
+
+```markdown
+# COMPONENT NAME
+
+GIVE A GOOD DESCRIPTION OF THE COMPONENT
+
+## Usage
+
+GIVE AN EXAMPLE OF HOW TO USE THE COMPONENT
+
+<!-- Auto Generated Below -->
+
+```
+
+Ensure the last line ```markdown <!-- Auto Generated Below --> ``` is included, as Stencil uses it for the documentation it automatically generates itself.
+
+Some documentation will live inside the .tsx or .css/.scss file of a component, for example properties, methods, and events, are all done inside the .tsx, and for css variables inside the .css/.scss. See existing components for examples, or [read the Stencil documentation](https://stenciljs.com/docs/doc-generation).
+
+Once, the documentation is made/updated, run ```bash npm run build```, and the documentation will be generated in the `docs` folder.
+
+## Publishing to npm
+
+The University of Guelph Web Components Library is hosted as a npm package, to making it simpler for development teams to use it. As a result when changes are made, the package must be republished to npm, here's how to do that: 
+
+1. You must have a npm account with organization access to [https://www.npmjs.com/package/@uoguelph/web-components](https://www.npmjs.com/package/@uoguelph/web-components).
+2. You must update the package version using the command ```bash npm version NEW_VERSION_NUMBER_HERE```. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning)
+3. Do a final check, make sure the changes made have not broken anything, ensure all the components have documentation, etc.
+4. Finally, publish the package using the command ```bash npm publish ```. 
+
+

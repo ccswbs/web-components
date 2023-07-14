@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { getAllFocusableElements } from 'utils/utils';
 
+/**
+* @part content - The modal content container.
+* @part dismiss-button - The button that closes the modal.
+*/
 @Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.scss', shadow: true })
 export class UofgModal {
   /**
