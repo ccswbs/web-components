@@ -52,7 +52,7 @@ This component uses [CSS Custom Properties](https://developer.mozilla.org/en-US/
 | --uofg-modal-dismiss-color | Determines the color of the dismiss button icon | [CSS Color](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) | `#fff`  |
 
 
-# Known Issues
+## Known Issues
 
 - On older browsers (particularly ones who do not support the [inert attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert)), VoiceOver on macOS/IPadOS/IOS can focus outside the modal when it is open and the user uses reading mode rather than tabbing. 
 
