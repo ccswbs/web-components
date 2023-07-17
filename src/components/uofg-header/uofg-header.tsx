@@ -36,7 +36,7 @@ const HelloYouMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
         <a href="https://uoguelph.ca/current-students">Current Students</a>
       </li>
       <li>
-        <a href="https://uoguelph.ca/alumni-and-donors">Alumni & Donors</a>
+        <a href="https://alumni.uoguelph.ca/">Alumni & Donors</a>
       </li>
       <li>
         <a href="https://uoguelph.ca/staff-and-faculty">Staff & Faculty</a>
@@ -72,7 +72,7 @@ const MainLinks: FunctionalComponent = () => (
 );
 
 const AccountLink: FunctionalComponent = () => (
-  <a href="https://uoguelph.ca/intranet" aria-label="University of Guelph Intranet">
+  <a href="https://intranet.uoguelph.ca" aria-label="University of Guelph Intranet">
     <FontAwesomeIcon icon={faRightToBracket} />
   </a>
 );
