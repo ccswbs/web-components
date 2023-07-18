@@ -29,8 +29,9 @@ There are a few important folders in this repo:
 
 - `src/components`: This is where all the components are stored. Each component has its own directory with the
   component's files inside.
-- `src/global.scss`: This is where global styles are stored. This acts as a place to define css variables as well as any
+- `src/styles/global.scss`: This is where global styles are stored. This acts as a place to define css variables as well as any
   other styles that are needed outside the shadow dom of any specific component.
+- `src/styles`: This is where any scss files that are meant to be imported into a component's stylesheet, for example `src/styles/theme.scss` contains variables, mixins, etc that make it easier for a consistent style between components.
 - `src/index.html`: This is the html file for the demo page. This is where you can add new components and other markup
   to the demo page.
 - `src/index.ts`: This is the entry point for the demo page. This file should not be modified.
@@ -115,11 +116,9 @@ Once, the documentation is made/updated, run ```bash npm run build```, and the d
 
 ## Publishing to npm
 
-The University of Guelph Web Components Library is hosted as a npm package, to making it simpler for development teams to use it. As a result when changes are made, the package must be republished to npm, here's how to do that: 
+The University of Guelph Web Components Library is hosted as a npm package, making it simpler for development teams to use it. As a result when changes are made, the package must be republished to npm, here's how to do that: 
 
 1. You must have a npm account with organization access to [https://www.npmjs.com/package/@uoguelph/web-components](https://www.npmjs.com/package/@uoguelph/web-components).
 2. You must update the package version using the command ```bash npm version NEW_VERSION_NUMBER_HERE```. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning)
-3. Do a final check, make sure the changes made have not broken anything, ensure all the components have documentation, etc.
+3. Do a final check, make sure the changes made haven't broken anything, ensure all the components have documentation, etc.
 4. Finally, publish the package using the command ```bash npm publish ```. 
-
-
