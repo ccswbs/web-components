@@ -256,7 +256,7 @@ uofg-menu {
 
     &:hover,
     &:focus-visible {
-      background-color: #333;
+      background-color: theme.palette('charcoal');
       color: theme.palette('yellow');
     }
   }

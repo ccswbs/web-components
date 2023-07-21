@@ -17,6 +17,7 @@ $header-content-heights: (
   'sub': 4rem,
 );
 
+// Colors with various shades, generated from https://uicolors.app/create with the 'default' shade being the main color that the rest of the shades are based on
 $palette-values: (
   'red': (
     '50': #fff0f1,
@@ -60,6 +61,20 @@ $palette-values: (
     '950': #192833,
     'default': #69a3b9,
   ),
+  'green': (
+    '50': #f1fbea,
+    '100': #def5d2,
+    '200': #c1ebab,
+    '300': #99dd79,
+    '400': #77cb50,
+    '500': #57b131,
+    '600': #3c8221,
+    '700': #336c1f,
+    '800': #2c561e,
+    '900': #28491e,
+    '950': #11280b,
+    'default': #3c8221,
+  ),
   'grey': (
     '50': #f8f8f8,
     '100': #f0f0f0,
@@ -73,6 +88,20 @@ $palette-values: (
     '900': #4e4e4e,
     '950': #282828,
     'default': #dddddd,
+  ),
+  'charcoal': (
+    '50': #f7f7f7,
+    '100': #e3e3e3,
+    '200': #c8c8c8,
+    '300': #a4a4a4,
+    '400': #818181,
+    '500': #666666,
+    '600': #515151,
+    '700': #434343,
+    '800': #383838,
+    '900': #333333,
+    '950': #1a1a1a,
+    'default': #333333,
   ),
 );
 
