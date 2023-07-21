@@ -36,38 +36,16 @@
     </uofg-header>
 
     <main>
-      <button id="modal-btn">Open Modal</button>
-      <uofg-modal label="Example Alert Modal" alert-dialog static-backdrop auto-open>
-        <uofg-alert>
-          <span slot="title">University of Guelph Alert</span>
-          <span slot="subtitle">
-            ATTENTION: Evacuate Rozanski Hall, Bullring, Landscape Architecture IMMEDIATELY due to Security Risk
-          </span>
-          <span slot="message">
-            Repudiandae repudiandae fuga animi nostrum cumque quia repellendus. Nesciunt rem molestias. Dolores nostrum
-            omnis fuga debitis eius quaerat culpa et. Saepe placeat laudantium corrupti. Placeat laboriosam doloribus
-            voluptatum officia quisquam eaque adipisci molestiae. Quas quisquam excepturi modi nihil vero. Aut soluta
-            eius fugiat adipisci ipsa. Eligendi quidem perferendis excepturi ipsa possimus omnis in accusantium eum. Ex
-            vel nam. Reiciendis necessitatibus similique a in. Vel nesciunt amet impedit amet accusantium commodi
-            quisquam. Ut dolor eius facere porro mollitia adipisci cumque deserunt. Ratione quaerat neque doloremque
-            officiis sint magni aut labore. Quibusdam accusamus praesentium quaerat nesciunt voluptatem. For more
-            information, please visit the <a href="#">University of Guelph Emergency Website</a>.
-          </span>
-          <span slot="footer">Last updated 07/07/2023 9:34 AM</span>
-        </uofg-alert>
-      </uofg-modal>
+      <uofg-card>
+        <img slot="img" width="300" height="200" src="https://placehold.co/300x200"/>
+        <h2 slot="title">Example Card</h2>
+        <h3 slot="subtitle">Example Subtitle</h3>
+        <p slot="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam nisl nunc eget nunc. Donec euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, eget aliquam nisl nunc eget nunc.</p>
+        <button slot="footer">Example CTA</button>
+      </uofg-card>
     </main>
 
     <uofg-footer></uofg-footer>
     <uofg-back-to-top></uofg-back-to-top>
   </body>
-
-  <script>
-    const modalBtn = document.getElementById('modal-btn');
-    const modal = document.querySelector('uofg-modal');
-
-    modalBtn.addEventListener('click', () => {
-      modal.open();
-    });
-  </script>
 </html>

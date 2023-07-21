@@ -1,4 +1,5 @@
 @use 'sass:string';
+@use 'sass:map';
 
 // Variables
 $breakpoints: (
@@ -16,17 +17,73 @@ $header-content-heights: (
   'sub': 4rem,
 );
 
-$palette: (
-  'red': #c10631,
-  'yellow': #ffc72a,
-  'blue': #69a3b9,
-  'grey': #dddddd,
+$palette-values: (
+  'red': (
+    '50': #fff0f1,
+    '100': #ffe2e4,
+    '200': #ffcacf,
+    '300': #ff9ea9,
+    '400': #ff687c,
+    '500': #ff3353,
+    '600': #ee103d,
+    '700': #c10631,
+    '800': #a90833,
+    '900': #900b32,
+    '950': #510016,
+    'default': #c10631,
+  ),
+  'yellow': (
+    '50': #fffbeb,
+    '100': #fff5c6,
+    '200': #ffe988,
+    '300': #ffd84a,
+    '400': #ffc72a,
+    '500': #f9a307,
+    '600': #dd7b02,
+    '700': #b75606,
+    '800': #94410c,
+    '900': #7a360d,
+    '950': #461b02,
+    'default': #ffc72a,
+  ),
+  'blue': (
+    '50': #f5f8fa,
+    '100': #eaf0f4,
+    '200': #d3e1e8,
+    '300': #a7c4d2,
+    '400': #78a5b8,
+    '500': #578aa0,
+    '600': #447085,
+    '700': #385b6c,
+    '800': #314c5b,
+    '900': #2d414d,
+    '950': #1e2b33,
+    'default': #d3e1e8,
+  ),
+  'grey': (
+    '50': #f8f8f8,
+    '100': #f0f0f0,
+    '200': #dddddd,
+    '300': #d1d1d1,
+    '400': #b4b4b4,
+    '500': #9a9a9a,
+    '600': #818181,
+    '700': #6a6a6a,
+    '800': #5a5a5a,
+    '900': #4e4e4e,
+    '950': #282828,
+    'default': #dddddd,
+  ),
 );
+
+@function palette($color, $shade: 'default', $opacity: 1) {
+  @return transparentize(map.get($palette-values, $color, $shade), 1 - $opacity);
+}
 
 // Mixins
 @mixin focus-visible {
   :focus-visible {
-    outline: 2px solid #ffc72a;
+    outline: 2px solid palette('yellow');
     outline-offset: 0.5rem;
   }
 }

@@ -14,6 +14,9 @@ export namespace Components {
          */
         "threshold": number;
     }
+    interface UofgCard {
+        "href": string;
+    }
     interface UofgFooter {
     }
     interface UofgHeader {
@@ -126,6 +129,12 @@ declare global {
         prototype: HTMLUofgBackToTopElement;
         new (): HTMLUofgBackToTopElement;
     };
+    interface HTMLUofgCardElement extends Components.UofgCard, HTMLStencilElement {
+    }
+    var HTMLUofgCardElement: {
+        prototype: HTMLUofgCardElement;
+        new (): HTMLUofgCardElement;
+    };
     interface HTMLUofgFooterElement extends Components.UofgFooter, HTMLStencilElement {
     }
     var HTMLUofgFooterElement: {
@@ -153,6 +162,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "uofg-alert": HTMLUofgAlertElement;
         "uofg-back-to-top": HTMLUofgBackToTopElement;
+        "uofg-card": HTMLUofgCardElement;
         "uofg-footer": HTMLUofgFooterElement;
         "uofg-header": HTMLUofgHeaderElement;
         "uofg-menu": HTMLUofgMenuElement;
@@ -167,6 +177,9 @@ declare namespace LocalJSX {
           * The number of pixels the user has to scroll down before the button appears.
          */
         "threshold"?: number;
+    }
+    interface UofgCard {
+        "href"?: string;
     }
     interface UofgFooter {
     }
@@ -235,6 +248,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "uofg-alert": UofgAlert;
         "uofg-back-to-top": UofgBackToTop;
+        "uofg-card": UofgCard;
         "uofg-footer": UofgFooter;
         "uofg-header": UofgHeader;
         "uofg-menu": UofgMenu;
@@ -247,6 +261,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "uofg-alert": LocalJSX.UofgAlert & JSXBase.HTMLAttributes<HTMLUofgAlertElement>;
             "uofg-back-to-top": LocalJSX.UofgBackToTop & JSXBase.HTMLAttributes<HTMLUofgBackToTopElement>;
+            "uofg-card": LocalJSX.UofgCard & JSXBase.HTMLAttributes<HTMLUofgCardElement>;
             "uofg-footer": LocalJSX.UofgFooter & JSXBase.HTMLAttributes<HTMLUofgFooterElement>;
             "uofg-header": LocalJSX.UofgHeader & JSXBase.HTMLAttributes<HTMLUofgHeaderElement>;
             "uofg-menu": LocalJSX.UofgMenu & JSXBase.HTMLAttributes<HTMLUofgMenuElement>;
