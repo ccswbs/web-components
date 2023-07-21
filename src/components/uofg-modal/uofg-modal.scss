@@ -41,9 +41,9 @@
   font-size: 2rem;
   line-height: 1;
   /**
-  * @prop --uofg-modal-dismiss-color: The color of the dismiss button's icon (Default is #fff)
+  * @prop --uofg-modal-dismiss-color: The color of the dismiss button's icon (Default is white)
   */
-  color: var(--uofg-modal-dismiss-color, #fff);
+  color: var(--uofg-modal-dismiss-color, white);
   z-index: 2;
 
   > svg {

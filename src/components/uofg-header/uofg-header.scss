@@ -3,11 +3,12 @@
 @use 'sass:string';
 @use '../../styles/theme.scss' as theme;
 
+@include theme.focus-visible;
+@include theme.reset;
+
 :host {
   height: auto !important;
 }
-
-@include theme.reset;
 
 a {
   display: flex;
@@ -60,8 +61,8 @@ uofg-menu {
     z-index: 1;
     min-width: 20rem;
     right: 0;
-    background-color: #fff;
-    color: #000;
+    background-color: white;
+    color: black;
     box-shadow:
       0 2px 2px 0 rgba(0, 0, 0, 0.14),
       0 3px 1px -2px rgba(0, 0, 0, 0.12),
@@ -92,8 +93,8 @@ uofg-menu {
 // Top bar on desktop
 #uofg-header-top-content-container {
   height: map.get(theme.$header-content-heights, 'top');
-  background-color: #fff;
-  color: #000;
+  background-color: white;
+  color: black;
   z-index: 3;
 
   // Links
@@ -109,7 +110,7 @@ uofg-menu {
       &:hover,
       &:focus-visible,
       &[aria-expanded='true'] {
-        background-color: #ddd;
+        background-color: theme.palette('grey');
       }
     }
   }
@@ -120,15 +121,15 @@ uofg-menu {
 
     > [slot='button'] {
       padding: 0 1rem;
-      background-color: #ffc72a;
-      color: #000;
+      background-color: theme.palette('yellow');
+      color: black;
       font-weight: bold;
 
       &:hover,
       &:focus-visible,
       &[aria-expanded='true'] {
         background-color: #ccc;
-        color: #000;
+        color: black;
       }
 
       &[aria-expanded='true'] {
@@ -139,8 +140,8 @@ uofg-menu {
     }
 
     > [slot='content'] {
-      background-color: #ddd;
-      color: #000;
+      background-color: theme.palette('grey');
+      color: black;
 
       a {
         height: 100%;
@@ -149,7 +150,7 @@ uofg-menu {
 
         &:hover,
         &:focus-visible {
-          background-color: #ffc72a;
+          background-color: theme.palette('yellow');
         }
       }
     }
@@ -159,8 +160,8 @@ uofg-menu {
 // Main content container (middle bar on desktop)
 #uofg-header-main-content-container {
   height: map.get(theme.$header-content-heights, 'main');
-  background-color: #000;
-  color: #fff;
+  background-color: black;
+  color: white;
   z-index: 2;
 
   > * {
@@ -256,18 +257,18 @@ uofg-menu {
     &:hover,
     &:focus-visible {
       background-color: #333;
-      color: #ffc72a;
+      color: theme.palette('yellow');
     }
   }
 
   > uofg-menu {
     > [slot='button'] {
-      color: #ffc72a;
+      color: theme.palette('yellow');
     }
 
     > [slot='content'] {
-      color: #000;
-      background-color: #fff;
+      color: black;
+      background-color: white;
       padding: 2rem;
       width: 35rem;
 
@@ -281,7 +282,7 @@ uofg-menu {
   }
 
   > a {
-    color: #ffc72a;
+    color: theme.palette('yellow');
   }
 }
 
@@ -297,8 +298,8 @@ uofg-menu {
     &:hover,
     &:focus-visible,
     &[aria-expanded='true'] {
-      background-color: #fff;
-      color: #000;
+      background-color: white;
+      color: black;
     }
   }
 
@@ -307,8 +308,8 @@ uofg-menu {
     height: 100%;
 
     > [slot='content'] {
-      background-color: #fff;
-      color: #000;
+      background-color: white;
+      color: black;
       width: 100%;
       padding: 1rem 2rem 2rem;
 
@@ -375,14 +376,14 @@ uofg-menu {
 
     &.uofg-header-hello-you-menu {
       > [slot='button'] {
-        background-color: #ffc72a;
-        color: #000;
+        background-color: theme.palette('yellow');
+        color: black;
         font-weight: bold;
       }
 
       > [slot='content'] {
         background-color: rgba(0, 0, 0, 0.1);
-        color: #000;
+        color: black;
       }
     }
   }
@@ -405,8 +406,8 @@ uofg-menu {
 // Sub page specific bar
 #uofg-header-sub-content-container {
   height: map.get(theme.$header-content-heights, 'sub');
-  background-color: #ddd;
-  color: #000;
+  background-color: theme.palette('grey');
+  color: black;
   z-index: 1;
 
   #uofg-header-page-title {
@@ -428,15 +429,15 @@ uofg-menu {
       &:hover,
       &:focus-visible,
       &[aria-expanded='true'] {
-        background-color: #ffc72a;
-        color: #000;
+        background-color: theme.palette('yellow');
+        color: black;
       }
     }
 
     > [slot='content'] {
       position: absolute;
-      background-color: #ddd;
-      color: #000;
+      background-color: theme.palette('grey');
+      color: black;
 
       > li {
         &:not(:last-child) {
@@ -462,8 +463,8 @@ uofg-menu {
 
     &:hover,
     &:focus-visible {
-      background-color: #ffc72a;
-      color: #000;
+      background-color: theme.palette('yellow');
+      color: black;
     }
   }
 }
@@ -512,8 +513,8 @@ uofg-menu {
     }
 
     > [slot='content'] {
-      background-color: #fff;
-      color: #000;
+      background-color: white;
+      color: black;
       padding: 2rem;
       overflow-y: auto;
       max-height: calc(
@@ -539,7 +540,7 @@ uofg-menu {
         &:hover,
         &:focus-visible {
           background-color: rgba(0, 0, 0, 0.1);
-          color: #000;
+          color: black;
         }
       }
 
@@ -559,7 +560,7 @@ uofg-menu {
           &:focus-visible,
           &[aria-expanded='true'] {
             background-color: rgba(0, 0, 0, 0.2);
-            color: #000;
+            color: black;
           }
 
           &[aria-expanded='true'] {

@@ -1,10 +1,11 @@
+@use '../../styles/theme.scss' as theme;
+
+@include theme.reset;
+@include theme.focus-visible;
+
 :host {
   display: block;
   max-width: 100rem;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 #uofg-alert {
@@ -19,7 +20,7 @@
   font-size: 2.25rem;
   padding: 2rem;
   color: white;
-  background-color: #c10631;
+  background-color: theme.palette('red');
 
   > svg {
     margin-right: 1rem;
@@ -48,6 +49,6 @@
 #uofg-alert-footer {
   display: flex;
   padding: 1rem 2rem;
-  background-color: #dddddd;
+  background-color: theme.palette('grey');
   font-size: 1.4rem;
 }

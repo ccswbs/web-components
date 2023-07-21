@@ -1,5 +1,8 @@
 @use '../../styles/theme.scss' as theme;
 
+@include theme.focus-visible;
+@include theme.reset;
+
 $socials: (
   'Twitter': #1da1f2,
   'Facebook': #4267b2,
@@ -15,9 +18,6 @@ $socials: (
   font-size: 1.6rem;
   font-family: sans-serif;
 }
-
-@include theme.focus-visible;
-@include theme.reset;
 
 a {
   display: flex;
@@ -113,7 +113,7 @@ li {
         }
       }
 
-      color: #ffc72a;
+      color: theme.palette('yellow');
     }
   }
 
@@ -127,7 +127,7 @@ li {
   grid-template-columns: 1fr;
 
   svg {
-    color: #ffc72a;
+    color: theme.palette('yellow');
   }
 
   @media (min-width: 570px) {
@@ -148,7 +148,7 @@ li {
   white-space: nowrap;
 
   a {
-    color: #69a3b9;
+    color: theme.palette('blue', '400');
   }
 
   @media (min-width: 570px) {
