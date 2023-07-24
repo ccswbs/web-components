@@ -15,6 +15,9 @@ export namespace Components {
         "threshold": number;
     }
     interface UofgCard {
+        /**
+          * The URL the card should link to. If this property is set, the card will be rendered as an anchor ("a" tag).
+         */
         "href": string;
     }
     interface UofgFooter {
@@ -179,6 +182,9 @@ declare namespace LocalJSX {
         "threshold"?: number;
     }
     interface UofgCard {
+        /**
+          * The URL the card should link to. If this property is set, the card will be rendered as an anchor ("a" tag).
+         */
         "href"?: string;
     }
     interface UofgFooter {

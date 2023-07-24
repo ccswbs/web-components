@@ -100,9 +100,9 @@ A promise which will resolve to true (if the modal opened) or false (if the moda
 
 ## CSS Custom Properties
 
-| Name                         | Description                                              |
-| ---------------------------- | -------------------------------------------------------- |
-| `--uofg-modal-dismiss-color` | The color of the dismiss button's icon (Default is #fff) |
+| Name                         | Description                                               |
+| ---------------------------- | --------------------------------------------------------- |
+| `--uofg-modal-dismiss-color` | The color of the dismiss button's icon (Default is white) |
 
 
 ----------------------------------------------
