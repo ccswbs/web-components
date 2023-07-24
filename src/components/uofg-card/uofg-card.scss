@@ -11,18 +11,41 @@
 }
 
 #uofg-card {
+  display: flex;
+  flex-direction: column;
   background-color: theme.palette('blue', '50');
   font-size: theme.font-size('body');
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+a#uofg-card {
+  border: 1px solid transparent;
+  @include theme.transition('border-color');
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    border-color: theme.palette('blue', '400');
+  }
 }
 
 #uofg-card-img {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   > slot::slotted(img) {
     width: 100%;
     object-fit: cover;
+    @include theme.transition('transform');
+
+    a#uofg-card:hover &,
+    a#uofg-card:focus &,
+    a#uofg-card:focus-within & {
+      transform: scale(1.1);
+    }
   }
 }
 
@@ -33,7 +56,7 @@
     font-size: theme.font-size('h5');
     font-weight: normal;
     margin: 0;
-    padding-top: 1rem;
+    padding: 1rem 0;
   }
 
   & > slot[name='subtitle']::slotted(*) {
