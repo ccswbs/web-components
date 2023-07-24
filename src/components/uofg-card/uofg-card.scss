@@ -12,6 +12,7 @@
 
 #uofg-card {
   background-color: theme.palette('blue', '50');
+  font-size: theme.font-size('body');
 }
 
 #uofg-card-img {
@@ -19,7 +20,7 @@
   justify-content: center;
   align-items: center;
 
-  & ::slotted(img) {
+  > slot::slotted(img) {
     width: 100%;
     object-fit: cover;
   }
@@ -27,6 +28,26 @@
 
 #uofg-card-content {
   padding: 1rem;
+
+  & > slot[name='title']::slotted(*) {
+    font-size: theme.font-size('h5');
+    font-weight: normal;
+    margin: 0;
+    padding-top: 1rem;
+  }
+
+  & > slot[name='subtitle']::slotted(*) {
+    font-size: theme.font-size('subtitle');
+    font-weight: normal;
+    margin: 0;
+    padding: 1rem 0;
+  }
+
+  & > slot[name='body']::slotted(*) {
+    font-size: theme.font-size('body');
+    font-weight: normal;
+    margin: 0;
+  }
 }
 
 #uofg-card-footer {
