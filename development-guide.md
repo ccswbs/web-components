@@ -105,20 +105,19 @@ GIVE A GOOD DESCRIPTION OF THE COMPONENT
 GIVE AN EXAMPLE OF HOW TO USE THE COMPONENT
 
 <!-- Auto Generated Below -->
-
 ```
 
-Ensure the last line ```<!-- Auto Generated Below --> ``` is included, as Stencil uses it for the documentation it automatically generates itself.
+Ensure the last line `<!-- Auto Generated Below --> ` is included, as Stencil uses it for the documentation it automatically generates itself.
 
 Some documentation will live inside the .tsx or .css/.scss file of a component, for example properties, methods, and events, are all done inside the .tsx, and for css variables inside the .css/.scss. See existing components for examples, or [read the Stencil documentation](https://stenciljs.com/docs/doc-generation).
 
-Once, the documentation is made/updated, run ```npm run build```, and the documentation will be generated in the `docs` folder.
+Once, the documentation is made/updated, run `npm run build`, and the documentation will be generated in the `docs` folder.
 
 ## Publishing to npm
 
-The University of Guelph Web Components Library is hosted as a npm package, making it simpler for development teams to use it. As a result when changes are made, the package must be republished to npm, here's how to do that: 
+The University of Guelph Web Components Library is hosted as a npm package, making it simpler for development teams to use it. As a result when changes are made, the package must be republished to npm, here's how to do that:
 
 1. You must have a npm account with organization access to [https://www.npmjs.com/package/@uoguelph/web-components](https://www.npmjs.com/package/@uoguelph/web-components).
-2. You must update the package version using the command ```npm version NEW_VERSION_NUMBER_HERE```. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning)
+2. You must update the package version using the command `npm version NEW_VERSION_NUMBER_HERE`. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning)
 3. Do a final check, make sure the changes made haven't broken anything, ensure all the components have documentation, etc.
-4. Finally, publish the package using the command ```npm publish ```. 
+4. Finally, publish the package using the command `npm publish `.
