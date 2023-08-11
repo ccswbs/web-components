@@ -22,10 +22,10 @@ const TopLinks: FunctionalComponent = () => (
   </ul>
 );
 
-const HelloYouMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
+const HelloMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
   <uofg-menu class="uofg-header-hello-you-menu" auto-collapse={props.autoCollapse}>
-    <button slot="button" aria-label="Hello, YOU! menu">
-      <span>Hello, YOU!</span>
+    <button slot="button">
+      <span>HELLO!</span>
       <FontAwesomeIcon icon={faCaretDown} />
     </button>
     <ul slot="content">
@@ -205,7 +205,7 @@ export class UofgHeader {
         {this.isFullSize && (
           <div id="uofg-header-top-content-container">
             <TopLinks />
-            <HelloYouMenu autoCollapse={true} />
+            <HelloMenu autoCollapse={true} />
           </div>
         )}
 
@@ -238,7 +238,7 @@ export class UofgHeader {
                 <div slot="content">
                   <span>University of Guelph</span>
                   <MainLinks />
-                  <HelloYouMenu autoCollapse={false} />
+                  <HelloMenu autoCollapse={false} />
                 </div>
               </uofg-menu>
             </div>
