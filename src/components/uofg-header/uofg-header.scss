@@ -96,7 +96,7 @@ uofg-menu {
   background-color: white;
   color: black;
   z-index: 3;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 
   // Links
   > ul {
@@ -252,7 +252,7 @@ uofg-menu {
     justify-content: center;
     height: 100%;
     padding: 0 1.5rem;
-    font-size: 2rem;
+    font-size: 2.2rem;
     @include theme.transition('color, background-color');
 
     &:hover,
