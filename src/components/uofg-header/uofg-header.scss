@@ -253,12 +253,21 @@ uofg-menu {
     height: 100%;
     padding: 0 1.5rem;
     font-size: 2.2rem;
-    @include theme.transition('color, background-color');
+    border-bottom: 7px solid transparent;
+    @include theme.transition('color, border-color');
+
+    > svg {
+      @include theme.transition('color');
+    }
 
     &:hover,
     &:focus-visible {
-      background-color: theme.palette('charcoal');
       color: theme.palette('yellow');
+      border-color: theme.palette('yellow');
+
+      > svg {
+        color: white;
+      }
     }
   }
 
