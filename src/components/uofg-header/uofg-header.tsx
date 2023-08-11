@@ -14,7 +14,7 @@ const TopLinks: FunctionalComponent = () => (
       <a href="https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg">GIVE</a>
     </li>
     <li>
-      <a href="https://uoguelph.ca/apply">APPLY</a>
+      <a href="https://admission.uoguelph.ca/applynow">APPLY</a>
     </li>
     <li>
       <a href="https://news.uoguelph.ca/">NEWS</a>
@@ -33,19 +33,19 @@ const HelloMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
         <a href="https://uoguelph.ca/future-students">Future Students</a>
       </li>
       <li>
-        <a href="https://uoguelph.ca/current-students">Current Students</a>
+        <a href="https://www.uoguelph.ca/students">Current Students</a>
       </li>
       <li>
         <a href="https://alumni.uoguelph.ca/">Alumni & Donors</a>
       </li>
       <li>
-        <a href="https://uoguelph.ca/staff-and-faculty">Staff & Faculty</a>
+        <a href="https://www.uoguelph.ca/faculty">Faculty & Staff</a>
       </li>
       <li>
         <a href="https://uoguelph.ca/parents-and-visitors">Parents & Visitors</a>
       </li>
       <li>
-        <a href="https://uoguelph.ca/employers-and-partners">Employers & Partners</a>
+        <a href="https://cecs.uoguelph.ca/employers-institutions">Employers & Partners</a>
       </li>
     </ul>
   </uofg-menu>
@@ -57,7 +57,7 @@ const MainLinks: FunctionalComponent = () => (
       <a href="https://uoguelph.ca/about">About</a>
     </li>
     <li>
-      <a href="https://uoguelph.ca/academics">Academics</a>
+      <a href="https://www.uoguelph.ca/explore-all-programs/">Academics</a>
     </li>
     <li>
       <a href="https://uoguelph.ca/admissions">Admissions</a>
@@ -121,7 +121,7 @@ const PageSpecific: FunctionalComponent<{ content: PageSpecificContent; autoColl
                 <span>{item.title}</span>
                 <FontAwesomeIcon icon={faCaretDown} />
               </button>
-              <ul slot="content" role="menu">
+              <ul slot="content">
                 {item.links.map(link => (
                   <li>
                     <a href={link.href} {...link.attributes}>
