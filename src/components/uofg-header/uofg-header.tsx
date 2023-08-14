@@ -42,9 +42,6 @@ const HelloMenu: FunctionalComponent<{ autoCollapse: boolean }> = props => (
         <a href="https://www.uoguelph.ca/faculty">Faculty & Staff</a>
       </li>
       <li>
-        <a href="https://uoguelph.ca/parents-and-visitors">Parents & Visitors</a>
-      </li>
-      <li>
         <a href="https://cecs.uoguelph.ca/employers-institutions">Employers & Partners</a>
       </li>
     </ul>
@@ -66,7 +63,7 @@ const MainLinks: FunctionalComponent = () => (
       <a href="https://uoguelph.ca/research">Research</a>
     </li>
     <li>
-      <a href="https://uoguelph.ca/student-life">Student Life</a>
+      <a href="https://www.uoguelph.ca/studentexperience/">Student Life</a>
     </li>
   </ul>
 );
