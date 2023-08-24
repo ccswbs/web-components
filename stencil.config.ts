@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
 import { postcss } from '@stencil-community/postcss';
 import autoprefixer from 'autoprefixer';
+import mqpacker from '@hail2u/css-mqpacker';
 
 export const config: Config = {
   namespace: 'uofg-web-components',
@@ -46,7 +47,7 @@ export const config: Config = {
     inlineSvg(),
     sass(),
     postcss({
-      plugins: [autoprefixer(['> 2%'])],
+      plugins: [autoprefixer(['> 2%']), mqpacker()],
     }),
   ],
 };

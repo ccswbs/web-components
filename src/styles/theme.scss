@@ -3,6 +3,7 @@
 
 // Variables
 $max-content-width: 1320px;
+$root-font-size: 16px;
 
 $header-content-heights: (
   'top': 4rem,
@@ -35,6 +36,14 @@ $header-content-heights: (
   );
 
   @return map.get($font-sizes, $size);
+}
+
+@function px-to-rem($px, $root: 16px) {
+  @return $px / $root + rem;
+}
+
+@function spacing($level) {
+
 }
 
 // Colors with various shades, generated from https://uicolors.app/create with the 'default' shade being the main color that the rest of the shades are based on
