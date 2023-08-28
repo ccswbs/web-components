@@ -42,6 +42,18 @@ Including the components this way, ensures that your page will run as expected, 
 
 For more information, check out the guide on [the unpkg website](https://www.unpkg.com).
 
+### Fonts
+
+Some of the components were designed with specific fonts in mind, for example the uofg-header uses Roboto Condensed, a web font that is not included in most browsers/systems. As a result, it is recommended you include these fonts using the Google Fonts API:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+```
+
+Note the components will still function exactly as expected if these fonts are not included, but may differ slightly in looks.
+
 ## Using the components
 
 [See the documentation for each component](/docs/components)
