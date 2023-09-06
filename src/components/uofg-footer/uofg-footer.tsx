@@ -74,7 +74,7 @@ export class UofgFooter {
               icon={faUniversalAccess}
             />
             <FooterLink text="Privacy" url="https://www.uoguelph.ca/web/privacy/" icon={faKey} />
-            <FooterLink text="Site Map" url="https://www.uoguelph.ca/site-map/" icon={faSitemap} />
+            <FooterLink text="Site Map" url="https://www.uoguelph.ca/sitemap" icon={faSitemap} />
             <FooterLink text="Status Page" url="https://uoguelph.statuspage.io/" icon={faCircleCheck} />
             <FooterLink
               text="Land Acknowledgement"
