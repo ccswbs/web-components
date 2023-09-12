@@ -485,8 +485,9 @@ uofg-menu {
 #uofg-header-reduced-sub-content {
   height: 100%;
 
-  a {
-    padding: 0 0.5rem;
+  a,
+  uofg-menu > [slot='button'] {
+    padding: 0 1.25rem;
   }
 }
 
