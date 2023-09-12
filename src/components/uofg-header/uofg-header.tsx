@@ -151,6 +151,9 @@ export class UofgHeader {
   @State() isFullSize: boolean = false;
   @State() pageSpecificContent: PageSpecificContent;
   private observer: MutationObserver;
+  private subContainer?: HTMLDivElement;
+  private subContainerOverflowWidth: number = NaN;
+  @State() isSubContainerOverflowing: boolean = false;
 
   connectedCallback() {
     this.updateFullSize();
@@ -162,9 +165,26 @@ export class UofgHeader {
     this.observer.observe(this.el, { childList: true, subtree: true });
   }
 
+  componentDidLoad() {
+    this.updateSubContainerOverflow();
+  }
+
   @Listen('resize', { target: 'window' })
   updateFullSize() {
     this.isFullSize = window.innerWidth >= 1024;
+    this.updateSubContainerOverflow();
+  }
+
+  private updateSubContainerOverflow() {
+    if (this.isFullSize && this.subContainer) {
+      const { clientWidth, scrollWidth } = this.subContainer;
+
+      if (scrollWidth > clientWidth) {
+        this.subContainerOverflowWidth = scrollWidth;
+      }
+
+      this.isSubContainerOverflowing = this.subContainerOverflowWidth > clientWidth;
+    }
   }
 
   private updatePageSpecificContent() {
@@ -243,7 +263,7 @@ export class UofgHeader {
         </div>
 
         {this.pageSpecificContent.length > 0 && (
-          <div id="uofg-header-sub-content-container">
+          <div id="uofg-header-sub-content-container" ref={node => (this.subContainer = node)}>
             {this.pageTitle &&
               (this.pageUrl ? (
                 <a id="uofg-header-page-title" href={this.pageUrl}>
@@ -253,7 +273,7 @@ export class UofgHeader {
                 <span id="uofg-header-page-title">{this.pageTitle}</span>
               ))}
 
-            {this.isFullSize ? (
+            {this.isFullSize && !this.isSubContainerOverflowing ? (
               <div id="uofg-header-full-sub-content" class="uofg-header-sub-content">
                 <PageSpecific content={this.pageSpecificContent} autoCollapse={true} />
               </div>

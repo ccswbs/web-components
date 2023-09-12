@@ -421,6 +421,9 @@ uofg-menu {
   color: black;
   z-index: 1;
   font-size: 2rem;
+  white-space: nowrap;
+  justify-content: flex-start;
+  //overflow: auto;
 
   #uofg-header-page-title {
     display: flex;
@@ -481,6 +484,10 @@ uofg-menu {
   }
 }
 
+.uofg-header-sub-content {
+  display: flex;
+}
+
 #uofg-header-full-sub-content,
 #uofg-header-reduced-sub-content {
   height: 100%;
@@ -513,12 +520,14 @@ uofg-menu {
     display: flex;
     height: 100%;
     align-items: center;
+    margin-left: auto;
   }
 }
 
 #uofg-header-reduced-sub-content {
   > uofg-menu {
     position: static;
+    margin-left: auto;
 
     > [slot='button'] {
       font-size: 2rem;
