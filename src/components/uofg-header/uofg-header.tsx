@@ -193,7 +193,7 @@ export class UofgHeader {
     }
   }
 
-  private componentDidRender() {
+  componentDidRender() {
     if (this.needsOverflowWidthUpdate) {
       window.requestAnimationFrame(() => this.updateSubContainerOverflow());
       this.needsOverflowWidthUpdate = false;
