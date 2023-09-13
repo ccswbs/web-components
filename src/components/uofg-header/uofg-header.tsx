@@ -11,10 +11,10 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 const TopLinks: FunctionalComponent = () => (
   <ul>
     <li>
-      <a href="https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg">GIVE</a>
+      <a href="https://admission.uoguelph.ca/applynow">APPLY</a>
     </li>
     <li>
-      <a href="https://admission.uoguelph.ca/applynow">APPLY</a>
+      <a href="https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg">GIVE</a>
     </li>
     <li>
       <a href="https://news.uoguelph.ca/">NEWS</a>
