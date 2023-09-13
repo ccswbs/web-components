@@ -135,6 +135,9 @@ const PageSpecific: FunctionalComponent<{ content: PageSpecificContent; autoColl
   </ul>
 );
 
+const TRANSITION_BREAKPOINT = 1024;
+const MAX_CONTENT_WIDTH = 1320;
+
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.scss', shadow: true })
 export class UofgHeader {
   /**
@@ -154,6 +157,7 @@ export class UofgHeader {
   private subContainer?: HTMLDivElement;
   private subContainerOverflowWidth: number = NaN;
   @State() isSubContainerOverflowing: boolean = false;
+  private needsOverflowWidthUpdate: boolean = false;
 
   connectedCallback() {
     this.updateFullSize();
@@ -161,6 +165,8 @@ export class UofgHeader {
 
     this.observer ??= new MutationObserver(() => {
       this.updatePageSpecificContent();
+      this.subContainerOverflowWidth = NaN; // Reset overflow width as it will have changed and needs to be recalculated
+      this.needsOverflowWidthUpdate = true;
     });
     this.observer.observe(this.el, { childList: true, subtree: true });
   }
@@ -171,7 +177,7 @@ export class UofgHeader {
 
   @Listen('resize', { target: 'window' })
   updateFullSize() {
-    this.isFullSize = window.innerWidth >= 1024;
+    this.isFullSize = window.innerWidth >= TRANSITION_BREAKPOINT;
     this.updateSubContainerOverflow();
   }
 
@@ -183,7 +189,14 @@ export class UofgHeader {
         this.subContainerOverflowWidth = scrollWidth;
       }
 
-      this.isSubContainerOverflowing = this.subContainerOverflowWidth > clientWidth;
+      this.isSubContainerOverflowing = this.subContainerOverflowWidth > Math.min(clientWidth, MAX_CONTENT_WIDTH);
+    }
+  }
+
+  private componentDidRender() {
+    if (this.needsOverflowWidthUpdate) {
+      window.requestAnimationFrame(() => this.updateSubContainerOverflow());
+      this.needsOverflowWidthUpdate = false;
     }
   }
 
