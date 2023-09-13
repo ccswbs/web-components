@@ -279,7 +279,11 @@ export class UofgHeader {
               </div>
             ) : (
               <div id="uofg-header-reduced-sub-content" class="uofg-header-sub-content">
-                <uofg-menu id="uofg-header-sub-menu" auto-collapse={true}>
+                <uofg-menu
+                  id="uofg-header-sub-menu"
+                  auto-collapse={true}
+                  class={{ overflowed: this.isSubContainerOverflowing && this.isFullSize }}
+                >
                   <button slot="button" aria-label={this.pageTitle + ' Menu'}>
                     <FontAwesomeIcon icon={faBars} />
                   </button>

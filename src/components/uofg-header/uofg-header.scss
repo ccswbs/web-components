@@ -529,6 +529,12 @@ uofg-menu {
     position: static;
     margin-left: auto;
 
+    &.overflowed {
+      > [slot='content'] {
+        max-width: 400px;
+      }
+    }
+
     > [slot='button'] {
       font-size: 2rem;
       padding: 0 1.5rem;
