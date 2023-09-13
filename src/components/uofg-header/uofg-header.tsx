@@ -154,7 +154,7 @@ export class UofgHeader {
   @State() isFullSize: boolean = false;
   @State() pageSpecificContent: PageSpecificContent;
   private observer: MutationObserver;
-  private subContainer?: HTMLDivElement;
+  private subContainer?: HTMLElement;
   private subContainerOverflowWidth: number = NaN;
   @State() isSubContainerOverflowing: boolean = false;
   private needsOverflowWidthUpdate: boolean = false;
@@ -239,7 +239,7 @@ export class UofgHeader {
           </div>
         )}
 
-        <div id="uofg-header-main-content-container" class={{ 'full-height': this.isFullSize }}>
+        <nav id="uofg-header-main-content-container" class={{ 'full-height': this.isFullSize }} aria-label="Main">
           <div id="uofg-header-logo-container">
             {this.isFullSize && <div id="uofg-header-decorative-img" innerHTML={Decoration}></div>}
 
@@ -273,10 +273,10 @@ export class UofgHeader {
               </uofg-menu>
             </div>
           )}
-        </div>
+        </nav>
 
         {this.pageSpecificContent.length > 0 && (
-          <div id="uofg-header-sub-content-container" ref={node => (this.subContainer = node)}>
+          <nav id="uofg-header-sub-content-container" ref={node => (this.subContainer = node)} aria-label="Department/Topic">
             {this.pageTitle &&
               (this.pageUrl ? (
                 <a id="uofg-header-page-title" href={this.pageUrl}>
@@ -306,7 +306,7 @@ export class UofgHeader {
                 </uofg-menu>
               </div>
             )}
-          </div>
+          </nav>
         )}
       </header>
     );
