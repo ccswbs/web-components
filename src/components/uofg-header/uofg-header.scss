@@ -423,7 +423,6 @@ uofg-menu {
   font-size: 2rem;
   white-space: nowrap;
   justify-content: flex-start;
-  overflow: hidden;
 
   #uofg-header-page-title {
     display: flex;
@@ -453,6 +452,7 @@ uofg-menu {
       position: absolute;
       background-color: theme.palette('grey');
       color: black;
+      white-space: normal;
 
       > li {
         &:not(:last-child) {
@@ -530,14 +530,17 @@ uofg-menu {
     margin-left: auto;
 
     &.overflowed {
+      position: relative;
+
       > [slot='content'] {
-        max-width: 400px;
+        width: 40rem;
       }
     }
 
     > [slot='button'] {
       font-size: 2rem;
       padding: 0 1.5rem;
+      text-align: left;
     }
 
     > [slot='content'] {
@@ -549,6 +552,7 @@ uofg-menu {
         100vh - map.get(theme.$header-content-heights, 'main') - map.get(theme.$header-content-heights, 'sub')
       );
       width: 100%;
+      white-space: normal;
 
       > span {
         display: block;
@@ -579,6 +583,7 @@ uofg-menu {
           width: 100%;
           padding: 1rem;
           border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          text-align: left;
 
           > svg {
             margin-left: auto;
