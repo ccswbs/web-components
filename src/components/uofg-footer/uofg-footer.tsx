@@ -67,43 +67,45 @@ export class UofgFooter {
             <a href="//www.uoguelph.ca/web/">© {new Date().getFullYear()} University of Guelph</a>
           </div>
 
-          <ul id="uofg-footer-links" class="uofg-footer-content-separator">
-            <FooterLink
-              text="Accessibility"
-              url="https://www.uoguelph.ca/diversity-human-rights/accessibility-u-g"
-              icon={faUniversalAccess}
-            />
-            <FooterLink text="Privacy" url="https://www.uoguelph.ca/web/privacy/" icon={faKey} />
-            <FooterLink text="Site Map" url="https://www.uoguelph.ca/sitemap" icon={faSitemap} />
-            <FooterLink text="Status Page" url="https://uoguelph.statuspage.io/" icon={faCircleCheck} />
-            <FooterLink
-              text="Land Acknowledgement"
-              url="https://www.uoguelph.ca/land-acknowledgement/"
-              icon={faTree}
-              title="The University of Guelph resides on the treaty lands and territory of the Mississaugas of the Credit. We recognize that today this gathering place is home to many First Nations, Inuit and Métis peoples and acknowledging them reminds us of our collective responsibility to the land where we learn and work."
-            />
-            <FooterLink
-              text="Careers"
-              url="https://www.uoguelph.ca/hr/careers-guelph/current-opportunities"
-              icon={faBriefcase}
-            />
-            <FooterLink
-              text="Undergraduate Calendar"
-              url="https://www.uoguelph.ca/registrar/calendars/undergraduate/current/"
-              icon={faCalendar}
-            />
-            <FooterLink
-              text="Graduate Calendar"
-              url="https://www.uoguelph.ca/registrar/calendars/graduate/current/"
-              icon={faCalendar}
-            />
-            <FooterLink text="Program Plans" url="https://admission.uoguelph.ca/programs" icon={faList} />
-            <FooterLink
-              text="Give to U of G"
-              url="https://www.alumni.uoguelph.ca/give-to-guelph/how-to-give"
-              icon={faHandHoldingHeart}
-            />
-          </ul>
+          <div id="uofg-footer-links-container">
+            <ul id="uofg-footer-links" class="uofg-footer-content-separator">
+              <FooterLink
+                text="Accessibility"
+                url="https://www.uoguelph.ca/diversity-human-rights/accessibility-u-g"
+                icon={faUniversalAccess}
+              />
+              <FooterLink text="Privacy" url="https://www.uoguelph.ca/web/privacy/" icon={faKey} />
+              <FooterLink text="Site Map" url="https://www.uoguelph.ca/sitemap" icon={faSitemap} />
+              <FooterLink text="Status Page" url="https://uoguelph.statuspage.io/" icon={faCircleCheck} />
+              <FooterLink
+                text="Land Acknowledgement"
+                url="https://www.uoguelph.ca/land-acknowledgement/"
+                icon={faTree}
+                title="The University of Guelph resides on the treaty lands and territory of the Mississaugas of the Credit. We recognize that today this gathering place is home to many First Nations, Inuit and Métis peoples and acknowledging them reminds us of our collective responsibility to the land where we learn and work."
+              />
+              <FooterLink
+                text="Careers"
+                url="https://www.uoguelph.ca/hr/careers-guelph/current-opportunities"
+                icon={faBriefcase}
+              />
+              <FooterLink
+                text="Undergraduate Calendar"
+                url="https://www.uoguelph.ca/registrar/calendars/undergraduate/current/"
+                icon={faCalendar}
+              />
+              <FooterLink
+                text="Graduate Calendar"
+                url="https://www.uoguelph.ca/registrar/calendars/graduate/current/"
+                icon={faCalendar}
+              />
+              <FooterLink text="Program Plans" url="https://admission.uoguelph.ca/programs" icon={faList} />
+              <FooterLink
+                text="Give to U of G"
+                url="https://www.alumni.uoguelph.ca/give-to-guelph/how-to-give"
+                icon={faHandHoldingHeart}
+              />
+            </ul>
+          </div>
 
           <address id="uofg-footer-address" class="uofg-footer-content-separator">
             <strong>University of Guelph</strong>

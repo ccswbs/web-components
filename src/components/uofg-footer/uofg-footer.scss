@@ -68,9 +68,9 @@ li {
   }
 
   @media (min-width: 962px) {
-    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
     justify-items: center;
-    gap: 2rem 4.75vw;
+    gap: 2rem 2rem;
   }
 }
 
@@ -124,8 +124,24 @@ li {
   }
 }
 
+#uofg-footer-links-container {
+  display: flex;
+  @media (min-width: 570px) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  @media (min-width: 962px) {
+    grid-row: unset;
+    grid-column: unset;
+    justify-content: center;
+    gap: 0;
+  }
+}
+
 #uofg-footer-links {
   display: grid;
+  height: 100%;
   grid-template-columns: 1fr;
 
   svg {
@@ -134,14 +150,12 @@ li {
 
   @media (min-width: 570px) {
     grid-template-columns: 1fr 1fr;
-    grid-column-start: 1;
-    grid-column-end: 3;
+    width: 100%;
   }
 
   @media (min-width: 962px) {
-    grid-row: unset;
-    grid-column: unset;
-    gap: 0 9.5vw;
+    gap: 0 8rem;
+    width: auto;
   }
 }
 
