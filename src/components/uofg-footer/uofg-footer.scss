@@ -93,13 +93,13 @@ li {
     width: 100%;
     max-width: theme.$max-content-width;
     padding: 2rem 1rem;
-    gap: 1.5rem;
+    gap: 1rem;
 
     > li {
       > a {
         width: auto;
         padding: 0;
-        padding-right: 1.5rem;
+        padding-right: 1rem;
         border-bottom: none;
       }
 
