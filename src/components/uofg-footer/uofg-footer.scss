@@ -48,12 +48,63 @@ li {
 
 #uofg-footer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #000;
   color: #fff;
-  padding: 2rem;
   line-height: 1.2;
+}
+
+#uofg-footer-extra-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: theme.palette('blue', '100');
+}
+
+#uofg-footer-extra-links {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1rem;
+  color: theme.palette('blue', '500');
+
+  > li > a {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    @include theme.transition('color');
+
+    &:hover,
+    &:focus {
+      color: theme.palette('blue', '900');
+    }
+  }
+
+  @media (min-width: 570px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: theme.$max-content-width;
+
+    > li {
+      > a {
+        width: auto;
+        padding: 0.5rem 1.5rem;
+        border-bottom: none;
+      }
+
+      &:not(:last-child) > a {
+        border-right: 2px solid rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
 }
 
 #uofg-footer-content {
@@ -61,6 +112,7 @@ li {
   grid-template-columns: 1fr;
   gap: 2rem;
   width: 100%;
+  padding: 2rem;
   max-width: theme.$max-content-width;
 
   @media (min-width: 570px) {

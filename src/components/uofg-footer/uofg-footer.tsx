@@ -1,4 +1,4 @@
-import { Component, FunctionalComponent, h } from '@stencil/core';
+import { Component, Element, FunctionalComponent, State, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import improveLifeLogo from './improve-life.svg';
 import { type IconDefinition } from '@fortawesome/free-solid-svg-icons/';
@@ -36,11 +36,44 @@ const FooterLink: FunctionalComponent<{ text: string; url: string; icon: IconDef
   </li>
 );
 
+type ExtraLink = {
+  text: string;
+  href: string;
+};
+
 @Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.scss', shadow: true })
 export class UofgFooter {
+  @Element() el: HTMLUofgHeaderElement;
+  @State() private extraLinks: ExtraLink[] = [];
+  private observer: MutationObserver;
+
+  connectedCallback() {
+    this.updateExtraLinks();
+    this.observer ??= new MutationObserver(() => {
+      this.updateExtraLinks();
+    });
+
+    this.observer.observe(this.el, { childList: true, subtree: true });
+  }
+
+  private updateExtraLinks() {
+    this.extraLinks = Array.from(this.el?.children)
+      .filter(child => child.tagName === 'A')
+      .map(child => ({ text: child.textContent, href: child.getAttribute('href') }) as ExtraLink);
+  }
+
   render() {
     return (
       <footer id="uofg-footer">
+        <div id="uofg-footer-extra-links-container">
+          <ul id="uofg-footer-extra-links">
+            {this.extraLinks.map(link => (
+              <li>
+                <a href={link.href}>{link.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div id="uofg-footer-content">
           <div id="uofg-footer-social" class="uofg-footer-content-separator">
             <a
