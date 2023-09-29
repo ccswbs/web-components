@@ -74,6 +74,7 @@ export class UofgFooter {
             ))}
           </ul>
         </div>
+
         <div id="uofg-footer-content">
           <div id="uofg-footer-social" class="uofg-footer-content-separator">
             <a
