@@ -276,7 +276,11 @@ export class UofgHeader {
         </nav>
 
         {this.pageSpecificContent.length > 0 && (
-          <nav id="uofg-header-sub-content-container" ref={node => (this.subContainer = node)} aria-label="Department/Topic">
+          <nav
+            id="uofg-header-sub-content-container"
+            ref={node => (this.subContainer = node)}
+            aria-label="Department/Topic"
+          >
             {this.pageTitle &&
               (this.pageUrl ? (
                 <a id="uofg-header-page-title" href={this.pageUrl}>

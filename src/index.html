@@ -12,14 +12,18 @@
     <script type="module" src="/build/uofg-web-components.esm.js"></script>
 
     <style>
-      main {
-        min-height: calc(100vh - 5rem);
+      html {
+        height: 100%;
       }
 
-      @media screen and (min-width: 1024px) {
-        main {
-          min-height: calc(100vh - 13.7rem);
-        }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+      }
+
+      main {
+        flex: 1;
       }
     </style>
   </head>
@@ -38,19 +42,7 @@
       <a href="#">Example Link 6</a>
     </uofg-header>
 
-    <main>
-      <uofg-card href="#">
-        <img slot="img" width="300" height="200" src="https://placehold.co/300x200" alt="placeholder" />
-        <h2 slot="title">Example Card</h2>
-        <h3 slot="subtitle">Example Subtitle</h3>
-        <p slot="body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget aliquam ultricies, nunc nisl
-          aliquet nunc, eget aliquam nisl nunc eget nunc. Donec euismod, nisl eget aliquam ultricies, nunc nisl aliquet
-          nunc, eget aliquam nisl nunc eget nunc.
-        </p>
-        <button slot="footer">Example CTA</button>
-      </uofg-card>
-    </main>
+    <main></main>
 
     <uofg-footer>
       <a href="#">Example Link 1</a>
