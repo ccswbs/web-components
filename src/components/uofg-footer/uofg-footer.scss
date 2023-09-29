@@ -73,17 +73,23 @@ li {
   padding: 1.25rem 1rem;
   color: theme.palette('blue', '500');
 
-  > li > a {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
-    width: 100%;
-    @include theme.transition('color');
+  > li {
+    > a {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      width: 100%;
+      @include theme.transition('color');
+      border-bottom: 2px solid transparent;
 
-    &:hover,
-    &:focus {
-      color: theme.palette('blue', '900');
+      &:hover,
+      &:focus {
+        color: theme.palette('blue', '900');
+      }
+    }
+
+    &:not(:last-child) > a {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     }
   }
 
@@ -100,7 +106,7 @@ li {
         width: auto;
         padding: 0;
         padding-right: 1rem;
-        border-bottom: none;
+        border-bottom: none !important;
       }
 
       &:not(:last-child) > a {
