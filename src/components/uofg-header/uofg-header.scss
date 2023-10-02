@@ -87,7 +87,7 @@ uofg-menu {
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  padding: 0 calc((100vw - theme.$max-content-width) / 2);
+  padding: 0 calc((100vw - #{theme.$max-content-width}) / 2);
 }
 
 // Top bar on desktop
@@ -219,7 +219,7 @@ uofg-menu {
     opacity: 0.8;
   }
 
-  @media screen and (min-width: theme.$max-content-width) and (max-width: calc(theme.$max-content-width + $decorative-img-width)) {
+  @media screen and (min-width: theme.$max-content-width) and (max-width: calc(#{theme.$max-content-width} + $decorative-img-width)) {
     position: absolute;
     left: 0;
     margin-left: $decorative-img-width;
@@ -298,6 +298,8 @@ uofg-menu {
 
 // Mobile main content
 #uofg-header-reduced-main-content {
+  font-size: 2rem;
+
   > uofg-menu > [slot='button'],
   > a {
     justify-content: center;
@@ -323,6 +325,10 @@ uofg-menu {
       width: 100%;
       padding: 1rem 2rem 2rem;
 
+      a {
+        padding: 1rem;
+      }
+
       > span {
         display: block;
         font-size: 2.4rem;
@@ -336,7 +342,7 @@ uofg-menu {
 #uofg-header-main-menu {
   > [slot='content'] {
     overflow-y: auto;
-    max-height: calc(100vh - map.get(theme.$header-content-heights, 'main'));
+    max-height: calc(100vh - #{map.get(theme.$header-content-heights, 'main')});
   }
 
   uofg-menu {
@@ -344,7 +350,7 @@ uofg-menu {
 
     > [slot='button'] {
       display: flex;
-      padding: 0.75rem;
+      padding: 1rem;
       height: auto;
       width: 100%;
       color: inherit;
@@ -373,7 +379,7 @@ uofg-menu {
       padding: 0;
 
       > li > a {
-        padding: 0.75rem;
+        padding: 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         @include theme.transition('color, background-color');
 
@@ -399,7 +405,7 @@ uofg-menu {
   }
 
   ul > li > a {
-    padding: 0.75rem;
+    padding: 1rem;
     width: 100%;
     color: inherit;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -549,7 +555,7 @@ uofg-menu {
       padding: 2rem;
       overflow-y: auto;
       max-height: calc(
-        100vh - map.get(theme.$header-content-heights, 'main') - map.get(theme.$header-content-heights, 'sub')
+        100vh - #{map.get(theme.$header-content-heights, 'main') - map.get(theme.$header-content-heights, 'sub')}
       );
       width: 100%;
       white-space: normal;
