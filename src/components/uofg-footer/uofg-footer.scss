@@ -61,7 +61,7 @@ li {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: theme.palette('blue', '100');
+  background-color: #f5f7fa;
 }
 
 #uofg-footer-extra-links {
@@ -71,7 +71,7 @@ li {
   align-items: center;
   justify-content: center;
   padding: 1.25rem 1rem;
-  color: theme.palette('blue', '500');
+  color: #0074c1;
 
   > li {
     > a {
@@ -84,12 +84,12 @@ li {
 
       &:hover,
       &:focus {
-        color: theme.palette('blue', '900');
+        color: black;
       }
     }
 
     &:not(:last-child) > a {
-      border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 2px solid #bdc8ca;
     }
   }
 
