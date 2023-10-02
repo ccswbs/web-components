@@ -66,13 +66,15 @@ export class UofgFooter {
     return (
       <footer id="uofg-footer">
         <div id="uofg-footer-extra-links-container">
-          <ul id="uofg-footer-extra-links">
-            {this.extraLinks.map(link => (
-              <li>
-                <a href={link.href}>{link.text}</a>
-              </li>
-            ))}
-          </ul>
+          {this.extraLinks.length > 0 && (
+            <ul id="uofg-footer-extra-links">
+              {this.extraLinks.map(link => (
+                <li>
+                  <a href={link.href}>{link.text}</a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div id="uofg-footer-content">
