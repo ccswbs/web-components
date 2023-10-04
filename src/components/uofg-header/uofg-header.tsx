@@ -57,7 +57,7 @@ const MainLinks: FunctionalComponent = () => (
       <a href="https://www.uoguelph.ca/explore-all-programs/">Academics</a>
     </li>
     <li>
-      <a href="https://uoguelph.ca/admissions">Admissions</a>
+      <a href="https://uoguelph.ca/admissions">Admission</a>
     </li>
     <li>
       <a href="https://uoguelph.ca/research">Research</a>
