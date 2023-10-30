@@ -58,7 +58,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ccswbs/web-components"
+    "url": "git+https://github.com/ccswbs/web-components.git"
   },
   "bugs": {
     "url": "https://github.com/ccswbs/web-components/issues"
