@@ -21,7 +21,7 @@
     "test.watch": "stencil test --spec --e2e --passWithNoTests --watchAll",
     "generate": "stencil generate",
     "format": "npx prettier --write .",
-    "prepare": "npm run build && npmignore --auto"
+    "prepublish": "npm run build && npmignore --auto"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
