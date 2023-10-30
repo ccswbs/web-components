@@ -219,7 +219,9 @@ uofg-menu {
     opacity: 0.8;
   }
 
-  @media screen and (min-width: theme.$max-content-width) and (max-width: calc(#{theme.$max-content-width} + $decorative-img-width)) {
+  $max: theme.$max-content-width + math.div($decorative-img-width, 1rem) * 10px;
+
+  @media screen and (min-width: theme.$max-content-width) and (max-width: $max) {
     position: absolute;
     left: 0;
     margin-left: $decorative-img-width;
