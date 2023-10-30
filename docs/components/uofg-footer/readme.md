@@ -16,7 +16,6 @@ The footer also allows you to add your own custom links. These will appear in a 
   <a href="#">Example Link 2</a>
   <a href="#">Example Link 3</a>
 </uofg-footer>
-```
 
 <!-- Auto Generated Below -->
 
