@@ -150,39 +150,13 @@ declare global {
         prototype: HTMLUofgHeaderElement;
         new (): HTMLUofgHeaderElement;
     };
-    interface HTMLUofgMenuElementEventMap {
-        "expanded": void;
-        "collapsed": void;
-        "animationStarted": boolean;
-        "animationEnded": boolean;
-    }
     interface HTMLUofgMenuElement extends Components.UofgMenu, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLUofgMenuElementEventMap>(type: K, listener: (this: HTMLUofgMenuElement, ev: UofgMenuCustomEvent<HTMLUofgMenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLUofgMenuElementEventMap>(type: K, listener: (this: HTMLUofgMenuElement, ev: UofgMenuCustomEvent<HTMLUofgMenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLUofgMenuElement: {
         prototype: HTMLUofgMenuElement;
         new (): HTMLUofgMenuElement;
     };
-    interface HTMLUofgModalElementEventMap {
-        "opened": void;
-        "closed": void;
-    }
     interface HTMLUofgModalElement extends Components.UofgModal, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLUofgModalElementEventMap>(type: K, listener: (this: HTMLUofgModalElement, ev: UofgModalCustomEvent<HTMLUofgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLUofgModalElementEventMap>(type: K, listener: (this: HTMLUofgModalElement, ev: UofgModalCustomEvent<HTMLUofgModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLUofgModalElement: {
         prototype: HTMLUofgModalElement;
