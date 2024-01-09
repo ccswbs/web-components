@@ -27,7 +27,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@stencil/core": "^4.0.0"
+    "@stencil/core": "^4.9.0"
   },
   "devDependencies": {
     "@hail2u/css-mqpacker": "github:hail2u/node-css-mqpacker#v9.0.1",
