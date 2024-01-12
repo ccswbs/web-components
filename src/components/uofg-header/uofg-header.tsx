@@ -89,6 +89,7 @@ interface PageSpecificLink {
 interface PageSpecificSubMenu {
   title: string;
   links: PageSpecificLink[];
+  wrapContent?: boolean;
 }
 
 type PageSpecificContent = Array<PageSpecificLink | PageSpecificSubMenu | null | undefined>;
@@ -118,7 +119,7 @@ const PageSpecific: FunctionalComponent<{ content: PageSpecificContent; autoColl
                 <span>{item.title}</span>
                 <FontAwesomeIcon icon={faCaretDown} />
               </button>
-              <ul slot="content">
+              <ul slot="content" class={`${item.wrapContent ? 'wrap-content' : ''}`}>
                 {item.links.map(link => (
                   <li>
                     <a href={link.href} {...link.attributes}>
@@ -137,6 +138,7 @@ const PageSpecific: FunctionalComponent<{ content: PageSpecificContent; autoColl
 
 const TRANSITION_BREAKPOINT = 1024;
 const MAX_CONTENT_WIDTH = 1320;
+const MENU_CHAR_LIMIT = 35;
 
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.scss', shadow: true })
 export class UofgHeader {
@@ -151,9 +153,12 @@ export class UofgHeader {
   @Prop() pageUrl: string = '';
 
   @Element() el: HTMLUofgHeaderElement;
+
   @State() isFullSize: boolean = false;
+
   @State() pageSpecificContent: PageSpecificContent;
   private observer: MutationObserver;
+
   private subContainer?: HTMLElement;
   private subContainerOverflowWidth: number = NaN;
   @State() isSubContainerOverflowing: boolean = false;
@@ -221,10 +226,20 @@ export class UofgHeader {
           case 'A':
             return aToPageSpecificLink(child as HTMLAnchorElement);
           case 'UL':
-            return {
+            const value = {
               title: child.getAttribute('data-title'),
               links: Array.from(child.querySelectorAll('a')).map(aToPageSpecificLink),
             } as PageSpecificSubMenu;
+
+            value.wrapContent = value.links.reduce((shouldWrap, link) => {
+              if (link.text.length > MENU_CHAR_LIMIT) {
+                shouldWrap = true;
+              }
+
+              return shouldWrap;
+            }, false);
+
+            return value;
         }
       });
   }
@@ -282,7 +297,7 @@ export class UofgHeader {
             aria-label="Department/Topic"
           >
             {this.pageTitle &&
-              (this.pageUrl ? (
+              (this.pageUrl != '' ? (
                 <a id="uofg-header-page-title" href={this.pageUrl}>
                   {this.pageTitle}
                 </a>

@@ -146,7 +146,7 @@ uofg-menu {
 
       a {
         height: 100%;
-        padding: 0.75rem;
+        padding: 0.75rem 1.25rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 
         &:hover,
@@ -522,6 +522,15 @@ uofg-menu {
         }
       }
     }
+
+    > [slot='content'] {
+      width: fit-content;
+      white-space: nowrap;
+      &.wrap-content {
+        white-space: normal;
+        width: 30rem;
+      }
+    }
   }
 
   .uofg-header-page-specific {
@@ -560,6 +569,7 @@ uofg-menu {
         100vh - #{map.get(theme.$header-content-heights, 'main') - map.get(theme.$header-content-heights, 'sub')}
       );
       width: 100%;
+      min-width: unset;
       white-space: normal;
 
       > span {
@@ -615,6 +625,7 @@ uofg-menu {
           position: static;
           background-color: rgb(0, 0, 0, 0.1);
           box-shadow: none;
+          min-width: unset;
         }
       }
     }

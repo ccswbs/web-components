@@ -88,6 +88,12 @@ A promise which will resolve to the current expanded state.
 
 Set the expanded state of the menu.
 
+#### Parameters
+
+| Name    | Type      | Description             |
+| ------- | --------- | ----------------------- |
+| `value` | `boolean` | The new expanded state. |
+
 #### Returns
 
 Type: `Promise<void>`

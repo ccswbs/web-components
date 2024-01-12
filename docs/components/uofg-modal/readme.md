@@ -73,6 +73,12 @@ empty Promise.
 
 Set the state of the modal.
 
+#### Parameters
+
+| Name    | Type      | Description                                                                   |
+| ------- | --------- | ----------------------------------------------------------------------------- |
+| `value` | `boolean` | The new state, set it to true to open the modal, or false to close the modal. |
+
 #### Returns
 
 Type: `Promise<void>`
