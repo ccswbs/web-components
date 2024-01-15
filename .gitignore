@@ -27,9 +27,5 @@ UserInterfaceState.xcuserstate
 .vscode
 .npmignore
 
-
-# Fleet config files
-*.fleet
-
 # Fleet config directories
-.fleet/
+.fleet
