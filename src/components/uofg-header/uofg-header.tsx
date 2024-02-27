@@ -1,4 +1,4 @@
-import { Component, FunctionalComponent, Element, h, Listen, Prop, State } from '@stencil/core';
+import { Component, Element, h, Listen, Prop, State } from '@stencil/core';
 import Decoration from './decoration.svg';
 import FullSizeLogo from './logo-full.svg';
 import ReducedSizeLogo from './logo-reduced.svg';
