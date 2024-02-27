@@ -1,9 +1,15 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
-import { postcss } from '@stencil-community/postcss';
-import autoprefixer from 'autoprefixer';
-import mqpacker from '@hail2u/css-mqpacker';
+import tailwind, { tailwindHMR, tailwindGlobal, PluginOpts } from 'stencil-tailwind-plugin';
+import tailwindConfig from './tailwind.config.js';
+
+const twOpts = {
+  ...PluginOpts.DEFAULT,
+  debug: false,
+  stripComments: true,
+  tailwindConf: tailwindConfig
+};
 
 export const config: Config = {
   namespace: 'uofg-web-components',
@@ -46,8 +52,13 @@ export const config: Config = {
   plugins: [
     inlineSvg(),
     sass(),
-    postcss({
-      plugins: [autoprefixer(['> 2%']), mqpacker()],
-    }),
+    tailwindGlobal(twOpts),
+    tailwind(twOpts),
+    tailwindHMR(
+      {
+        ...twOpts,
+        minify: false,
+      },
+    ),
   ],
 };

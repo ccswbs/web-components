@@ -1,0 +1,34 @@
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    line-height: inherit;
+    word-spacing: inherit;
+    letter-spacing: inherit;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  uofg-menu {
+    --uofg-menu-animation-type: slide;
+    --uofg-menu-animation-duration: 0.2s;
+    --uofg-menu-animation-easing: ease-in-out;
+  }
+}
