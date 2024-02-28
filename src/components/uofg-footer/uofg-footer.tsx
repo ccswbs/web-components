@@ -151,7 +151,7 @@ export class UofgFooter {
           </ul>
         )}
 
-        <div class="tw-flex tw-flex-col tw-gap-8 tw-bg-black tw-px-[max(calc((100%-1320px)/2),2rem)] tw-py-8 tw-text-white">
+        <div class="tw-flex tw-flex-col tw-content-center tw-gap-8 tw-bg-black tw-px-[max(calc((100%-1320px)/2),2rem)] tw-py-8 tw-text-white md:tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4">
           <div class="tw-flex tw-flex-col tw-justify-between tw-gap-4">
             <a
               href="//www.uoguelph.ca/improve-life"
@@ -160,7 +160,7 @@ export class UofgFooter {
               innerHTML={improveLifeLogo}
             ></a>
 
-            <ul class="tw-flex tw-gap-3 tw-text-3xl [&>li]:tw-contents">
+            <ul class="tw-flex tw-gap-3 tw-text-4xl [&>li]:tw-contents">
               {socials.map(item => (
                 <li>
                   <a
@@ -188,8 +188,8 @@ export class UofgFooter {
             </a>
           </div>
 
-          <div id="uofg-footer-links-container">
-            <ul class="tw-flex tw-flex-col tw-gap-4 [&>li]:tw-contents">
+          <div class="md:tw-col-span-2 md:tw-row-start-2 lg:tw-row-auto">
+            <ul class="tw-flex tw-flex-col tw-gap-4 md:tw-grid md:tw-grid-cols-2 [&>li]:tw-contents">
               {links.map(item => (
                 <li>
                   <a
