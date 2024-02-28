@@ -29,7 +29,9 @@
   </head>
   <body>
     <uofg-header page-title="Example Page" page-url="#">
-
+      <a href="#">Example Menu Link</a>
+      <a href="#">Example Menu Link 1</a>
+      <a href="#">Example Menu Link 1</a>
       <ul data-title="Example Menu">
         <li><a href="#">Example Menu Link 1</a></li>
         <li><a href="#">Example Menu Link 2</a></li>
@@ -42,8 +44,17 @@
       </ul>
     </uofg-header>
 
-    <main></main>
+    <main>
+      <uofg-card href="#">
+        <img slot="img" src="https://placehold.co/600x400.png"  alt="test"/>
+        <span slot="title">YOUR TITLE HERE</span>
+        <span slot="subtitle">YOUR SUBTITLE HERE</span>
+        <span slot="body">j flaksdjf klasdjf klasdfj laksdjfkl ajsdfj oqiwenflkansdiofvjnqkjwen flkajsdlkf jaslkdfj lkasdjf </span>
+        <span slot="footer">YOUR FOOTER CONTENT HERE</span>
+      </uofg-card>
+    </main>
 
+    <uofg-back-to-top></uofg-back-to-top>
     <uofg-footer>
       <a href="#">Example Link 1</a>
       <a href="#">Example Link 2</a>

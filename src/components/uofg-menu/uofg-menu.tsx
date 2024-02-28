@@ -81,7 +81,9 @@ export class UofgMenu {
       this.contentComputedStyle = null;
     } else {
       this.content = content;
-      this.content.style.display = this.isExpanded ? '' : 'none';
+      this.isExpanded
+        ? this.content.style.removeProperty('display')
+        : this.content.style.setProperty('display', 'none', 'important');
       this.contentComputedStyle = window.getComputedStyle(this.content);
     }
   }
@@ -127,7 +129,9 @@ export class UofgMenu {
 
     // If Web Animations API isn't supported, or the user requested no animation, we can simply set display style
     if (!WEB_ANIMATIONS_SUPPORTED() || PREFERS_REDUCED_MOTION() || type === 'none') {
-      this.content.style.display = newValue ? '' : 'none';
+      newValue
+        ? this.content.style.removeProperty('display')
+        : this.content.style.setProperty('display', 'none', 'important');
       return;
     }
 
@@ -151,7 +155,7 @@ export class UofgMenu {
     };
 
     // Need to remove display none, otherwise keyframe values won't be calculated correctly.
-    this.content.style.display = '';
+    this.content.style.removeProperty('display');
 
     switch (type) {
       case 'fade':
@@ -169,7 +173,9 @@ export class UofgMenu {
     this.content?.animate(animationDef.keyframes, options).finished.finally(() => {
       // Once the animation is done (or something went wrong during it), we update the content's display style.
       if (this.content) {
-        this.content.style.display = this.isExpanded ? '' : 'none';
+        this.isExpanded
+          ? this.content.style.removeProperty('display')
+          : this.content.style.setProperty('display', 'none', 'important');
         animationDef.callback?.();
         this.animationEnded.emit(this.isExpanded);
       }
@@ -221,7 +227,7 @@ export class UofgMenu {
   }
 
   private slideAnimation(): UofGMenuAnimation {
-    this.content && (this.content.style.overflowY = 'hidden');
+    this.content && this.content.style.setProperty('overflow-y', 'hidden', 'important');
 
     return {
       keyframes: [
@@ -241,7 +247,7 @@ export class UofgMenu {
         },
       ],
       callback: () => {
-        this.content && (this.content.style.overflowY = '');
+        this.content && this.content.style.removeProperty('overflow-y');
       },
     };
   }

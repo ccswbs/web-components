@@ -7,7 +7,7 @@ import { getAllFocusableElements } from 'utils/utils';
  * @part content - The modal content container.
  * @part dismiss-button - The button that closes the modal.
  */
-@Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.scss', shadow: true })
+@Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.css', shadow: true })
 export class UofgModal {
   /**
    * The label for the modal. It is recommended that you set this to describe the modal's content.
@@ -40,7 +40,7 @@ export class UofgModal {
   @Prop() autoOpen: boolean = false;
 
   /**
-   * Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()).
+   * Dispatched whenever the modal is opened whether by user interaction or programmatically (e.g. open()).
    */
   @Event({ bubbles: false, cancelable: false }) opened: EventEmitter<void>;
 
@@ -73,24 +73,24 @@ export class UofgModal {
     }
   }
 
-  handleClick(e: MouseEvent) {
+  private handleClick(e: MouseEvent) {
     if (!this.staticBackdrop && e.target === e.currentTarget) {
       this.isOpen = false;
     }
   }
 
-  handleKeyUp(e: KeyboardEvent) {
+  private handleKeyUp(e: KeyboardEvent) {
     if (e.key === 'Escape') {
       this.isOpen = false;
     }
   }
 
-  handleFocusOut(e: FocusEvent) {
+  private handleFocusOut(e: FocusEvent) {
     if (!this.isOpen) return; // Don't do anything if the modal is closed.
 
     const relatedTarget = e.relatedTarget as HTMLElement;
 
-    // If the focus is moving outside of the modal
+    // If the focus is moving outside the modal
     if (!this.container.contains(relatedTarget) && !this.el.contains(relatedTarget)) {
       e.preventDefault();
 
@@ -107,7 +107,7 @@ export class UofgModal {
 
   @Watch('isOpen')
   handleIsOpenChange(newValue: boolean) {
-    if (newValue === true) {
+    if (newValue) {
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
           window.requestAnimationFrame(() => {
@@ -120,7 +120,7 @@ export class UofgModal {
       // Mark outer elements as inert when the modal is open.
       let current: HTMLElement | null = this.el;
 
-      // We want to mark all elements outside of the modal as inert, so we need to traverse up the DOM tree until we reach the body element.
+      // We want to mark all elements outside the modal as inert, so we need to traverse up the DOM tree until we reach the body element.
 
       while (current !== null && current !== document.body) {
         const parent = current.parentElement;
@@ -168,8 +168,12 @@ export class UofgModal {
   render() {
     return (
       <div
-        id="uofg-modal"
-        class={{ open: this.isOpen }}
+        class={{
+          'tw-visible tw-opacity-100': this.isOpen,
+          'tw-invisible tw-opacity-0': !this.isOpen,
+          'tw-fixed tw-left-0 tw-top-0 tw-z-[1000] tw-flex tw-h-screen tw-w-screen tw-bg-black tw-bg-opacity-50 tw-transition-[opacity,visibility]':
+            true,
+        }}
         role={this.alertDialog ? 'alertdialog' : 'dialog'}
         aria-modal={this.isOpen ? 'true' : ''}
         aria-label={this.label}
@@ -179,9 +183,18 @@ export class UofgModal {
         onFocusout={this.handleFocusOut}
         ref={(el: HTMLDivElement) => (this.container = el)}
       >
-        <div id="uofg-modal-content" part="content" class={{ centered: this.centered }}>
+        <div
+          part="content"
+          class={{
+            'tw-visible tw-opacity-100': this.isOpen,
+            'tw-translate-y-[calc(-50%_-_50px)]': !this.isOpen && this.centered,
+            'tw-translate-y-[-50px]': (!this.isOpen && !this.centered) || (this.isOpen && this.centered),
+            'tw-z-1 tw-absolute tw-left-1/2 tw-h-fit tw-max-h-full tw-w-fit tw-max-w-full -tw-translate-x-1/2 tw-overflow-auto tw-p-8 tw-transition-transform motion-reduce:tw-transition-none':
+              true,
+          }}
+        >
           <button
-            id="uofg-modal-dismiss"
+            class="[&>svg]:h-[1em] tw-absolute tw-right-8 tw-top-8 tw-z-[2] tw-flex tw-h-12 tw-w-12 tw-items-center tw-justify-center tw-border-0 tw-bg-transparent tw-text-3xl tw-p-2 tw-text-[var(--uofg-modal-dismiss-color,white)] [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
             part="dismiss-button"
             aria-label="Close modal"
             ref={(el: HTMLButtonElement) => (this.dismissButton = el)}
