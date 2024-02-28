@@ -3,6 +3,6 @@ module.exports = {
     require('tailwindcss'),
     require('autoprefixer'),
     require('postcss-combine-duplicated-selectors'),
-    require('cssnano')
-  ]
+    require('cssnano'),
+  ],
 };

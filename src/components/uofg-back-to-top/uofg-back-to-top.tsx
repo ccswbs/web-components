@@ -25,7 +25,7 @@ export class UofgBackToTop {
         aria-label="Go back to the top"
         class={{
           'tw-opacity-100': this.isVisible,
-          'hocus:tw-bg-uofg-red tw-fixed tw-bottom-0 tw-right-0 tw-z-[1000] tw-m-4 tw-flex tw-h-[3.5rem] tw-w-[3.5rem] tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-[50%] tw-border tw-border-solid tw-border-white tw-bg-black tw-text-white tw-opacity-0 tw-transition [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current':
+          'tw-fixed tw-bottom-0 tw-right-0 tw-z-[1000] tw-m-4 tw-flex tw-h-[3.5rem] tw-w-[3.5rem] tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-[50%] tw-border tw-border-solid tw-border-white tw-bg-black tw-text-white tw-opacity-0 tw-transition hocus:tw-bg-uofg-red [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current':
             true,
         }}
         onClick={() => {

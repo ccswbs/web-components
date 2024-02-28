@@ -119,7 +119,7 @@ const links = [
 
 @Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.css', shadow: true })
 export class UofgFooter {
-  @Element() el: HTMLUofgHeaderElement;
+  @Element() el: HTMLUofgFooterElement;
   @State() private extraLinks: ExtraLink[] = [];
   private observer: MutationObserver;
 
@@ -145,7 +145,7 @@ export class UofgFooter {
           <ul class="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-bg-uofg-blue-50 tw-p-6 tw-px-[max(calc((100%-1320px)/2),2rem)]">
             {this.extraLinks.map(link => (
               <li class="tw-border-0 tw-border-r-2 tw-border-solid tw-border-uofg-blue-100 tw-p-2 first:tw-border-l-2">
-                <a class="hocus:tw-text-uofg-blue-950 tw-text-uofg-blue-500 tw-transition-colors" href={link.href}>
+                <a class="tw-text-uofg-blue-500 tw-transition-colors hocus:tw-text-uofg-blue-950" href={link.href}>
                   {link.text}
                 </a>
               </li>
@@ -158,7 +158,7 @@ export class UofgFooter {
             <a
               href="//www.uoguelph.ca/improve-life"
               aria-label="Improve Life"
-              class="hocus:tw-opacity-75 tw-flex tw-transition-opacity [&>svg]:tw-h-[1.6em]"
+              class="tw-flex tw-transition-opacity hocus:tw-opacity-75 [&>svg]:tw-h-[1.6em]"
               innerHTML={improveLifeLogo}
             ></a>
 
@@ -177,13 +177,13 @@ export class UofgFooter {
             </ul>
 
             <a
-              class="hocus:tw-border-white tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors"
+              class="tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white"
               href="https://www.uoguelph.ca/web/socialmedia/"
             >
               Social Media Directory
             </a>
             <a
-              class="hocus:tw-border-white tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors"
+              class="tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white"
               href="//www.uoguelph.ca/web/"
             >
               © {new Date().getFullYear()} University of Guelph
@@ -197,7 +197,7 @@ export class UofgFooter {
                   <a
                     href={item.href}
                     title={item?.title ?? ''}
-                    class="hocus:tw-border-white tw-flex tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
+                    class="tw-flex tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
                   >
                     <FontAwesomeIcon icon={item.icon} />
                     <span>{item.text}</span>
@@ -214,7 +214,7 @@ export class UofgFooter {
             <span>N1G 2W1</span>
             <a
               href="tel:1-519-824-4120"
-              class="hocus:tw-border-current tw-flex tw-w-fit tw-gap-2 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-text-uofg-blue tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+              class="tw-flex tw-w-fit tw-gap-2 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-text-uofg-blue tw-transition-colors hocus:tw-border-current [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
             >
               <FontAwesomeIcon icon={faPhoneFlip} />
               <span>519-824-4120</span>

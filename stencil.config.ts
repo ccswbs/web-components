@@ -8,7 +8,7 @@ const twOpts = {
   ...PluginOpts.DEFAULT,
   debug: false,
   stripComments: true,
-  tailwindConf: tailwindConfig
+  tailwindConf: tailwindConfig,
 };
 
 export const config: Config = {
@@ -54,11 +54,9 @@ export const config: Config = {
     sass(),
     tailwindGlobal(twOpts),
     tailwind(twOpts),
-    tailwindHMR(
-      {
-        ...twOpts,
-        minify: false,
-      },
-    ),
+    tailwindHMR({
+      ...twOpts,
+      minify: false,
+    }),
   ],
 };

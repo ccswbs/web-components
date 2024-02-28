@@ -274,7 +274,7 @@ export class UofgHeader {
             )}
 
             <a
-              class="hocus:tw-opacity-75 tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-h-full tw-transition-opacity min-[1320px]:tw-absolute [&>svg]:tw-h-full"
+              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-h-full tw-transition-opacity hocus:tw-opacity-75 min-[1320px]:tw-absolute [&>svg]:tw-h-full"
               href="https://www.uoguelph.ca"
               innerHTML={this.isFullSize ? FullSizeLogo : ReducedSizeLogo}
               aria-label="University of Guelph Home Page"
@@ -475,27 +475,30 @@ export class UofgHeader {
                     }
 
                     return (
-                      <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
-                        <button
-                          class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
-                          slot="button"
-                        >
-                          <span>{item.title}</span>
-                          <FontAwesomeIcon icon={faCaretDown} />
-                        </button>
-                        <ul slot="content" class="tw-flex tw-w-full tw-flex-col [&>li]:tw-contents">
-                          {item.links.map(item => (
-                            <li>
-                              <a
-                                class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey"
-                                href={item.href}
-                              >
-                                {item.text}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      </uofg-menu>
+                      <li>
+                        ≈
+                        <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
+                          <button
+                            class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
+                            slot="button"
+                          >
+                            <span>{item.title}</span>
+                            <FontAwesomeIcon icon={faCaretDown} />
+                          </button>
+                          <ul slot="content" class="tw-flex tw-w-full tw-flex-col [&>li]:tw-contents">
+                            {item.links.map(item => (
+                              <li>
+                                <a
+                                  class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey"
+                                  href={item.href}
+                                >
+                                  {item.text}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </uofg-menu>
+                      </li>
                     );
                   })}
                 </ul>

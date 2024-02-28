@@ -18,3 +18,4 @@ The footer also allows you to add your own custom links. These will appear in a 
 </uofg-footer>
 
 <!-- Auto Generated Below -->
+```

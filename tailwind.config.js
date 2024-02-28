@@ -100,7 +100,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addVariant }) {
       addVariant('hocus', ['&:hover', '&:focus']);
-    })
+    }),
   ],
   prefix: 'tw-',
   corePlugins: {

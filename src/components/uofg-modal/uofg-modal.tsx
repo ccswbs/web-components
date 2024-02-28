@@ -169,7 +169,7 @@ export class UofgModal {
     return (
       <div
         id="uofg-modal"
-        class={{ open: this.isOpen }}
+        class={{ 'tw-visible tw-opacity-100': this.isOpen }}
         role={this.alertDialog ? 'alertdialog' : 'dialog'}
         aria-modal={this.isOpen ? 'true' : ''}
         aria-label={this.label}
