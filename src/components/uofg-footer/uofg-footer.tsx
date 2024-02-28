@@ -87,6 +87,8 @@ const links = [
     text: 'Land Acknowledgement',
     icon: faTree,
     href: 'https://www.uoguelph.ca/land-acknowledgement/',
+    title:
+      'The University of Guelph resides on the treaty lands and territory of the Mississaugas of the Credit. We recognize that today this gathering place is home to many First Nations, Inuit and Métis peoples and acknowledging them reminds us of our collective responsibility to the land where we learn and work.',
   },
   {
     text: 'Careers',
@@ -194,6 +196,7 @@ export class UofgFooter {
                 <li>
                   <a
                     href={item.href}
+                    title={item?.title ?? ''}
                     class="hocus:tw-border-white tw-flex tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
                   >
                     <FontAwesomeIcon icon={item.icon} />
