@@ -17,7 +17,7 @@ export class UofgAlert {
           <slot name="message"></slot>
         </div>
 
-        <div class="tw-flex tw-bg-uofg-grey tw-px-4 tw-py-8 tw-text-2xl">
+        <div class="tw-flex tw-bg-uofg-grey tw-py-4 tw-px-8 tw-text-2xl">
           <slot name="footer"></slot>
         </div>
       </div>
