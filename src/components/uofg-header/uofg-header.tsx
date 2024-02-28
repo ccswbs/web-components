@@ -270,7 +270,7 @@ export class UofgHeader {
           {/* Logo */}
           <div class="tw-flex">
             {this.isFullSize && (
-              <div class="tw-left-0 tw-h-full min-[1320px]:tw-absolute [&>svg]:tw-h-full" innerHTML={Decoration}></div>
+              <div class="tw-w-[7.5rem] tw-left-0 tw-h-full min-[1320px]:tw-absolute [&>svg]:tw-h-full" innerHTML={Decoration}></div>
             )}
 
             <a
