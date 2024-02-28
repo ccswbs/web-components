@@ -13,7 +13,7 @@ const twOpts = {
 
 export const config: Config = {
   namespace: 'uofg-web-components',
-  globalStyle: 'src/styles/global.scss',
+  globalStyle: 'src/styles/global.css',
   sourceMap: process.env.NODE_ENV !== 'production',
   taskQueue: 'congestionAsync',
   outputTargets: [
@@ -51,7 +51,6 @@ export const config: Config = {
   validatePrimaryPackageOutputTarget: true,
   plugins: [
     inlineSvg(),
-    sass(),
     tailwindGlobal(twOpts),
     tailwind(twOpts),
     tailwindHMR({
