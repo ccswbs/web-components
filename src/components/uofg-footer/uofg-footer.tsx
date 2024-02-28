@@ -1,7 +1,6 @@
-import { Component, Element, FunctionalComponent, State, h } from '@stencil/core';
+import { Component, Element, State, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import improveLifeLogo from './improve-life.svg';
-import { type IconDefinition } from '@fortawesome/free-solid-svg-icons/';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons/faBriefcase';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons/faCircleCheck';
@@ -19,29 +18,104 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons/faTiktok';
 import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons/faTwitterSquare';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube';
 
-const SocialLink: FunctionalComponent<{ name: string; url: string; icon: IconDefinition }> = props => (
-  <li>
-    <a href={props.url} aria-label={props.name}>
-      <FontAwesomeIcon icon={props.icon} />
-    </a>
-  </li>
-);
-
-const FooterLink: FunctionalComponent<{ text: string; url: string; icon: IconDefinition; title?: string }> = props => (
-  <li>
-    <a href={props.url} title={props.title}>
-      <FontAwesomeIcon icon={props.icon} />
-      <span>{props.text}</span>
-    </a>
-  </li>
-);
-
 type ExtraLink = {
   text: string;
   href: string;
 };
 
-@Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.scss', shadow: true })
+const socials = [
+  {
+    text: 'Twitter',
+    icon: faTwitterSquare,
+    href: 'https://twitter.com/uofg',
+    class: 'hocus:tw-text-[#1da1f2]',
+  },
+  {
+    text: 'Facebook',
+    icon: faFacebookSquare,
+    href: 'https://www.facebook.com/uofguelph',
+    class: 'hocus:tw-text-[#4267b2]',
+  },
+  {
+    text: 'Instagram',
+    icon: faInstagram,
+    href: 'https://www.instagram.com/uofguelph/',
+    class: 'hocus:tw-text-[#e1306c]',
+  },
+  {
+    text: 'Youtube',
+    icon: faYoutube,
+    href: 'https://www.youtube.com/user/uofguelph',
+    class: 'hocus:tw-text-[#f00]',
+  },
+  {
+    text: 'LinkedIn',
+    icon: faLinkedin,
+    href: 'https://www.linkedin.com/school/university-of-guelph/',
+    class: 'hocus:tw-text-[#0077b5]',
+  },
+  {
+    text: 'TikTok',
+    icon: faTiktok,
+    href: 'https://www.tiktok.com/@uofguelph',
+    class: 'hocus:tw-text-[#f00]',
+  },
+];
+
+const links = [
+  {
+    text: 'Accessibility',
+    icon: faUniversalAccess,
+    href: 'https://www.uoguelph.ca/diversity-human-rights/accessibility-u-g',
+  },
+  {
+    text: 'Privacy',
+    icon: faKey,
+    href: 'https://www.uoguelph.ca/web/privacy/',
+  },
+  {
+    text: 'Site Map',
+    icon: faSitemap,
+    href: 'https://www.uoguelph.ca/sitemap',
+  },
+  {
+    text: 'Status Page',
+    icon: faCircleCheck,
+    href: 'https://uoguelph.statuspage.io/',
+  },
+  {
+    text: 'Land Acknowledgement',
+    icon: faTree,
+    href: 'https://www.uoguelph.ca/land-acknowledgement/',
+  },
+  {
+    text: 'Careers',
+    icon: faBriefcase,
+    href: 'https://www.uoguelph.ca/hr/careers-guelph/current-opportunities',
+  },
+  {
+    text: 'Undergraduate Calendar',
+    icon: faCalendar,
+    href: 'https://www.uoguelph.ca/registrar/calendars/undergraduate/current/',
+  },
+  {
+    text: 'Graduate Calendar',
+    icon: faCalendar,
+    href: 'https://www.uoguelph.ca/registrar/calendars/graduate/current/',
+  },
+  {
+    text: 'Program Plans',
+    icon: faList,
+    href: 'https://admission.uoguelph.ca/programs',
+  },
+  {
+    text: 'Give to U of G',
+    icon: faHandHoldingHeart,
+    href: 'https://www.alumni.uoguelph.ca/give-to-guelph/how-to-give',
+  },
+];
+
+@Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.css', shadow: true })
 export class UofgFooter {
   @Element() el: HTMLUofgHeaderElement;
   @State() private extraLinks: ExtraLink[] = [];
@@ -64,39 +138,40 @@ export class UofgFooter {
 
   render() {
     return (
-      <footer id="uofg-footer">
-        <div id="uofg-footer-extra-links-container">
-          {this.extraLinks.length > 0 && (
-            <ul id="uofg-footer-extra-links">
-              {this.extraLinks.map(link => (
-                <li>
-                  <a href={link.href}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+      <footer>
+        {this.extraLinks.length > 0 && (
+          <ul class="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-bg-uofg-blue-50 tw-p-6 tw-px-[calc((100%-1320px)/2)]">
+            {this.extraLinks.map(link => (
+              <li class="tw-border-0 tw-border-r-2 tw-border-solid tw-border-uofg-blue-100 tw-p-2 first:tw-border-l-2">
+                <a class="hocus:tw-text-uofg-blue-950 tw-text-uofg-blue-500 tw-transition-colors" href={link.href}>
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
 
-        <div id="uofg-footer-content">
-          <div id="uofg-footer-social" class="uofg-footer-content-separator">
+        <div class="tw-flex tw-flex-col tw-gap-8 tw-bg-black tw-px-[calc((100%-1320px)/2)] tw-py-8 tw-text-white">
+          <div class="tw-flex tw-flex-col tw-justify-between tw-gap-4">
             <a
-              id="uofg-footer-improve-life"
               href="//www.uoguelph.ca/improve-life"
               aria-label="Improve Life"
+              class="tw-flex [&>svg]:tw-h-[1.6em]"
               innerHTML={improveLifeLogo}
             ></a>
 
-            <ul id="uofg-footer-social-links">
-              <SocialLink name="Twitter" url="https://twitter.com/uofg" icon={faTwitterSquare} />
-              <SocialLink name="Facebook" url="https://www.facebook.com/uofguelph" icon={faFacebookSquare} />
-              <SocialLink name="Instagram" url="https://www.instagram.com/uofguelph/" icon={faInstagram} />
-              <SocialLink name="Youtube" url="https://www.youtube.com/user/uofguelph" icon={faYoutube} />
-              <SocialLink
-                name="LinkedIn"
-                url="https://www.linkedin.com/school/university-of-guelph/"
-                icon={faLinkedin}
-              />
-              <SocialLink name="TikTok" url="https://www.tiktok.com/@uofguelph" icon={faTiktok} />
+            <ul class="tw-flex tw-gap-3 tw-text-3xl [&>li]:tw-contents">
+              {socials.map(item => (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-label={item.text}
+                    class={`tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current ${item.class}`}
+                  >
+                    <FontAwesomeIcon icon={item.icon} />
+                  </a>
+                </li>
+              ))}
             </ul>
 
             <a href="https://www.uoguelph.ca/web/socialmedia/">Social Media Directory</a>
@@ -104,51 +179,24 @@ export class UofgFooter {
           </div>
 
           <div id="uofg-footer-links-container">
-            <ul id="uofg-footer-links" class="uofg-footer-content-separator">
-              <FooterLink
-                text="Accessibility"
-                url="https://www.uoguelph.ca/diversity-human-rights/accessibility-u-g"
-                icon={faUniversalAccess}
-              />
-              <FooterLink text="Privacy" url="https://www.uoguelph.ca/web/privacy/" icon={faKey} />
-              <FooterLink text="Site Map" url="https://www.uoguelph.ca/sitemap" icon={faSitemap} />
-              <FooterLink text="Status Page" url="https://uoguelph.statuspage.io/" icon={faCircleCheck} />
-              <FooterLink
-                text="Land Acknowledgement"
-                url="https://www.uoguelph.ca/land-acknowledgement/"
-                icon={faTree}
-                title="The University of Guelph resides on the treaty lands and territory of the Mississaugas of the Credit. We recognize that today this gathering place is home to many First Nations, Inuit and Métis peoples and acknowledging them reminds us of our collective responsibility to the land where we learn and work."
-              />
-              <FooterLink
-                text="Careers"
-                url="https://www.uoguelph.ca/hr/careers-guelph/current-opportunities"
-                icon={faBriefcase}
-              />
-              <FooterLink
-                text="Undergraduate Calendar"
-                url="https://www.uoguelph.ca/registrar/calendars/undergraduate/current/"
-                icon={faCalendar}
-              />
-              <FooterLink
-                text="Graduate Calendar"
-                url="https://www.uoguelph.ca/registrar/calendars/graduate/current/"
-                icon={faCalendar}
-              />
-              <FooterLink text="Program Plans" url="https://admission.uoguelph.ca/programs" icon={faList} />
-              <FooterLink
-                text="Give to U of G"
-                url="https://www.alumni.uoguelph.ca/give-to-guelph/how-to-give"
-                icon={faHandHoldingHeart}
-              />
+            <ul class="tw-flex tw-flex-col tw-gap-4 [&>li]:tw-contents">
+              {links.map(item => (
+                <li>
+                  <a href={item.href} class="tw-flex tw-gap-3 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow">
+                    <FontAwesomeIcon icon={item.icon} />
+                    <span>{item.text}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <address id="uofg-footer-address" class="uofg-footer-content-separator">
+          <address class="tw-flex tw-flex-col tw-justify-between tw-gap-4 tw-not-italic">
             <strong>University of Guelph</strong>
             <span>50 Stone Road East,</span>
             <span>Guelph, Ontario, Canada</span>
             <span>N1G 2W1</span>
-            <a href="tel:1-519-824-4120">
+            <a href="tel:1-519-824-4120" class="tw-flex tw-gap-2 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current tw-text-uofg-blue">
               <FontAwesomeIcon icon={faPhoneFlip} />
               <span>519-824-4120</span>
             </a>
