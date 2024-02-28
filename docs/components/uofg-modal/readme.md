@@ -31,10 +31,10 @@ This is a utility component, and its content is meant to be styled by the develo
 
 ## Events
 
-| Event    | Description                                                                                               | Type                |
-| -------- | --------------------------------------------------------------------------------------------------------- | ------------------- |
-| `closed` | Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()).   | `CustomEvent<void>` |
-| `opened` | Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()). | `CustomEvent<void>` |
+| Event    | Description                                                                                             | Type                |
+| -------- | ------------------------------------------------------------------------------------------------------- | ------------------- |
+| `closed` | Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()). | `CustomEvent<void>` |
+| `opened` | Dispatched whenever the modal is opened whether by user interaction or programmatically (e.g. open()).  | `CustomEvent<void>` |
 
 
 ## Methods
@@ -102,13 +102,6 @@ A promise which will resolve to true (if the modal opened) or false (if the moda
 | ------------------ | --------------------------------- |
 | `"content"`        | The modal content container.      |
 | `"dismiss-button"` | The button that closes the modal. |
-
-
-## CSS Custom Properties
-
-| Name                         | Description                                               |
-| ---------------------------- | --------------------------------------------------------- |
-| `--uofg-modal-dismiss-color` | The color of the dismiss button's icon (Default is white) |
 
 
 ----------------------------------------------
