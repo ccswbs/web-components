@@ -332,7 +332,7 @@ export class UofgHeader {
                 </button>
                 <div
                   slot="content"
-                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-sm"
+                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-md"
                 >
                   <span class="tw-my-4 tw-text-4xl tw-font-bold">University of Guelph</span>
 
@@ -350,7 +350,7 @@ export class UofgHeader {
                   </ul>
 
                   {/* Resources menu */}
-                  <uofg-menu class="tw-relative tw-block tw-h-full tw-pb-4 tw-text-black" auto-collapse={false}>
+                  <uofg-menu class="tw-relative tw-block tw-h-full tw-pb-6 tw-text-black" auto-collapse={false}>
                     <button
                       class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
                       slot="button"
@@ -460,13 +460,13 @@ export class UofgHeader {
                   <FontAwesomeIcon icon={faBars} />
                 </button>
                 <ul
-                  class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-sm lg:tw-w-[30rem] [&>li]:tw-contents"
+                  class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-md lg:tw-w-[30rem] [&>li]:tw-contents"
                   slot="content"
                 >
                   {this.pageSpecificContent?.map(item => {
                     if ('text' in item) {
                       return (
-                        <li>
+                        <li class="[&>a]:last:tw-pb-4">
                           <a
                             href={item.href}
                             class="tw-w-full tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey"
@@ -478,7 +478,7 @@ export class UofgHeader {
                     }
 
                     return (
-                      <li>
+                      <li class="[&>uofg-menu]:last:tw-pb-6">
                         <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
                           <button
                             class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
