@@ -319,7 +319,7 @@ export class UofgHeader {
               ))}
 
               {/* Main menu */}
-              <uofg-menu auto-collapse={true}>
+              <uofg-menu class="tw-block tw-h-full" auto-collapse={true}>
                 <button
                   slot="button"
                   aria-label="Main Menu"
@@ -329,7 +329,7 @@ export class UofgHeader {
                 </button>
                 <div
                   slot="content"
-                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-p-4 tw-text-black tw-shadow-sm"
+                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-sm"
                 >
                   <span class="tw-my-4 tw-text-4xl tw-font-bold">University of Guelph</span>
 
@@ -347,7 +347,7 @@ export class UofgHeader {
                   </ul>
 
                   {/* Resources menu */}
-                  <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
+                  <uofg-menu class="tw-relative tw-block tw-pb-4 tw-h-full tw-text-black" auto-collapse={false}>
                     <button
                       class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
                       slot="button"
@@ -448,7 +448,7 @@ export class UofgHeader {
                 })}
               </ul>
             ) : (
-              <uofg-menu class="lg:tw-relative" auto-collapse={true}>
+              <uofg-menu class="lg:tw-relative tw-block tw-h-full" auto-collapse={true}>
                 <button
                   class="tw-flex tw-aspect-square tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-l tw-border-solid tw-border-uofg-grey-300 tw-px-6 tw-transition-colors aria-expanded:tw-bg-uofg-yellow lg:tw-border-l-0 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
                   slot="button"
@@ -457,7 +457,7 @@ export class UofgHeader {
                   <FontAwesomeIcon icon={faBars} />
                 </button>
                 <ul
-                  class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-p-4 tw-text-black tw-shadow-sm lg:tw-w-[30rem] [&>li]:tw-contents"
+                  class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-sm lg:tw-w-[30rem] [&>li]:tw-contents"
                   slot="content"
                 >
                   {this.pageSpecificContent?.map(item => {
