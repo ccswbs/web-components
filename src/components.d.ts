@@ -269,7 +269,7 @@ declare namespace LocalJSX {
          */
         "onClosed"?: (event: UofgModalCustomEvent<void>) => void;
         /**
-          * Dispatched whenever the modal is opened whether by user interaction or or programmatically (e.g. open()).
+          * Dispatched whenever the modal is opened whether by user interaction or programmatically (e.g. open()).
          */
         "onOpened"?: (event: UofgModalCustomEvent<void>) => void;
         /**

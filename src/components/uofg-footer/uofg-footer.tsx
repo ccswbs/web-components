@@ -156,7 +156,7 @@ export class UofgFooter {
         <div class="tw-flex tw-flex-col tw-content-center tw-gap-8 tw-bg-black tw-px-[max(calc((100%-1320px)/2),2rem)] tw-py-8 tw-text-white md:tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4">
           <div class="tw-flex tw-flex-col tw-justify-between tw-gap-4">
             <a
-              href="//www.uoguelph.ca/improve-life"
+              href="https://www.uoguelph.ca/improve-life"
               aria-label="Improve Life"
               class="tw-flex tw-transition-opacity hocus:tw-opacity-75 [&>svg]:tw-h-[1.6em]"
               innerHTML={improveLifeLogo}
@@ -184,7 +184,7 @@ export class UofgFooter {
             </a>
             <a
               class="tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white"
-              href="//www.uoguelph.ca/web/"
+              href="https://www.uoguelph.ca/web/"
             >
               © {new Date().getFullYear()} University of Guelph
             </a>
