@@ -476,7 +476,6 @@ export class UofgHeader {
 
                     return (
                       <li>
-                        ≈
                         <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
                           <button
                             class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
