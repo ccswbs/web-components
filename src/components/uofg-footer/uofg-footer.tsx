@@ -140,7 +140,7 @@ export class UofgFooter {
     return (
       <footer>
         {this.extraLinks.length > 0 && (
-          <ul class="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-bg-uofg-blue-50 tw-p-6 tw-px-[calc((100%-1320px)/2)]">
+          <ul class="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-bg-uofg-blue-50 tw-p-6 tw-px-[max(calc((100%-1320px)/2),2rem)]">
             {this.extraLinks.map(link => (
               <li class="tw-border-0 tw-border-r-2 tw-border-solid tw-border-uofg-blue-100 tw-p-2 first:tw-border-l-2">
                 <a class="hocus:tw-text-uofg-blue-950 tw-text-uofg-blue-500 tw-transition-colors" href={link.href}>
@@ -151,12 +151,12 @@ export class UofgFooter {
           </ul>
         )}
 
-        <div class="tw-flex tw-flex-col tw-gap-8 tw-bg-black tw-px-[calc((100%-1320px)/2)] tw-py-8 tw-text-white">
+        <div class="tw-flex tw-flex-col tw-gap-8 tw-bg-black tw-px-[max(calc((100%-1320px)/2),2rem)] tw-py-8 tw-text-white">
           <div class="tw-flex tw-flex-col tw-justify-between tw-gap-4">
             <a
               href="//www.uoguelph.ca/improve-life"
               aria-label="Improve Life"
-              class="tw-flex [&>svg]:tw-h-[1.6em]"
+              class="hocus:tw-opacity-75 tw-flex tw-transition-opacity [&>svg]:tw-h-[1.6em]"
               innerHTML={improveLifeLogo}
             ></a>
 
@@ -174,15 +174,28 @@ export class UofgFooter {
               ))}
             </ul>
 
-            <a href="https://www.uoguelph.ca/web/socialmedia/">Social Media Directory</a>
-            <a href="//www.uoguelph.ca/web/">© {new Date().getFullYear()} University of Guelph</a>
+            <a
+              class="hocus:tw-border-white tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors"
+              href="https://www.uoguelph.ca/web/socialmedia/"
+            >
+              Social Media Directory
+            </a>
+            <a
+              class="hocus:tw-border-white tw-w-fit tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors"
+              href="//www.uoguelph.ca/web/"
+            >
+              © {new Date().getFullYear()} University of Guelph
+            </a>
           </div>
 
           <div id="uofg-footer-links-container">
             <ul class="tw-flex tw-flex-col tw-gap-4 [&>li]:tw-contents">
               {links.map(item => (
                 <li>
-                  <a href={item.href} class="tw-flex tw-gap-3 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow">
+                  <a
+                    href={item.href}
+                    class="hocus:tw-border-white tw-flex tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
+                  >
                     <FontAwesomeIcon icon={item.icon} />
                     <span>{item.text}</span>
                   </a>
@@ -196,7 +209,10 @@ export class UofgFooter {
             <span>50 Stone Road East,</span>
             <span>Guelph, Ontario, Canada</span>
             <span>N1G 2W1</span>
-            <a href="tel:1-519-824-4120" class="tw-flex tw-gap-2 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current tw-text-uofg-blue">
+            <a
+              href="tel:1-519-824-4120"
+              class="hocus:tw-border-current tw-flex tw-w-fit tw-gap-2 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-text-uofg-blue tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+            >
               <FontAwesomeIcon icon={faPhoneFlip} />
               <span>519-824-4120</span>
             </a>
