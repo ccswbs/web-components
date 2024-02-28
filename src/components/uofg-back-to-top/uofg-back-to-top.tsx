@@ -2,7 +2,7 @@ import { Component, Listen, Prop, State, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-@Component({ tag: 'uofg-back-to-top', styleUrl: 'uofg-back-to-top.scss', shadow: true })
+@Component({ tag: 'uofg-back-to-top', styleUrl: 'uofg-back-to-top.css', shadow: true })
 export class UofgBackToTop {
   /**
    * The number of pixels the user has to scroll down before the button appears.
@@ -22,9 +22,12 @@ export class UofgBackToTop {
   render() {
     return (
       <button
-        id="uofg-back-to-top"
         aria-label="Go back to the top"
-        class={{ visible: this.isVisible }}
+        class={{
+          'tw-opacity-100': this.isVisible,
+          'hocus:tw-bg-uofg-red tw-fixed tw-bottom-0 tw-right-0 tw-z-[1000] tw-m-4 tw-flex tw-h-[3.5rem] tw-w-[3.5rem] tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-[50%] tw-border tw-border-solid tw-border-white tw-bg-black tw-text-white tw-opacity-0 tw-transition [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current':
+            true,
+        }}
         onClick={() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
