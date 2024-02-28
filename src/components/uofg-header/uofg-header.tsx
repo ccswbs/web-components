@@ -37,7 +37,7 @@ const MENU_CHAR_LIMIT = 35;
 const topLinks: HeaderLink[] = [
   {
     text: 'GIVE',
-    href: 'GIVE',
+    href: 'https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg',
   },
   {
     text: 'NEWS',
