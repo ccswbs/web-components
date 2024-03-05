@@ -213,7 +213,7 @@ export class UofgHeader {
 
   render() {
     return (
-      <header class="tw-relative tw-z-[1000] tw-w-full tw-font-condensed tw-text-2xl">
+      <header class="tw-relative tw-z-[1000] tw-w-full tw-font-condensed tw-text-2xl tw-text-black">
         {/* Top Navigation Bar */}
         {this.isFullSize && (
           <div class="tw-flex tw-h-16 tw-justify-end tw-bg-white tw-px-[calc((100%-1320px)/2)] tw-text-3xl">
