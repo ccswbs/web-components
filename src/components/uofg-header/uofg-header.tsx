@@ -116,29 +116,6 @@ const iconButtons: HeaderLink[] = [
   },
 ];
 
-const resources: HeaderLink[] = [
-  {
-    text: 'Future Students',
-    href: 'https://uoguelph.ca/future-students',
-  },
-  {
-    text: 'Current Students',
-    href: 'https://www.uoguelph.ca/students',
-  },
-  {
-    text: 'Alumni & Donors',
-    href: 'https://alumni.uoguelph.ca/',
-  },
-  {
-    text: 'Faculty & Staff',
-    href: 'https://www.uoguelph.ca/faculty',
-  },
-  {
-    text: 'Employers & Partners',
-    href: 'https://cecs.uoguelph.ca/employers-institutions',
-  },
-];
-
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.css', shadow: true })
 export class UofgHeader {
   /**
