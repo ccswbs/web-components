@@ -30,18 +30,48 @@ type HeaderLink = {
   icon?: IconDefinition;
 };
 
+type HeaderMenu = {
+  text: string;
+  links: HeaderLink[];
+};
+
 const TRANSITION_BREAKPOINT = 1024;
 const MAX_CONTENT_WIDTH = 1320;
 const MENU_CHAR_LIMIT = 35;
 
-const topLinks: HeaderLink[] = [
+const topLinks: (HeaderLink | HeaderMenu)[] = [
   {
-    text: 'GIVE',
+    text: 'Give',
     href: 'https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg',
   },
   {
-    text: 'NEWS',
+    text: 'News',
     href: 'https://news.uoguelph.ca/',
+  },
+  {
+    text: 'Resources',
+    links: [
+      {
+        text: 'Future Students',
+        href: 'https://uoguelph.ca/future-students',
+      },
+      {
+        text: 'Current Students',
+        href: 'https://www.uoguelph.ca/students',
+      },
+      {
+        text: 'Alumni & Donors',
+        href: 'https://alumni.uoguelph.ca/',
+      },
+      {
+        text: 'Faculty & Staff',
+        href: 'https://www.uoguelph.ca/faculty',
+      },
+      {
+        text: 'Employers & Partners',
+        href: 'https://cecs.uoguelph.ca/employers-institutions',
+      },
+    ],
   },
   {
     text: 'APPLY',
@@ -217,42 +247,50 @@ export class UofgHeader {
         {/* Top Navigation Bar */}
         {this.isFullSize && (
           <div class="tw-flex tw-h-16 tw-justify-end tw-bg-white tw-px-[calc((100%-1320px)/2)] tw-text-3xl">
-            <uofg-menu class="tw-relative tw-block tw-h-full" auto-collapse={true}>
-              <button
-                class="tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
-                slot="button"
-              >
-                <span>Resources</span>
-                <FontAwesomeIcon icon={faCaretDown} />
-              </button>
-              <ul
-                slot="content"
-                class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-min-w-[20rem] tw-flex-col tw-bg-uofg-grey [&>li]:tw-contents"
-              >
-                {resources.map(item => (
+            <ul class="tw-contents [&>li]:tw-contents">
+              {topLinks.map(item => {
+                if ('links' in item) {
+                  return (
+                    <li>
+                      <uofg-menu class="tw-relative tw-block tw-h-full" auto-collapse={true}>
+                        <button
+                          class="tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
+                          slot="button"
+                        >
+                          <span>{item.text.toUpperCase()}</span>
+                          <FontAwesomeIcon icon={faCaretDown} />
+                        </button>
+                        <ul
+                          slot="content"
+                          class="tw-absolute tw-right-0 tw-top-full tw-z-50 tw-flex tw-min-w-[20rem] tw-flex-col tw-bg-uofg-grey [&>li]:tw-contents"
+                        >
+                          {item.links.map(link => (
+                            <li>
+                              <a
+                                class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-500 tw-p-4 tw-transition-colors hover:tw-bg-uofg-yellow"
+                                href={link.href}
+                              >
+                                {link.text}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </uofg-menu>
+                    </li>
+                  );
+                }
+
+                return (
                   <li>
                     <a
-                      class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-500 tw-p-4 tw-transition-colors hover:tw-bg-uofg-yellow"
                       href={item.href}
+                      class={`tw-flex tw-items-center tw-justify-center tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey ${item.highlight ? 'tw-bg-uofg-yellow' : ''}`}
                     >
-                      {item.text}
+                      {item.text.toUpperCase()}
                     </a>
                   </li>
-                ))}
-              </ul>
-            </uofg-menu>
-
-            <ul class="tw-contents [&>li]:tw-contents">
-              {topLinks.map(item => (
-                <li>
-                  <a
-                    href={item.href}
-                    class={`tw-flex tw-items-center tw-justify-center tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey ${item.highlight ? 'tw-bg-uofg-yellow' : ''}`}
-                  >
-                    {item.text}
-                  </a>
-                </li>
-              ))}
+                );
+              })}
             </ul>
           </div>
         )}
@@ -268,7 +306,7 @@ export class UofgHeader {
           aria-label="Main"
         >
           {/* Logo */}
-          <div class="tw-flex">
+          <div class="tw-flex tw-w-fit">
             {this.isFullSize && (
               <div
                 class="tw-left-0 tw-h-full tw-w-[7.5rem] min-[1320px]:tw-absolute [&>svg]:tw-h-full"
@@ -277,7 +315,7 @@ export class UofgHeader {
             )}
 
             <a
-              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-aspect-square lg:tw-aspect-auto tw-h-full tw-transition-opacity hocus:tw-opacity-75 min-[1320px]:tw-absolute [&>svg]:tw-h-full"
+              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-aspect-square tw-h-full tw-transition-opacity hocus:tw-opacity-75 lg:tw-aspect-auto min-[1320px]:tw-absolute [&>svg]:tw-h-full"
               href="https://www.uoguelph.ca"
               innerHTML={this.isFullSize ? FullSizeLogo : ReducedSizeLogo}
               aria-label="University of Guelph Home Page"
@@ -332,12 +370,12 @@ export class UofgHeader {
                 </button>
                 <div
                   slot="content"
-                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-md"
+                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-w-full tw-flex-col tw-bg-white tw-px-4 tw-text-black tw-shadow-md tw-max-h-[calc(100vh-5rem)] tw-overflow-y-auto"
                 >
                   <span class="tw-my-4 tw-text-4xl tw-font-bold">University of Guelph</span>
 
-                  <ul class="tw-flex tw-w-full tw-flex-col [&>li]:tw-contents">
-                    {mainLinks.concat(topLinks).map(item => (
+                  <ul class="tw-flex tw-w-full tw-flex-col tw-pb-6 [&>li]:tw-contents">
+                    {mainLinks.map(item => (
                       <li>
                         <a
                           href={item.href}
@@ -347,30 +385,48 @@ export class UofgHeader {
                         </a>
                       </li>
                     ))}
-                  </ul>
 
-                  {/* Resources menu */}
-                  <uofg-menu class="tw-relative tw-block tw-h-full tw-pb-6 tw-text-black" auto-collapse={false}>
-                    <button
-                      class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
-                      slot="button"
-                    >
-                      <span>Resources</span>
-                      <FontAwesomeIcon icon={faCaretDown} />
-                    </button>
-                    <ul slot="content" class="tw-flex tw-w-full tw-flex-col [&>li]:tw-contents">
-                      {resources.map(item => (
+                    {topLinks.map(item => {
+                      if ('links' in item) {
+                        return (
+                          <li>
+                            <uofg-menu class="tw-relative tw-block tw-h-full tw-text-black" auto-collapse={false}>
+                              <button
+                                class="tw-flex tw-h-auto tw-w-full tw-items-center tw-justify-between tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
+                                slot="button"
+                              >
+                                <span>{item.text}</span>
+                                <FontAwesomeIcon icon={faCaretDown} />
+                              </button>
+                              <ul slot="content" class="tw-flex tw-w-full tw-flex-col [&>li]:tw-contents">
+                                {item.links.map(link => (
+                                  <li>
+                                    <a
+                                      class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey"
+                                      href={link.href}
+                                    >
+                                      {link.text}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </uofg-menu>
+                          </li>
+                        );
+                      }
+
+                      return (
                         <li>
                           <a
-                            class="tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey"
                             href={item.href}
+                            class={`tw-w-full tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey ${item?.highlight ? 'tw-bg-uofg-yellow tw-font-bold' : ''}`}
                           >
                             {item.text}
                           </a>
                         </li>
-                      ))}
-                    </ul>
-                  </uofg-menu>
+                      );
+                    })}
+                  </ul>
                 </div>
               </uofg-menu>
             </div>
