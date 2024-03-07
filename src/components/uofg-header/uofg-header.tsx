@@ -277,7 +277,7 @@ export class UofgHeader {
             )}
 
             <a
-              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-h-full tw-transition-opacity hocus:tw-opacity-75 min-[1320px]:tw-absolute [&>svg]:tw-h-full"
+              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-aspect-square lg:tw-aspect-auto tw-h-full tw-transition-opacity hocus:tw-opacity-75 min-[1320px]:tw-absolute [&>svg]:tw-h-full"
               href="https://www.uoguelph.ca"
               innerHTML={this.isFullSize ? FullSizeLogo : ReducedSizeLogo}
               aria-label="University of Guelph Home Page"
