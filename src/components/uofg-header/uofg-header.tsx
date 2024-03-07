@@ -261,7 +261,7 @@ export class UofgHeader {
                   <li>
                     <a
                       href={item.href}
-                      class={`tw-flex tw-items-center tw-justify-center tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey ${item.highlight ? 'tw-bg-uofg-yellow' : ''}`}
+                      class={`tw-flex tw-items-center tw-justify-center tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey ${item.highlight ? 'tw-bg-uofg-yellow tw-font-bold tw-px-6' : ''}`}
                     >
                       {item.text.toUpperCase()}
                     </a>
