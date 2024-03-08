@@ -286,13 +286,13 @@ export class UofgHeader {
           <div class="tw-flex tw-w-fit">
             {this.isFullSize && (
               <div
-                class="tw-left-0 tw-h-full tw-w-[7.5rem] min-[1320px]:tw-absolute [&>svg]:tw-h-full"
+                class="tw-left-0 tw-h-full tw-w-[7.5rem] min-[1320px]:tw-absolute [&>svg]:tw-block [&>svg]:tw-w-auto [&>svg]:tw-h-full"
                 innerHTML={Decoration}
               ></div>
             )}
 
             <a
-              class="tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-aspect-square tw-h-full tw-transition-opacity hocus:tw-opacity-75 lg:tw-aspect-auto min-[1320px]:tw-absolute [&>svg]:tw-h-full"
+              class="min-[1320px]:tw-left-[max(calc((100%-1320px)/2),7.5rem)] tw-h-full tw-transition-opacity hocus:tw-opacity-75 tw-w-fit min-[1320px]:tw-absolute [&>svg]:tw-block [&>svg]:tw-w-auto [&>svg]:tw-h-full"
               href="https://www.uoguelph.ca"
               innerHTML={this.isFullSize ? FullSizeLogo : ReducedSizeLogo}
               aria-label="University of Guelph Home Page"
@@ -415,7 +415,7 @@ export class UofgHeader {
           <nav
             ref={node => (this.subContainer = node)}
             aria-label="Department/Topic"
-            class="tw-align-items tw-relative tw-flex tw-h-[5rem] tw-justify-end tw-bg-uofg-grey tw-px-[calc((100%-1320px)/2)] tw-text-3xl lg:tw-h-16"
+            class="tw-whitespace-nowrap tw-overflow-hidden tw-align-items tw-relative tw-flex tw-h-[5rem] tw-justify-end tw-bg-uofg-grey tw-px-[calc((100%-1320px)/2)] tw-text-3xl lg:tw-h-16"
           >
             {this.pageTitle &&
               (this.pageUrl != '' ? (
