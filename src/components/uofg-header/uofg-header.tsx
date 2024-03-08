@@ -33,6 +33,7 @@ type HeaderLink = {
 type HeaderMenu = {
   text: string;
   links: HeaderLink[];
+  icon?: IconDefinition;
 };
 
 const TRANSITION_BREAKPOINT = 1024;
@@ -49,7 +50,7 @@ const topLinks: (HeaderLink | HeaderMenu)[] = [
     href: 'https://news.uoguelph.ca/',
   },
   {
-    text: 'Resources',
+    text: 'Quick Links',
     links: [
       {
         text: 'Future Students',
@@ -74,7 +75,7 @@ const topLinks: (HeaderLink | HeaderMenu)[] = [
     ],
   },
   {
-    text: 'APPLY',
+    text: 'APPLY NOW',
     href: 'https://uoguelph.ca/apply/',
     highlight: true,
   },
@@ -103,18 +104,38 @@ const mainLinks: HeaderLink[] = [
   },
 ];
 
-const iconButtons: HeaderLink[] = [
-  {
-    text: 'University of Guelph Intranet',
-    href: 'https://intranet.uoguelph.ca/',
-    icon: faRightToBracket,
-  },
-  {
-    text: 'Search the University of Guelph',
-    href: 'https://uoguelph.ca/search',
-    icon: faSearch,
-  },
-];
+const search: HeaderLink = {
+  text: 'Search the University of Guelph',
+  href: 'https://uoguelph.ca/search',
+  icon: faSearch,
+};
+
+const account: HeaderMenu = {
+  text: 'Account Menu',
+  links: [
+    {
+      text: 'Intranet',
+      href: 'https://intranet.uoguelph.ca/',
+    },
+    {
+      text: 'WebAdvisor',
+      href: 'https://www.uoguelph.ca/webadvisor/',
+    },
+    {
+      text: 'GryphMail',
+      href: 'https://mail.uoguelph.ca/',
+    },
+    {
+      text: 'CourseLink',
+      href: 'https://courselink.uoguelph.ca/',
+    },
+    {
+      text: 'GryphLife',
+      href: 'https://gryphlife.uoguelph.ca/',
+    },
+  ],
+  icon: faRightToBracket,
+};
 
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.css', shadow: true })
 export class UofgHeader {
@@ -225,17 +246,21 @@ export class UofgHeader {
         {this.isFullSize && (
           <div class="tw-flex tw-h-16 tw-justify-end tw-bg-white tw-px-[calc((100%-1320px)/2)] tw-text-3xl">
             <ul class="tw-contents [&>li]:tw-contents">
-              {topLinks.map(item => {
+              {[...topLinks, account].map(item => {
                 if ('links' in item) {
                   return (
                     <li>
                       <uofg-menu class="tw-relative tw-block tw-h-full" auto-collapse={true}>
                         <button
-                          class="tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
+                          class={{
+                            '${} tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform':
+                              true,
+                            '[&>svg]:aria-expanded:tw-rotate-180': !item.icon,
+                          }}
                           slot="button"
                         >
-                          <span>{item.text.toUpperCase()}</span>
-                          <FontAwesomeIcon icon={faCaretDown} />
+                          {!item.icon && <span>{item.text.toUpperCase()}</span>}
+                          <FontAwesomeIcon icon={item.icon || faCaretDown} />
                         </button>
                         <ul
                           slot="content"
@@ -312,29 +337,54 @@ export class UofgHeader {
                   </a>
                 </li>
               ))}
-              {iconButtons.map(item => (
-                <li>
-                  <a
-                    class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-6 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
-                    href={item.href}
-                    aria-label={item.text}
-                  >
-                    <FontAwesomeIcon icon={item.icon as IconDefinition} />
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-6 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+                  href={search.href}
+                  aria-label={search.text}
+                >
+                  <FontAwesomeIcon icon={search.icon as IconDefinition} />
+                </a>
+              </li>
             </ul>
           ) : (
             <div class="tw-flex tw-h-full">
-              {iconButtons.map(item => (
-                <a
-                  class="tw-flex tw-aspect-square tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-l tw-border-solid tw-border-uofg-grey-950 tw-px-5 tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
-                  href={item.href}
-                  aria-label={item.text}
+              <a
+                class="tw-flex tw-aspect-square tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-l tw-border-solid tw-border-uofg-grey-950 tw-px-5 tw-transition-colors [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+                href={search.href}
+                aria-label={search.text}
+              >
+                <FontAwesomeIcon icon={search.icon as IconDefinition} />
+              </a>
+
+              {/* Account Menu */}
+              <uofg-menu class="tw-block tw-h-full" auto-collapse={true}>
+                <button
+                  slot="button"
+                  aria-label="Main Menu"
+                  class="tw-flex tw-aspect-square tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-l tw-border-solid tw-border-uofg-grey-950 tw-px-5 tw-transition-colors aria-expanded:tw-bg-white aria-expanded:tw-text-black [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
                 >
-                  <FontAwesomeIcon icon={item.icon as IconDefinition} />
-                </a>
-              ))}
+                  <FontAwesomeIcon icon={account.icon as IconDefinition} />
+                </button>
+
+                <div
+                  slot="content"
+                  class="tw-absolute tw-left-0 tw-top-full tw-z-50 tw-flex tw-max-h-[calc(100vh-5rem)] tw-w-full tw-flex-col tw-overflow-y-auto tw-bg-white tw-px-4 tw-text-black tw-shadow-md"
+                >
+                  <ul class="tw-flex tw-w-full tw-flex-col tw-py-6 [&>li]:tw-contents">
+                    {account.links.map(item => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class={`tw-w-full tw-border-0 tw-border-b tw-border-solid tw-border-uofg-grey-400 tw-p-5 tw-transition-colors hover:tw-bg-uofg-grey ${item?.highlight ? 'tw-bg-uofg-yellow' : ''}`}
+                        >
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </uofg-menu>
 
               {/* Main menu */}
               <uofg-menu class="tw-block tw-h-full" auto-collapse={true}>
