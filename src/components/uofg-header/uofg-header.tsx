@@ -4,9 +4,9 @@ import FullSizeLogo from './logo-full.svg';
 import ReducedSizeLogo from './logo-reduced.svg';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons/faRightToBracket';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 interface PageSpecificLink {
@@ -134,7 +134,7 @@ const account: HeaderMenu = {
       href: 'https://gryphlife.uoguelph.ca/',
     },
   ],
-  icon: faRightToBracket,
+  icon: faUser,
 };
 
 @Component({ tag: 'uofg-header', styleUrl: 'uofg-header.css', shadow: true })
@@ -326,7 +326,7 @@ export class UofgHeader {
 
           {/* Main Navigation Content */}
           {this.isFullSize ? (
-            <ul class="tw-flex tw-items-center tw-justify-center tw-text-4xl [&>li]:tw-contents">
+            <ul class="tw-flex tw-items-center tw-justify-center tw-text-3xl tw-tracking-wide tw-font-medium [&>li]:tw-contents">
               {mainLinks.map(item => (
                 <li>
                   <a
@@ -339,7 +339,7 @@ export class UofgHeader {
               ))}
               <li>
                 <a
-                  class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-6 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+                  class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-4 tw-pb-6 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
                   href={search.href}
                   aria-label={search.text}
                 >
