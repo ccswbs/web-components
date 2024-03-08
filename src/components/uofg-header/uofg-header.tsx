@@ -231,7 +231,7 @@ export class UofgHeader {
                     <li>
                       <uofg-menu class="tw-relative tw-block tw-h-full" auto-collapse={true}>
                         <button
-                          class="tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
+                          class="tw-flex tw-h-full tw-items-center tw-justify-center tw-gap-2 tw-p-4 tw-transition-colors hover:tw-bg-uofg-grey aria-expanded:tw-bg-uofg-grey [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current [&>svg]:tw-transition-transform [&>svg]:aria-expanded:tw-rotate-180"
                           slot="button"
                         >
                           <span>{item.text.toUpperCase()}</span>
@@ -484,7 +484,7 @@ export class UofgHeader {
                 })}
               </ul>
             ) : (
-              <uofg-menu class="tw-block tw-whitespace-normal tw-h-full lg:tw-relative" auto-collapse={true}>
+              <uofg-menu class="tw-block tw-h-full tw-whitespace-normal lg:tw-relative" auto-collapse={true}>
                 <button
                   class="tw-flex tw-aspect-square tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-l tw-border-solid tw-border-uofg-grey-300 tw-px-6 tw-transition-colors aria-expanded:tw-bg-uofg-yellow lg:tw-border-l-0 [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
                   slot="button"
