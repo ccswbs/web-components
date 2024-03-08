@@ -306,7 +306,7 @@ export class UofgHeader {
                 <li>
                   <a
                     href={item.href}
-                    class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-4 tw-pt-8 tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-uofg-yellow"
+                    class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-6 tw-pt-8 tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-uofg-yellow"
                   >
                     {item.text}
                   </a>
@@ -315,7 +315,7 @@ export class UofgHeader {
               {iconButtons.map(item => (
                 <li>
                   <a
-                    class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-4 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+                    class="tw-flex tw-h-full tw-items-center tw-justify-center tw-border-0 tw-border-b-8 tw-border-solid tw-border-transparent tw-p-6 tw-pt-8 tw-text-uofg-yellow tw-transition-colors hover:tw-border-uofg-yellow hover:tw-text-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
                     href={item.href}
                     aria-label={item.text}
                   >
