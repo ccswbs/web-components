@@ -1,3 +1,5 @@
+import tw from '../styles/tw.css';
+
 export const WEB_ANIMATIONS_SUPPORTED = () => {
   return typeof window !== 'undefined' && 'animate' in HTMLElement.prototype;
 };
@@ -16,3 +18,20 @@ export const getAllFocusableElements = (container: Element | Document): Element[
 
   return Array.from(container.querySelectorAll(query));
 };
+
+let stylesheet: CSSStyleSheet | null = null;
+
+if(typeof CSSStyleSheet === 'function') {
+  stylesheet = new CSSStyleSheet();
+  stylesheet.replaceSync(tw);
+}
+
+export const attachTailwind = (root: ShadowRoot) => {
+  if(stylesheet) {
+    root.adoptedStyleSheets = [...root.adoptedStyleSheets, stylesheet];
+  } else {
+    const style = document.createElement('style');
+    style.innerHTML = tw;
+    root.prepend(style);
+  }
+}

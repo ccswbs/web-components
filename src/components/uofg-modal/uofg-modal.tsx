@@ -1,13 +1,13 @@
 import { Component, Watch, Element, Event, EventEmitter, State, Prop, Method, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { getAllFocusableElements } from 'utils/utils';
+import { attachTailwind, getAllFocusableElements } from 'utils/utils';
 
 /**
  * @part content - The modal content container.
  * @part dismiss-button - The button that closes the modal.
  */
-@Component({ tag: 'uofg-modal', styleUrl: 'uofg-modal.css', shadow: true })
+@Component({ tag: 'uofg-modal', shadow: true })
 export class UofgModal {
   /**
    * The label for the modal. It is recommended that you set this to describe the modal's content.
@@ -56,6 +56,8 @@ export class UofgModal {
   private inertElements: HTMLElement[] = [];
 
   connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
+
     // Bind event handlers so that 'this' is always the component instance.
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);

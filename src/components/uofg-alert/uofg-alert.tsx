@@ -1,9 +1,15 @@
-import { Component, h } from '@stencil/core';
+import { Component, Element, h } from '@stencil/core';
 import { FontAwesomeIcon } from 'utils/font-awesome-icon';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { attachTailwind } from '../../utils/utils';
 
-@Component({ tag: 'uofg-alert', styleUrl: 'uofg-alert.css', shadow: true })
+@Component({ tag: 'uofg-alert', shadow: true })
 export class UofgAlert {
+  @Element() el: HTMLUofgAlertElement;
+
+  connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
+  }
   render() {
     return (
       <div class="tw-flex tw-flex-col tw-text-3xl">
@@ -17,7 +23,7 @@ export class UofgAlert {
           <slot name="message"></slot>
         </div>
 
-        <div class="tw-flex tw-bg-uofg-grey tw-py-4 tw-px-8 tw-text-2xl">
+        <div class="tw-flex tw-bg-uofg-grey tw-px-8 tw-py-4 tw-text-2xl">
           <slot name="footer"></slot>
         </div>
       </div>

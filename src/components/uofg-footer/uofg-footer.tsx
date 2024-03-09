@@ -17,6 +17,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons/faTiktok';
 import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons/faTwitterSquare';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube';
+import { attachTailwind } from '../../utils/utils';
 
 type ExtraLink = {
   text: string;
@@ -117,13 +118,15 @@ const links = [
   },
 ];
 
-@Component({ tag: 'uofg-footer', styleUrl: 'uofg-footer.css', shadow: true })
+@Component({ tag: 'uofg-footer', shadow: true })
 export class UofgFooter {
   @Element() el: HTMLUofgFooterElement;
   @State() private extraLinks: ExtraLink[] = [];
   private observer: MutationObserver;
 
   connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
+
     this.updateExtraLinks();
     this.observer ??= new MutationObserver(() => {
       this.updateExtraLinks();
@@ -154,7 +157,7 @@ export class UofgFooter {
         )}
 
         <div class="tw-flex tw-flex-col tw-content-center tw-gap-8 tw-bg-black tw-px-[max(calc((100%-1320px)/2),2rem)] tw-py-8 tw-text-white md:tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4">
-          <div class="tw-flex tw-flex-col tw-justify-between tw-gap-4">
+          <div class="tw-flex tw-flex-col tw-justify-between tw-gap-2">
             <a
               href="https://www.uoguelph.ca/improve-life"
               aria-label="Improve Life"
@@ -191,13 +194,13 @@ export class UofgFooter {
           </div>
 
           <div class="md:tw-col-span-2 md:tw-row-start-2 lg:tw-row-auto">
-            <ul class="tw-flex tw-flex-col tw-gap-4 md:tw-grid md:tw-grid-cols-2 [&>li]:tw-contents">
+            <ul class="tw-flex tw-flex-col tw-gap-2 md:tw-grid md:tw-grid-cols-2 [&>li]:tw-contents">
               {links.map(item => (
                 <li>
                   <a
                     href={item.href}
                     title={item?.title ?? ''}
-                    class="tw-flex tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
+                    class="tw-flex tw-justify-center tw-items-center tw-w-fit tw-gap-3 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-transition-colors hocus:tw-border-white [&>svg]:tw-h-[1em] [&>svg]:tw-fill-uofg-yellow"
                   >
                     <FontAwesomeIcon icon={item.icon} />
                     <span>{item.text}</span>
@@ -214,7 +217,7 @@ export class UofgFooter {
             <span>N1G 2W1</span>
             <a
               href="tel:1-519-824-4120"
-              class="tw-flex tw-w-fit tw-gap-2 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-text-uofg-blue tw-transition-colors hocus:tw-border-current [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
+              class="tw-flex tw-justify-center tw-items-center tw-w-fit tw-gap-2 tw-border-0 tw-border-b-2 tw-border-dotted tw-border-transparent tw-text-uofg-blue tw-transition-colors hocus:tw-border-current [&>svg]:tw-h-[1em] [&>svg]:tw-fill-current"
             >
               <FontAwesomeIcon icon={faPhoneFlip} />
               <span>519-824-4120</span>

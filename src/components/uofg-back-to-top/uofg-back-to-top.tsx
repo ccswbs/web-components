@@ -1,16 +1,19 @@
-import { Component, Listen, Prop, State, h } from '@stencil/core';
+import { Component, Element, Listen, Prop, State, h } from '@stencil/core';
 import { FontAwesomeIcon } from '../../utils/font-awesome-icon';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { attachTailwind } from '../../utils/utils';
 
-@Component({ tag: 'uofg-back-to-top', styleUrl: 'uofg-back-to-top.css', shadow: true })
+@Component({ tag: 'uofg-back-to-top', shadow: true })
 export class UofgBackToTop {
   /**
    * The number of pixels the user has to scroll down before the button appears.
    */
   @Prop() threshold: number = 50;
   @State() isVisible: boolean = false;
+  @Element() el: HTMLUofgBackToTopElement;
 
   connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
     this.onScroll();
   }
 

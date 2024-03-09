@@ -8,6 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { attachTailwind } from '../../utils/utils';
 
 interface PageSpecificLink {
   text: string;
@@ -137,7 +138,7 @@ const account: HeaderMenu = {
   icon: faUser,
 };
 
-@Component({ tag: 'uofg-header', styleUrl: 'uofg-header.css', shadow: true })
+@Component({ tag: 'uofg-header', shadow: true })
 export class UofgHeader {
   /**
    * The title of the department/topic that the header is being used for. For example, for the Convocation pages, this would be set to "Convocation".
@@ -159,6 +160,8 @@ export class UofgHeader {
   private needsOverflowWidthUpdate: boolean = false;
 
   connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
+
     this.updateFullSize();
     this.updatePageSpecificContent();
 
@@ -326,7 +329,7 @@ export class UofgHeader {
 
           {/* Main Navigation Content */}
           {this.isFullSize ? (
-            <ul class="tw-flex tw-items-center tw-justify-center tw-text-3xl tw-tracking-wide tw-font-medium [&>li]:tw-contents">
+            <ul class="tw-flex tw-items-center tw-justify-center tw-text-3xl tw-font-medium tw-tracking-wide [&>li]:tw-contents">
               {mainLinks.map(item => (
                 <li>
                   <a

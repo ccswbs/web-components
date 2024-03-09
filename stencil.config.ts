@@ -1,15 +1,10 @@
 import { Config } from '@stencil/core';
-import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
-import tailwind, { tailwindHMR, tailwindGlobal, PluginOpts } from 'stencil-tailwind-plugin';
-import tailwindConfig from './tailwind.config.js';
-
-const twOpts = {
-  ...PluginOpts.DEFAULT,
-  debug: false,
-  stripComments: true,
-  tailwindConf: tailwindConfig,
-};
+import { postcss } from '@stencil-community/postcss';
+import tailwindcss from 'tailwindcss';
+import nesting from 'tailwindcss/nesting';
+import combine from 'postcss-combine-duplicated-selectors';
+import autoprefixer from 'autoprefixer'
 
 export const config: Config = {
   namespace: 'uofg-web-components',
@@ -51,11 +46,13 @@ export const config: Config = {
   validatePrimaryPackageOutputTarget: true,
   plugins: [
     inlineSvg(),
-    tailwindGlobal(twOpts),
-    tailwind(twOpts),
-    tailwindHMR({
-      ...twOpts,
-      minify: false,
-    }),
-  ],
+    postcss({
+      plugins: [
+        nesting(),
+        tailwindcss(),
+        combine(),
+        autoprefixer()
+      ]
+    })
+  ]
 };

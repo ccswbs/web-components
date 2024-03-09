@@ -1,11 +1,17 @@
-import { Component, Fragment, Prop, h } from '@stencil/core';
+import { Component, Fragment, Element, Prop, h } from '@stencil/core';
+import { attachTailwind } from '../../utils/utils';
 
-@Component({ tag: 'uofg-card', styleUrl: 'uofg-card.css', shadow: true })
+@Component({ tag: 'uofg-card', shadow: true })
 export class UofgCard {
   /**
    * The URL the card should link to. If this property is set, the card will be rendered as an anchor ("a" tag).
    */
   @Prop() href: string;
+  @Element() el: HTMLUofgCardElement;
+
+  connectedCallback() {
+    attachTailwind(this.el.shadowRoot as ShadowRoot);
+  }
 
   render() {
     const Body = () => (

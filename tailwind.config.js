@@ -104,7 +104,7 @@ module.exports = {
   ],
   prefix: 'tw-',
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
-  important: true,
+  important: false,
 };
