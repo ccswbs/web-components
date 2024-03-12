@@ -1,4 +1,4 @@
-import tw from '../styles/tw.css';
+import tw from '../styles/tailwind.css';
 
 export const WEB_ANIMATIONS_SUPPORTED = () => {
   return typeof window !== 'undefined' && 'animate' in HTMLElement.prototype;
