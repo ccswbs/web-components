@@ -1,6 +1,6 @@
 # University of Guelph Web Components Library
 
-It is recommended that you read the [Stencil docs](https://stenciljs.com/docs/overview) and read about the various technologies under [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) before continuing. This will give you a good understanding of how the components are built and how to develop them.
+It is recommended that you read the [Stencil docs](https://stenciljs.com/docs/overview), the [TailwindCSS docs](https://tailwindcss.com) and read about the various technologies under [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) before continuing. This will give you a good understanding of how the components are built and how to develop them.
 
 ## Getting Started
 
@@ -29,9 +29,9 @@ There are a few important folders in this repo:
 
 - `src/components`: This is where all the components are stored. Each component has its own directory with the
   component's files inside.
-- `src/styles/global.scss`: This is where global styles are stored. This acts as a place to define css variables as well as any
-  other styles that are needed outside the shadow dom of any specific component.
-- `src/styles`: This is where any scss files that are meant to be imported into a component's stylesheet, for example `src/styles/theme.scss` contains variables, mixins, etc that make it easier for a consistent style between components.
+- `src/styles/global.css`: This is where global styles are stored. This acts as a place to define css variables as well as any
+  other styles that are needed outside the shadow dom of the components.
+- `src/styles/tailwind.css`: This is the base TailwindCSS stylesheet. You can define layers here, for more information see [here](https://tailwindcss.com/docs/functions-and-directives#layer).
 - `src/index.html`: This is the html file for the demo page. This is where you can add new components and other markup
   to the demo page.
 - `src/index.ts`: This is the entry point for the demo page. This file should not be modified.
@@ -41,6 +41,7 @@ There are a few important folders in this repo:
   the `font-awesome-icon.tsx` file is a functional component ([read more
   here](https://stenciljs.com/docs/functional-components)), it can be used to display font awesome icons in components
   using the Font Awesome JavaScript/SVG library.
+- `tailwind.config.js`: This is our TailwindCSS config file, it contains the definition of our TailwindCSS theme. For the most part this file should be left untouched unless you need to modify a theme value.
 - `www`: This is where the demo page is built to. This directory is automatically generated and should not be modified.
 - `dist`: This is where the components are built to. This directory is automatically generated and should not be
   modified.
@@ -79,7 +80,7 @@ You will be prompted to enter the name of the component. Note that the name must
 uofg (e.g. `uofg-new-component`).
 
 Finally, you will be prompted to select the additional files that should be generated (i.e. css, unit tests, e2e tests).
-Currently unit tests and e2e tests are not setup, so you can skip those for now.
+Currently unit tests and e2e tests are not setup and as we are using TailwindCSS we don't need a separate css file, so it's recommended you unselect those for now.
 
 Once the command is complete, a new directory in `src/components` with the name of the component will be created. Inside
 this directory you will find the files that you selected to generate alongside a .tsx file which serves as the
@@ -109,7 +110,7 @@ GIVE AN EXAMPLE OF HOW TO USE THE COMPONENT
 
 Ensure the last line `<!-- Auto Generated Below --> ` is included, as Stencil uses it for the documentation it automatically generates itself.
 
-Some documentation will live inside the .tsx or .css/.scss file of a component, for example properties, methods, and events, are all done inside the .tsx, and for css variables inside the .css/.scss. See existing components for examples, or [read the Stencil documentation](https://stenciljs.com/docs/doc-generation).
+Some documentation will live inside the .tsx file of a component, for example properties, methods, and events, are all done inside the .tsx. See existing components for examples, or [read the Stencil documentation](https://stenciljs.com/docs/doc-generation).
 
 Once, the documentation is made/updated, run `npm run build`, and the documentation will be generated in the `docs` folder.
 
@@ -119,7 +120,8 @@ The University of Guelph Web Components Library is hosted as a npm package, maki
 
 1. You must have a npm account with organization access to [https://www.npmjs.com/package/@uoguelph/web-components](https://www.npmjs.com/package/@uoguelph/web-components).
 2. Do a final check, make sure the changes made haven't broken anything, ensure all the components have documentation, etc.
-3. You must update the package version using the command `npm version NEW_VERSION_NUMBER_HERE`. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning) or instead of specifying the version your self use one of the following `major | minor | patch | premajor | preminor | prepatch` (NOTE: `premajor | preminor | prepatch` must be following with `--preid rc` )
-4. Finally, publish the package using the command `npm publish `.
+3. Test a beta version of the updated package first and test it on other environments (for example, gus).
+4. You must update the package version using the command `npm version NEW_VERSION_NUMBER_HERE`. Note the version number must follow the semantic version guidelines outlined [here](https://docs.npmjs.com/about-semantic-versioning) or instead of specifying the version your self use one of the following `major | minor | patch | premajor | preminor | prepatch` (NOTE: `premajor | preminor | prepatch` must be following with `--preid rc` )
+5. Finally, publish the package using the command `npm publish `.
 
 It's important to always test the package on other environments
