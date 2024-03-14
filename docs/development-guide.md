@@ -97,12 +97,6 @@ Below is an example of the bare minimum needed for a component:
 
 For more information on how to build components, see the source code of the existing components.
 
-## Working on existing components
-
-When working on existing components, it is important to follow the same coding style as the rest of the components. This includes using the same naming conventions, and following the same structure.
-
-When adding new features to a component, it is important to update the documentation for that component. This includes updating the readme.md file in the `docs` folder.
-
 ## Documenting a component
 
 Its important the whenever a new component is added, or an older one has new features, that there is good documentation explaining how the component is actually used.
