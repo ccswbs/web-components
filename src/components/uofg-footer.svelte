@@ -34,6 +34,7 @@
 
 <script>
   import attachTailwind from '../lib/attach-tailwind.js';
+  import ImproveLife from '../svg/improve-life.svelte';
 
   import {
     faFacebookSquare,
@@ -181,9 +182,9 @@
       <a
         href="https://www.uoguelph.ca/improve-life"
         aria-label="Improve Life"
-        class="flex transition-opacity focus:opacity-75 hover:opacity-75"
+        class="flex transition-opacity focus:opacity-75 hover:opacity-75 [&>svg]:block [&>svg]:h-[1.6em] [&>svg]:mb-4"
       >
-        <img class="block h-[1.6em] mb-4 ml-[-2px]" src="improve-life.svg" alt="Improve Life" />
+        <ImproveLife />
       </a>
 
       <ul class="flex gap-3 text-4xl [&>li]:contents">

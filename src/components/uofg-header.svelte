@@ -75,6 +75,9 @@
   import Menu from '../lib/menu.svelte';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+  import Logo from '../svg/logo.svelte';
+  import LogoSmall from '../svg/logo-small.svelte';
+  import Decorative from '../svg/decorative.svelte';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
@@ -262,20 +265,20 @@
     <div class="flex w-fit">
       {#if windowWidth >= BREAKPOINT}
         <!-- Decorative SVG -->
-        <div class="left-0 h-full w-[7.5rem] min-[1320px]:absolute">
-          <img class="block h-full w-auto" src="decorative.svg" aria-hidden="true" alt="" width={75} />
+        <div class="left-0 h-full w-[7.5rem] min-[1320px]:absolute [&>svg]:block [&>svg]:h-full [&>svg]:w-auto">
+          <Decorative />
         </div>
       {/if}
 
       <a
-        class="flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)]"
+        class={`flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full ${windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : '[&>svg]:w-[5rem]'}`}
         href="https://www.uoguelph.ca"
         aria-label="University of Guelph Home Page"
       >
         {#if windowWidth >= BREAKPOINT}
-          <img class="block h-full w-[18.4rem]" src="logo.svg" width={184} alt="University of Guelph Logo" />
+          <Logo />
         {:else}
-          <img class="block h-full w-[5rem]" src="logo-small.svg" width={50} alt="University of Guelph Logo" />
+          <LogoSmall />
         {/if}
       </a>
     </div>
