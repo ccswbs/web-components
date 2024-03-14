@@ -198,7 +198,7 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<header class="relative w-full font-condensed text-3xl text-black">
+<header class="relative z-10 w-full font-condensed text-3xl text-black">
   {#if windowWidth >= BREAKPOINT}
     <!-- Top Navigation Bar -->
     <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
