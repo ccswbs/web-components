@@ -358,6 +358,7 @@
                     buttonClass="flex border-0 border-b border-solid border-uofg-grey-500 w-full items-center justify-between gap-2 p-4 transition-colors hover:bg-uofg-grey focus:bg-uofg-grey aria-expanded:bg-uofg-grey [&_svg]:aria-expanded:rotate-180"
                     contentClass="flex flex-col w-full flex-col bg-white text-black [&>li]:contents"
                     as="ul"
+                    autoCollapse={false}
                   >
                     <span
                       class="w-full flex gap-2 justify-between [&>svg]:transition-transform"
@@ -496,6 +497,7 @@
                     buttonClass="flex border-0 border-b border-solid border-uofg-grey-500 w-full items-center justify-between gap-2 p-4 transition-colors hover:bg-uofg-grey focus:bg-uofg-grey aria-expanded:bg-uofg-grey [&_svg]:aria-expanded:rotate-180"
                     contentClass="flex flex-col w-full flex-col bg-white text-black [&>li]:contents"
                     as="ul"
+                    autoCollapse={false}
                   >
                     <span class="w-full flex gap-2 justify-between [&>svg]:transition-transform" slot="button">
                       <span class="mr-auto">{item.title}</span>
