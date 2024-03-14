@@ -12,4 +12,10 @@
     --uofg-menu-animation-duration: 0.2s;
     --uofg-menu-animation-easing: ease-in-out;
   }
+
+  svg.fa-icon {
+    display: block;
+    height: 1em;
+    fill: currentColor;
+  }
 }

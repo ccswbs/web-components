@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Svelte</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+    <script type="module" src="/src/main.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #app {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      main {
+        flex: 1
+      }
+
+      uofg-header * {
+        display: none;
+      }
+
+      uofg-footer * {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <uofg-header page-title="Example Department" page-url="#">
+        <a href="#">Example Menu Link</a>
+        <a href="#">Example Menu Link 2</a>
+
+        <ul data-title="Example Menu">
+          <li><a href="#">Example Menu Link 1</a></li>
+          <li><a href="#">This is a really long Example Menu Link 2</a></li>
+          <li><a href="#">Example Menu Link 3</a></li>
+        </ul>
+      </uofg-header>
+
+      <main>
+        <button id="modal-btn">Open Modal</button>
+        <uofg-modal label="Alert Modal" static-backdrop alert-dialog auto-open>
+          <uofg-alert>
+            <span slot="title">YOUR TITLE HERE</span>
+            <span slot="subtitle">YOUR SUBTITLE HERE</span>
+            <span slot="message">YOUR ALERT MESSAGE HERE</span>
+            <span slot="footer">YOUR FOOTER CONTENT HERE</span>
+          </uofg-alert>
+        </uofg-modal>
+      </main>
+
+      <uofg-footer>
+        <a href="#">Example Menu Link</a>
+        <a href="#">Example Menu Link 1</a>
+        <a href="#">Example Menu Link 2</a>
+        <a href="#">Example Menu Link 3</a>
+        <a href="#">Example Menu Link 4</a>
+        <a href="#">Example Menu Link 5</a>
+        <a href="#">Example Menu Link 6</a>
+      </uofg-footer>
+    </div>
+
+    <script>
+      document.getElementById('modal-btn').addEventListener('click', () => {
+        document.querySelector('uofg-modal').open();
+      });
+    </script>
+  </body>
+</html>
