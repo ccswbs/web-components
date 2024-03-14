@@ -12,6 +12,9 @@
   export let contentClass = '';
   export let autoCollapse = true;
 
+  // For accessibility, the button may need a label
+  export let buttonAriaLabel;
+
   export { className as class };
 </script>
 
@@ -27,6 +30,7 @@
     class={buttonClass}
     aria-haspopup="true"
     aria-expanded={open}
+    aria-label={buttonAriaLabel}
     on:click={e => {
       open = !open;
       e.target.focus();

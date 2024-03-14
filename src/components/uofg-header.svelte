@@ -186,7 +186,6 @@
   export let subNavigation;
   export let pageTitle;
   export let pageURL;
-  let debounceTimeoutID;
 
   $: {
     window.requestAnimationFrame(() => {
@@ -199,7 +198,7 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<header class="relative w-full font-condensed text-3xl text-black">
+<header class="relative z-10 w-full font-condensed text-3xl text-black">
   {#if windowWidth >= BREAKPOINT}
     <!-- Top Navigation Bar -->
     <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
@@ -214,12 +213,13 @@
                 buttonClass={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey aria-expanded:bg-uofg-grey ${item.icon ? '' : '[&_svg]:aria-expanded:rotate-180'}`}
                 contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
                 as="ul"
+                buttonAriaLabel={item.icon ? item.text : undefined}
+
               >
                 <span
                   class="flex gap-2 [&>svg]:transition-transform"
                   class:bg-uofg-yellow={item.highlight}
                   slot="button"
-                  aria-label={item.icon ? item.text : undefined}
                 >
                   {#if item.icon}
                     <FontAwesomeIcon icon={item.icon} />

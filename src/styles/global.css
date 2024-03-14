@@ -44,6 +44,7 @@ uofg-modal {
   display: block;
   position: fixed;
   visibility: hidden;
+  z-index: 1000;
 }
 
 uofg-alert {
