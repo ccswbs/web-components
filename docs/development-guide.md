@@ -137,6 +137,17 @@ DESCRIPTION OF THE METHOD
 
 Type: `RETURN_TYPE`
 
+## CSS Custom Properties
+
+| Property | Description | Default |
+| -------- | ----------- | ------- |
+
+## Shadow Parts
+
+| Part               | Description                       |
+| ------------------ | --------------------------------- |
+
+
 ---
 
 [University of Guelph Web Components](https://github.com/ccswbs/web-components)
