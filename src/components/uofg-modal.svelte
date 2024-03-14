@@ -18,10 +18,6 @@
         }
         connectedCallback() {
           super.connectedCallback();
-
-          if (this.autoOpen) {
-            this.isOpen = true;
-          }
         }
         disconnectedCallback() {
           super.disconnectedCallback();
@@ -96,6 +92,12 @@
       }
     }
   };
+
+  $: {
+    if (autoOpen) {
+      isOpen = true;
+    }
+  }
 
   $: {
     if (isOpen) {
