@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
-  content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{html,js,ts,svelte}'],
   theme: {
     extend: {
       fontFamily: {
@@ -97,14 +95,8 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant('hocus', ['&:hover', '&:focus']);
-    }),
-  ],
-  prefix: 'tw-',
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
-  important: true,
+  important: false,
 };

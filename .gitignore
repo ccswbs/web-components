@@ -29,3 +29,23 @@ UserInterfaceState.xcuserstate
 
 # Fleet config directories
 .fleet
+
+# Test coverage
+coverage
+*.lcov
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.test
+
+# build output
+dist
+.vercel
+
+# OS-specific
+.DS_Store
+
+tmp

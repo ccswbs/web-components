@@ -1,54 +1,56 @@
-@layer base {
-  :root {
-    font-size: 62.5%;
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+uofg-header {
+  display: block;
+  width: 100%;
+  height: 5rem !important;
+  background-color: black;
+
+  * {
+    display: none;
   }
 
-  body {
-    font-size: 1.6rem;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+  &:has(*) {
+    height: 10rem !important;
   }
 
-  uofg-header {
-    display: block;
-    width: 100%;
-    height: 5rem;
-    background-color: black;
-
-    * {
-      display: none;
-    }
+  @media screen and (min-width: 1024px) {
+    height: 14rem !important;
 
     &:has(*) {
-      height: 10rem;
-    }
-
-    @media screen and (min-width: 1024px) {
-      height: 14rem;
-
-      &:has(*) {
-        height: 18rem;
-      }
+      height: 18rem !important;
     }
   }
+}
 
-  uofg-menu {
-    display: block;
-  }
+uofg-menu {
+  display: block;
+}
 
-  uofg-footer {
-    display: block;
-  }
+uofg-footer {
+  display: block;
+}
 
-  uofg-modal {
-    display: block;
-    position: fixed;
-    visibility: hidden;
-  }
+uofg-modal {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+}
 
-  uofg-alert {
-    display: block;
-    max-width: 100rem;
-  }
+uofg-alert {
+  display: block;
+  max-width: 100rem;
+}
+
+uofg-card {
+  display: block;
 }
