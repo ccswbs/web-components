@@ -34,7 +34,7 @@
 
 <script>
   import attachTailwind from '../lib/attach-tailwind.js';
-  import ImproveLife from '../svg/improve-life.svelte';
+  import ImproveLife from '../svg/improve-life.svg';
 
   import {
     faFacebookSquare,

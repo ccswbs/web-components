@@ -75,9 +75,9 @@
   import Menu from '../lib/menu.svelte';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
-  import Logo from '../svg/logo.svelte';
-  import LogoSmall from '../svg/logo-small.svelte';
-  import Decorative from '../svg/decorative.svelte';
+  import Logo from '../svg/logo.svg';
+  import LogoSmall from '../svg/logo-small.svg';
+  import Decorative from '../svg/decorative.svg';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
