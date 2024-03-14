@@ -62,8 +62,6 @@ Opens the modal.
 
 Type: `void`
 
-empty Promise.
-
 ### `setState(value: boolean) => void`
 
 Set the state of the modal.
@@ -86,7 +84,7 @@ Toggle the state of the modal.
 
 Type: `boolean`
 
-A promise which will resolve to true (if the modal opened) or false (if the modal closed).
+A boolean which is true if the modal opened or false if the modal closed.
 
 
 ## Shadow Parts
