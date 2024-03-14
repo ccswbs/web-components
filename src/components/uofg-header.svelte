@@ -186,7 +186,6 @@
   export let subNavigation;
   export let pageTitle;
   export let pageURL;
-  let debounceTimeoutID;
 
   $: {
     window.requestAnimationFrame(() => {
