@@ -3,7 +3,7 @@ import './styles/global.css';
 let observer = null;
 
 export function loadComponent(name) {
-  import(`./components/uofg-${name}.svelte`)
+  import(`./components/${name}.svelte`)
     .then(() => {
       console.log(`Loaded UofG web component: ${name}`);
     })
@@ -35,7 +35,7 @@ export function scan(root) {
     });
 
     while (walker.nextNode()) {
-      const name = walker?.currentNode?.tagName?.toLowerCase()?.replace('uofg-', '');
+      const name = walker?.currentNode?.tagName?.toLowerCase();
       toLoad.add(name);
     }
   }
@@ -57,7 +57,7 @@ if (typeof window !== 'undefined') {
           }
 
           if (added.tagName.startsWith('UOFG-')) {
-            const name = added.tagName.toLowerCase().replace('uofg-', '');
+            const name = added.tagName.toLowerCase();
             loadComponent(name);
           }
 

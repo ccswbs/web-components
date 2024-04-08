@@ -5,6 +5,14 @@
   "module": "dist/uofg-web-components/uofg-web-components.esm.js",
   "type": "module",
   "unpkg": "dist/uofg-web-components/uofg-web-components.esm.js",
+  "exports": {
+    "./dist/uofg-web-components/*": "./dist/*",
+    ".": "./dist/uofg-web-components.esm.js",
+    "./*.js": "./dist/*.esm.js",
+    "./*": "./dist/*.esm.js",
+    "./stylesheet": "./dist/uofg-web-components.css",
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist/"
   ],
