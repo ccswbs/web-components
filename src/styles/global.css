@@ -9,7 +9,7 @@ body {
   padding: 0;
 }
 
-uofg-header {
+uofg-header:not(:defined) {
   display: block;
   width: 100%;
   height: 5rem !important;
@@ -32,26 +32,36 @@ uofg-header {
   }
 }
 
-uofg-menu {
-  display: block;
-}
-
 uofg-footer {
-  display: block;
+  &:defined {
+    display: block;
+  }
+
+  &:not(:defined) {
+    display: none;
+  }
 }
 
 uofg-modal {
-  display: block;
-  position: fixed;
-  visibility: hidden;
-  z-index: 1000;
+  &:defined {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    z-index: 1000;
+  }
+
+  &:not(:defined) {
+    display: none;
+  }
 }
 
 uofg-alert {
-  display: block;
-  max-width: 100rem;
-}
+  &:defined {
+    display: block;
+    max-width: 100rem;
+  }
 
-uofg-card {
-  display: block;
+  &:not(:defined) {
+    display: none;
+  }
 }
