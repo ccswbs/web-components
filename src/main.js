@@ -1,5 +1,7 @@
 import './styles/global.css';
 
+let observer = null;
+
 export function loadComponent(name) {
   import(`./components/uofg-${name}.svelte`)
     .then(() => {
@@ -10,23 +12,63 @@ export function loadComponent(name) {
     });
 }
 
-if (typeof window !== 'undefined') {
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, node => {
-    if (node.tagName.startsWith('UOFG-')) {
-      return NodeFilter.FILTER_ACCEPT;
+export function watchDOM(root) {
+  if (typeof document !== 'undefined' && typeof MutationObserver === 'function') {
+    observer?.observe(root ?? document.body, { subtree: true, childList: true });
+  }
+}
+
+export function stopWatchingDOM() {
+  observer?.disconnect();
+}
+
+export function scan(root) {
+  const toLoad = new Set();
+
+  if (typeof window !== 'undefined') {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, node => {
+      if (node.tagName.startsWith('UOFG-')) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+
+      return NodeFilter.FILTER_SKIP;
+    });
+
+    while (walker.nextNode()) {
+      const name = walker?.currentNode?.tagName?.toLowerCase()?.replace('uofg-', '');
+      toLoad.add(name);
     }
-
-    return NodeFilter.FILTER_SKIP;
-  });
-
-  const needed = new Set();
-
-  while (walker.nextNode()) {
-    const name = walker?.currentNode?.tagName?.toLowerCase()?.replace('uofg-', '');
-    needed.add(name);
   }
 
-  for (const name of needed) {
+  return toLoad;
+}
+
+if (typeof window !== 'undefined') {
+  for (const name of scan(document.body)) {
     loadComponent(name);
   }
+
+  if (typeof MutationObserver === 'function') {
+    observer = new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        for (const added of mutation.addedNodes) {
+          if (added.nodeType !== Node.ELEMENT_NODE) {
+            return;
+          }
+
+          if (added.tagName.startsWith('UOFG-')) {
+            const name = added.tagName.toLowerCase().replace('uofg-', '');
+            loadComponent(name);
+          }
+
+          const toLoad = scan(added);
+          for (const name of toLoad) {
+            loadComponent(name);
+          }
+        }
+      }
+    });
+  }
+
+  watchDOM();
 }
