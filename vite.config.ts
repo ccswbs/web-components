@@ -18,7 +18,7 @@ fs.readdirSync(path.resolve(__dirname, 'src', 'components'), { withFileTypes: tr
 export default defineConfig({
   plugins: [svelte(), fullReload('src/**/*', { delay: 100 })],
   build: {
-    outDir: 'dist',
+    outDir: 'dist/uofg-web-components',
     lib: {
       entry: entries,
       name: 'UofGWebComponents',
