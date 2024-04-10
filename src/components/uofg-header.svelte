@@ -510,9 +510,9 @@
                     {#each item.links as link}
                       <li>
                         <a
-                          class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey"
-                          href={link.href}
                           {...link.attributes}
+                          class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${link.attributes?.class ?? ""}`}
+                          href={link.href}
                         >
                           {link.text}
                         </a>
