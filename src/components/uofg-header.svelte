@@ -437,9 +437,9 @@
                 <!-- Link -->
 
                 <a
-                  class="flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow"
-                  href={item.href}
                   {...item.attributes}
+                  class={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow ${item.attributes?.class ?? ""}`}
+                  href={item.href}
                 >
                   {item.text}
                 </a>
@@ -460,9 +460,9 @@
                   {#each item.links as link}
                     <li>
                       <a
-                        class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow"
-                        href={link.href}
                         {...link.attributes}
+                        class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow ${link.attributes?.class ?? ""}`}
+                        href={link.href}
                       >
                         {link.text}
                       </a>
@@ -487,9 +487,9 @@
                 {#if item.text}
                   <!-- Link -->
                   <a
-                    class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey"
-                    href={item.href}
                     {...item.attributes}
+                    class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${item.attributes?.class ?? ""}`}
+                    href={item.href}
                   >
                     {item.text}
                   </a>
