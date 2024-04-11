@@ -158,7 +158,7 @@
 </script>
 
 <footer>
-  {#if Array.isArray(subFooter)}
+  {#if Array.isArray(subFooter) && subFooter.length > 0}
     <ul
       class="flex flex-wrap items-center justify-center bg-uofg-blue-50 p-6 px-[max(calc((100%-1320px)/2),2rem)]"
     >
