@@ -93,6 +93,9 @@ module.exports = {
           DEFAULT: '#333333',
         },
       },
+      spacing: {
+        'max-content-width': 'var(--max-content-width, 1320px)',
+      },
     },
   },
   corePlugins: {

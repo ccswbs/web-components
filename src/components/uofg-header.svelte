@@ -201,7 +201,7 @@
 <header class="relative z-10 w-full font-condensed text-3xl text-black">
   {#if windowWidth >= BREAKPOINT}
     <!-- Top Navigation Bar -->
-    <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
+    <nav class="flex h-16 justify-end bg-white px-[calc((100%-theme(spacing.max-content-width))/2)] text-3xl" aria-label="Secondary">
       <!-- Top Navigation Links -->
 
       <ul class="flex h-full items-center justify-end [&>li]:contents">
@@ -256,22 +256,23 @@
     </nav>
   {/if}
 
+  <div class="flex h-[5rem] lg:h-[10rem] bg-black">
   <!-- Main Navigation Bar -->
+    <!-- Decorative SVG -->
+    {#if windowWidth >= BREAKPOINT}
+      <div class="left-0 h-full w-[7.5rem] [&>svg]:block [&>svg]:h-full [&>svg]:w-auto">
+        <Decorative />
+      </div>
+    {/if}
+
   <nav
-    class="relative w-full justify-between flex h-[5rem] lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white"
+    class="relative w-full justify-between flex h-full pr-[calc((100%-theme(spacing.max-content-width))/2)] pl-[calc(((100%-theme(spacing.max-content-width))/2)-7.5rem)] text-3xl text-white"
     aria-label="Primary"
   >
     <!-- Logo -->
     <div class="flex w-fit">
-      {#if windowWidth >= BREAKPOINT}
-        <!-- Decorative SVG -->
-        <div class="left-0 h-full w-[7.5rem] min-[1320px]:absolute [&>svg]:block [&>svg]:h-full [&>svg]:w-auto">
-          <Decorative />
-        </div>
-      {/if}
-
       <a
-        class={`flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full ${windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : '[&>svg]:w-[5rem]'}`}
+        class={`flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[theme(spacing.max-content-width)]:absolute min-[theme(spacing.max-content-width)]:left-[max(calc((100%-theme(spacing.max-content-width))/2),7.5rem)] [&>svg]:block [&>svg]:h-full ${windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : '[&>svg]:w-[5rem]'}`}
         href="https://www.uoguelph.ca"
         aria-label="University of Guelph Home Page"
       >
@@ -400,11 +401,11 @@
       </ul>
     {/if}
   </nav>
-
+  </div>
   <!-- Sub Navigation Bar -->
   {#if subNavigation.length > 0 || pageTitle}
     <nav
-      class="block align-items relative h-[5rem] justify-end bg-uofg-grey px-[calc((100%-1320px)/2)] text-3xl lg:h-16 lg:whitespace-nowrap"
+      class="block align-items relative h-[5rem] justify-end bg-uofg-grey px-[calc((100%-theme(spacing.max-content-width))/2)] text-3xl lg:h-16 lg:whitespace-nowrap"
       aria-label="Page Specific"
     >
       <ul

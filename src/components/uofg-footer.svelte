@@ -160,7 +160,7 @@
 <footer>
   {#if Array.isArray(subFooter) && subFooter.length > 0}
     <ul
-      class="flex flex-wrap items-center justify-center bg-uofg-blue-50 p-6 px-[max(calc((100%-1320px)/2),2rem)]"
+      class="flex flex-wrap items-center justify-center bg-uofg-blue-50 p-6 px-[max(calc((100%-theme(spacing.max-content-width))/2),2rem)]"
     >
       {#each subFooter as { text, href }}
         <li class="border-0 border-r-2 border-solid border-uofg-blue-100 p-2 first:border-l-2">
@@ -176,7 +176,7 @@
   {/if}
 
   <div
-    class="flex flex-col content-center gap-8 bg-black px-[max(calc((100%-1320px)/2),2rem)] py-8 text-white md:grid md:grid-cols-2 lg:grid-cols-4"
+    class="flex flex-col content-center gap-8 bg-black px-[max(calc((100%-theme(spacing.max-content-width))/2),2rem)] py-8 text-white md:grid md:grid-cols-2 lg:grid-cols-4"
   >
     <div class="flex flex-col justify-between gap-2">
       <a
