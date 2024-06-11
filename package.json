@@ -14,23 +14,22 @@
     "format": "npx prettier --write .",
     "prepublishOnly": "npm run build && npmignore --auto"
   },
-  "dependencies": {
+  "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0"
-  },
-  "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "autoprefixer": "^10.4.18",
     "eslint": "^8.57.0",
     "eslint-plugin-svelte": "^2.35.1",
     "npmignore": "^0.3.1",
     "postcss": "^8.4.35",
-    "prettier": "^3.2.5",
-    "prettier-plugin-svelte": "^3.2.2",
+    "prettier": "^3.3.2",
+    "prettier-plugin-svelte": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "svelte": "^4.2.12",
     "svelte-check": "^3.6.6",
+    "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6",
     "vite-plugin-full-reload": "^1.1.0"

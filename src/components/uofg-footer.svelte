@@ -159,15 +159,10 @@
 
 <footer>
   {#if Array.isArray(subFooter) && subFooter.length > 0}
-    <ul
-      class="flex flex-wrap items-center justify-center bg-uofg-blue-50 p-6 px-[max(calc((100%-1320px)/2),2rem)]"
-    >
+    <ul class="flex flex-wrap items-center justify-center bg-uofg-blue-50 p-6 px-[max(calc((100%-1320px)/2),2rem)]">
       {#each subFooter as { text, href }}
         <li class="border-0 border-r-2 border-solid border-uofg-blue-100 p-2 first:border-l-2">
-          <a
-            class="text-uofg-blue-500 transition-colors hover:text-uofg-blue-950 focus:text-uofg-blue-950"
-            {href}
-          >
+          <a class="text-uofg-blue-500 transition-colors hover:text-uofg-blue-950 focus:text-uofg-blue-950" {href}>
             {text}
           </a>
         </li>
@@ -190,11 +185,7 @@
       <ul class="flex gap-3 text-4xl [&>li]:contents">
         {#each socials as { href, text, icon, classes }}
           <li>
-            <a
-              {href}
-              aria-label={text}
-              class={`transition-colors ${classes}`}
-            >
+            <a {href} aria-label={text} class={`transition-colors ${classes}`}>
               <FontAwesomeIcon {icon} />
             </a>
           </li>
