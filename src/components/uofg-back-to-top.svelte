@@ -37,7 +37,7 @@
 <button
   on:click={scrollToTop}
   class={twJoin(
-    'flex z-10 justify-center items-center text-4xl rounded-xl w-16 h-16 border border-white bg-black fixed bottom-2 right-2 text-white hover:bg-uofg-red focus:bg-uofg-red transition',
+    'flex z-10 justify-center items-center text-4xl w-16 h-16 border border-white bg-black fixed bottom-2 right-2 text-white hover:bg-uofg-red focus:bg-uofg-red transition',
     visible ? 'opacity-100' : 'opacity-0',
   )}
 >
