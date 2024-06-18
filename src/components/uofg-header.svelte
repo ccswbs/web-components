@@ -214,7 +214,6 @@
                 contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
                 as="ul"
                 buttonAriaLabel={item.icon ? item.text : undefined}
-
               >
                 <span
                   class="flex gap-2 [&>svg]:transition-transform"
@@ -438,7 +437,7 @@
 
                 <a
                   {...item.attributes}
-                  class={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow ${item.attributes?.class ?? ""}`}
+                  class={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow ${item.attributes?.class ?? ''}`}
                   href={item.href}
                 >
                   {item.text}
@@ -461,7 +460,7 @@
                     <li>
                       <a
                         {...link.attributes}
-                        class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow ${link.attributes?.class ?? ""}`}
+                        class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow ${link.attributes?.class ?? ''}`}
                         href={link.href}
                       >
                         {link.text}
@@ -488,7 +487,7 @@
                   <!-- Link -->
                   <a
                     {...item.attributes}
-                    class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${item.attributes?.class ?? ""}`}
+                    class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${item.attributes?.class ?? ''}`}
                     href={item.href}
                   >
                     {item.text}
@@ -511,7 +510,7 @@
                       <li>
                         <a
                           {...link.attributes}
-                          class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${link.attributes?.class ?? ""}`}
+                          class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey ${link.attributes?.class ?? ''}`}
                           href={link.href}
                         >
                           {link.text}
