@@ -41,7 +41,7 @@
     faInstagram,
     faLinkedin,
     faTiktok,
-    faTwitterSquare,
+    faSquareXTwitter,
     faYoutube,
   } from '@fortawesome/free-brands-svg-icons';
 
@@ -62,8 +62,8 @@
 
   const socials = [
     {
-      text: 'Twitter',
-      icon: faTwitterSquare,
+      text: 'X',
+      icon: faSquareXTwitter,
       href: 'https://twitter.com/uofg',
       classes: 'focus:text-[#1da1f2] hover:text-[#1da1f2]',
     },
