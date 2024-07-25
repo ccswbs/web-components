@@ -35,6 +35,7 @@
 <svelte:window bind:scrollY />
 
 <button
+  aria-label="Scroll to top"
   on:click={scrollToTop}
   class={twJoin(
     'flex z-10 justify-center items-center text-4xl w-16 h-16 border border-white bg-black fixed bottom-8 right-8 text-white hover:bg-uofg-red focus:bg-uofg-red transition',
