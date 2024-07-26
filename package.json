@@ -1,6 +1,6 @@
 {
   "name": "@uoguelph/web-components",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "University of Guelph Web Components Library",
   "module": "dist/uofg-web-components/uofg-web-components.esm.js",
   "type": "module",
