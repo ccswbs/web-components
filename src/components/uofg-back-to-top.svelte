@@ -35,12 +35,14 @@
 <svelte:window bind:scrollY />
 
 <button
-  aria-label="Scroll to top"
   on:click={scrollToTop}
   class={twJoin(
     'flex z-10 justify-center items-center text-4xl w-16 h-16 border border-white bg-black fixed bottom-8 right-8 text-white hover:bg-uofg-red focus:bg-uofg-red transition',
     visible ? 'opacity-100' : 'opacity-0',
   )}
 >
-  <FontAwesomeIcon icon={faChevronUp} />
+  <span aria-hidden="true">
+    <FontAwesomeIcon icon={faChevronUp} />
+  </span>
+  <span class="sr-only">Back to top of page</span>
 </button>
