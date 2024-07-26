@@ -41,5 +41,8 @@
     visible ? 'opacity-100' : 'opacity-0',
   )}
 >
-  <FontAwesomeIcon icon={faChevronUp} />
+  <span aria-hidden="true">
+    <FontAwesomeIcon icon={faChevronUp} />
+  </span>
+  <span class="sr-only">Back to top of page</span>
 </button>
