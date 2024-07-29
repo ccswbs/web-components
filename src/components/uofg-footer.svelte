@@ -130,7 +130,7 @@
     {
       text: 'Careers',
       icon: faBriefcase,
-      href: 'https://www.uoguelph.ca/hr/careers-guelph/current-opportunities',
+      href: 'https://careers.uoguelph.ca/',
     },
     {
       text: 'Undergraduate Calendar',
