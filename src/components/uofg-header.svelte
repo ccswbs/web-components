@@ -203,7 +203,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <header class="relative z-10 w-full font-condensed text-3xl text-black">
-  {#if windowWidth >= BREAKPOINT && variant !== 'simplified'}
+  {#if windowWidth >= BREAKPOINT && variant !== 'dual-brand'}
     <!-- Top Navigation Bar -->
     <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
       <!-- Top Navigation Links -->
@@ -264,7 +264,7 @@
   <nav
     class={twJoin(
       'relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white',
-      variant === 'simplified' ? 'h-[7.5rem]' : 'h-[5rem]',
+      variant === 'dual-brand' ? 'h-[7.5rem]' : 'h-[5rem]',
     )}
     aria-label="Primary"
   >
@@ -282,7 +282,7 @@
           'flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full',
           windowWidth >= BREAKPOINT
             ? '[&>svg]:w-[18.4rem]'
-            : variant === 'simplified'
+            : variant === 'dual-brand'
               ? '[&>svg]:w-[7.5rem]'
               : '[&>svg]:w-[5rem]',
         )}
@@ -297,7 +297,7 @@
       </a>
     </div>
 
-    {#if variant === 'simplified'}
+    {#if variant === 'dual-brand'}
       <a
         href="https://www.guelphhumber.ca"
         class="w-auto h-full p-6 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"

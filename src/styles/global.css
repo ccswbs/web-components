@@ -26,7 +26,7 @@ uofg-header {
   @media screen and (min-width: 1024px) {
     height: 14rem !important;
 
-    &:has(*):not([variant='simplified']) {
+    &:has(*):not([variant='dual-brand']) {
       height: 18rem !important;
     }
   }
