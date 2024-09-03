@@ -262,7 +262,10 @@
   <!-- Main Navigation Bar -->
 
   <nav
-    class={twJoin("relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white", variant === 'simplified' ? 'h-[7.5rem]' : 'h-[5rem]')}
+    class={twJoin(
+      'relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white',
+      variant === 'simplified' ? 'h-[7.5rem]' : 'h-[5rem]',
+    )}
     aria-label="Primary"
   >
     <!-- Logo -->
@@ -275,7 +278,14 @@
       {/if}
 
       <a
-        class={twJoin('flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full', windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : variant === 'simplified' ? '[&>svg]:w-[7.5rem]' : '[&>svg]:w-[5rem]')}
+        class={twJoin(
+          'flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full',
+          windowWidth >= BREAKPOINT
+            ? '[&>svg]:w-[18.4rem]'
+            : variant === 'simplified'
+              ? '[&>svg]:w-[7.5rem]'
+              : '[&>svg]:w-[5rem]',
+        )}
         href="https://www.uoguelph.ca"
         aria-label="University of Guelph Home Page"
       >
@@ -486,7 +496,7 @@
             {/each}
           </li>
           <!-- Mobile Sub Navigation Links and Menus -->
-        {:else}
+        {:else if subNavigation.length > 0}
           <Menu
             class="h-full"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow aria-expanded:bg-uofg-yellow"
