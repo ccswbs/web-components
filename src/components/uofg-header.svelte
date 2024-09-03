@@ -80,6 +80,7 @@
   import LogoSmall from '../svg/logo-small.svg';
   import Decorative from '../svg/decorative.svg';
   import UofGHLogo from '../svg/uofgh-logo.svg';
+  import { twJoin } from 'tailwind-merge';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
@@ -261,7 +262,7 @@
   <!-- Main Navigation Bar -->
 
   <nav
-    class="relative w-full justify-between flex h-[5rem] lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white"
+    class={twJoin("relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white", variant === 'simplified' ? 'h-[7.5rem]' : 'h-[5rem]')}
     aria-label="Primary"
   >
     <!-- Logo -->
@@ -274,7 +275,7 @@
       {/if}
 
       <a
-        class={`flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full ${windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : '[&>svg]:w-[5rem]'}`}
+        class={twJoin('flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full', windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : variant === 'simplified' ? '[&>svg]:w-[7.5rem]' : '[&>svg]:w-[5rem]')}
         href="https://www.uoguelph.ca"
         aria-label="University of Guelph Home Page"
       >
