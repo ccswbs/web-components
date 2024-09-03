@@ -4,6 +4,7 @@
     props: {
       pageTitle: { reflect: true, type: 'String', attribute: 'page-title' },
       pageURL: { reflect: true, type: 'String', attribute: 'page-url' },
+      variant: { reflect: true, type: 'String', attribute: 'variant' },
     },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
@@ -78,6 +79,8 @@
   import Logo from '../svg/logo.svg';
   import LogoSmall from '../svg/logo-small.svg';
   import Decorative from '../svg/decorative.svg';
+  import UofGHLogo from '../svg/uofgh-logo.svg';
+  import { twJoin } from 'tailwind-merge';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
@@ -186,6 +189,7 @@
   export let subNavigation;
   export let pageTitle;
   export let pageURL;
+  export let variant;
 
   $: {
     window.requestAnimationFrame(() => {
@@ -199,7 +203,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <header class="relative z-10 w-full font-condensed text-3xl text-black">
-  {#if windowWidth >= BREAKPOINT}
+  {#if windowWidth >= BREAKPOINT && variant !== 'dual-brand'}
     <!-- Top Navigation Bar -->
     <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
       <!-- Top Navigation Links -->
@@ -256,8 +260,12 @@
   {/if}
 
   <!-- Main Navigation Bar -->
+
   <nav
-    class="relative w-full justify-between flex h-[5rem] lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white"
+    class={twJoin(
+      'relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white',
+      variant === 'dual-brand' ? 'h-[7.5rem]' : 'h-[5rem]',
+    )}
     aria-label="Primary"
   >
     <!-- Logo -->
@@ -270,7 +278,14 @@
       {/if}
 
       <a
-        class={`flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full ${windowWidth >= BREAKPOINT ? '[&>svg]:w-[18.4rem]' : '[&>svg]:w-[5rem]'}`}
+        class={twJoin(
+          'flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full',
+          windowWidth >= BREAKPOINT
+            ? '[&>svg]:w-[18.4rem]'
+            : variant === 'dual-brand'
+              ? '[&>svg]:w-[7.5rem]'
+              : '[&>svg]:w-[5rem]',
+        )}
         href="https://www.uoguelph.ca"
         aria-label="University of Guelph Home Page"
       >
@@ -282,7 +297,14 @@
       </a>
     </div>
 
-    {#if windowWidth >= BREAKPOINT}
+    {#if variant === 'dual-brand'}
+      <a
+        href="https://www.guelphhumber.ca"
+        class="w-auto h-full p-6 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"
+      >
+        <UofGHLogo />
+      </a>
+    {:else if windowWidth >= BREAKPOINT}
       <!-- Desktop Main Nagivation Items -->
       <ul class="flex ml-auto [&>li]:contents text-4xl">
         {#each mainLinks as item}
@@ -324,6 +346,7 @@
         <li>
           <Menu
             class="h-full"
+            buttonAriaLabel="Account Menu"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-white focus:bg-white aria-expanded:bg-white hover:text-black focus:text-black aria-expanded:text-black"
             contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents"
             as="ul"
@@ -346,6 +369,7 @@
         <li>
           <Menu
             class="h-full"
+            buttonAriaLabel="Main Menu"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-white focus:bg-white aria-expanded:bg-white hover:text-black focus:text-black aria-expanded:text-black [&_svg]:aria-expanded:rotate-180"
             contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents max-h-[calc(100vh-5rem)] overflow-y-auto"
             as="ul"
@@ -472,7 +496,7 @@
             {/each}
           </li>
           <!-- Mobile Sub Navigation Links and Menus -->
-        {:else}
+        {:else if subNavigation.length > 0}
           <Menu
             class="h-full"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow aria-expanded:bg-uofg-yellow"
