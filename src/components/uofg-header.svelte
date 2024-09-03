@@ -336,6 +336,7 @@
         <li>
           <Menu
             class="h-full"
+            buttonAriaLabel="Account Menu"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-white focus:bg-white aria-expanded:bg-white hover:text-black focus:text-black aria-expanded:text-black"
             contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents"
             as="ul"
@@ -358,6 +359,7 @@
         <li>
           <Menu
             class="h-full"
+            buttonAriaLabel="Main Menu"
             buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-white focus:bg-white aria-expanded:bg-white hover:text-black focus:text-black aria-expanded:text-black [&_svg]:aria-expanded:rotate-180"
             contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents max-h-[calc(100vh-5rem)] overflow-y-auto"
             as="ul"
