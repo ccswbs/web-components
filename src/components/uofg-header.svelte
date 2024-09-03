@@ -4,6 +4,7 @@
     props: {
       pageTitle: { reflect: true, type: 'String', attribute: 'page-title' },
       pageURL: { reflect: true, type: 'String', attribute: 'page-url' },
+      variant: { reflect: true, type: 'String', attribute: 'variant' },
     },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
@@ -78,6 +79,7 @@
   import Logo from '../svg/logo.svg';
   import LogoSmall from '../svg/logo-small.svg';
   import Decorative from '../svg/decorative.svg';
+  import UofGHLogo from '../svg/uofgh-logo.svg';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
@@ -186,6 +188,7 @@
   export let subNavigation;
   export let pageTitle;
   export let pageURL;
+  export let variant;
 
   $: {
     window.requestAnimationFrame(() => {
@@ -199,7 +202,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 <header class="relative z-10 w-full font-condensed text-3xl text-black">
-  {#if windowWidth >= BREAKPOINT}
+  {#if windowWidth >= BREAKPOINT && variant !== 'simplified'}
     <!-- Top Navigation Bar -->
     <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
       <!-- Top Navigation Links -->
@@ -256,6 +259,7 @@
   {/if}
 
   <!-- Main Navigation Bar -->
+
   <nav
     class="relative w-full justify-between flex h-[5rem] lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white"
     aria-label="Primary"
@@ -282,7 +286,14 @@
       </a>
     </div>
 
-    {#if windowWidth >= BREAKPOINT}
+    {#if variant === 'simplified'}
+      <a
+        href="https://www.guelphhumber.ca"
+        class="w-auto h-full p-6 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"
+      >
+        <UofGHLogo />
+      </a>
+    {:else if windowWidth >= BREAKPOINT}
       <!-- Desktop Main Nagivation Items -->
       <ul class="flex ml-auto [&>li]:contents text-4xl">
         {#each mainLinks as item}

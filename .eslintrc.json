@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "sourceType": "module",
+    "ecmaVersion": "latest"
   },
   "extends": ["plugin:svelte/recommended"]
 }
