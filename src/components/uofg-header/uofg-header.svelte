@@ -72,15 +72,16 @@
 />
 
 <script>
-  import attachTailwind from '../lib/attach-tailwind.js';
-  import Menu from '../lib/menu.svelte';
-  import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
+  import attachTailwind from '../../lib/attach-tailwind.js';
+  import Menu from '../../lib/menu.svelte';
+  import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
   import { faBars, faChevronDown, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
-  import Logo from '../svg/logo.svg';
-  import LogoSmall from '../svg/logo-small.svg';
-  import Decorative from '../svg/decorative.svg';
-  import UofGHLogo from '../svg/uofgh-logo.svg';
+  import Logo from '../../svg/logo.svg';
+  import LogoSmall from '../../svg/logo-small.svg';
+  import Decorative from '../../svg/decorative.svg';
+  import UofGHLogo from '../../svg/uofgh-logo.svg';
   import { twJoin } from 'tailwind-merge';
+  import TopNavigation from './top-navigation.svelte';
 
   const BREAKPOINT = 1024;
   const MENU_CHAR_LIMIT = 35;
@@ -204,59 +205,7 @@
 
 <header class="relative z-10 w-full font-condensed text-3xl text-black">
   {#if windowWidth >= BREAKPOINT && variant !== 'dual-brand'}
-    <!-- Top Navigation Bar -->
-    <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
-      <!-- Top Navigation Links -->
-
-      <ul class="flex h-full items-center justify-end [&>li]:contents">
-        {#each [...topLinks, account] as item (item.text || item.title)}
-          <li>
-            {#if item.links}
-              <Menu
-                class="relative h-full"
-                buttonClass={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey aria-expanded:bg-uofg-grey ${item.icon ? '' : '[&_svg]:aria-expanded:rotate-180'}`}
-                contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
-                as="ul"
-                buttonAriaLabel={item.icon ? item.text : undefined}
-              >
-                <span
-                  class="flex gap-2 [&>svg]:transition-transform"
-                  class:bg-uofg-yellow={item.highlight}
-                  slot="button"
-                >
-                  {#if item.icon}
-                    <FontAwesomeIcon icon={item.icon} />
-                  {:else}
-                    <span>{item.text.toUpperCase()}</span>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                  {/if}
-                </span>
-
-                {#each item.links as link}
-                  <li>
-                    <a
-                      class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow"
-                      href={link.href}
-                      {...link.attributes}
-                    >
-                      {link.text}
-                    </a>
-                  </li>
-                {/each}
-              </Menu>
-            {:else}
-              <a
-                class="flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey"
-                class:bg-uofg-yellow={item.highlight}
-                href={item.href}
-              >
-                {item.text.toUpperCase()}
-              </a>
-            {/if}
-          </li>
-        {/each}
-      </ul>
-    </nav>
+    <TopNavigation variant={variant} />
   {/if}
 
   <!-- Main Navigation Bar -->
