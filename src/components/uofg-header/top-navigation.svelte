@@ -2,11 +2,13 @@
   import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
   import Menu from '../../lib/menu.svelte';
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
-  import { topNavigation as main } from './main-links.js';
-  import { topNavigation as ridgetown } from './ridgetown-links.js';
+  import { top as main } from './links/main-links.js';
+  import { top as ridgetown } from './links/ridgetown-links.js';
+  import { getContext } from 'svelte';
+  import { twJoin } from 'tailwind-merge';
 
-  export const variant = '';
-  const links = variant === 'ridgetown' ? ridgetown : main;
+  const state = getContext('header-state');
+  const links = $state?.variant === 'ridgetown' ? ridgetown : main;
 </script>
 
 <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
@@ -16,7 +18,10 @@
         {#if item.links}
           <Menu
             class="relative h-full"
-            buttonClass={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey aria-expanded:bg-uofg-grey ${item.icon ? '' : '[&_svg]:aria-expanded:rotate-180'}`}
+            buttonClass={twJoin(
+              `flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey aria-expanded:bg-uofg-grey`,
+              item.icon && '[&_svg]:aria-expanded:rotate-180)}',
+            )}
             contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
             as="ul"
             buttonAriaLabel={item.icon ? item.text : undefined}
@@ -33,7 +38,10 @@
             {#each item.links as link}
               <li>
                 <a
-                  class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow"
+                  class={twJoin(
+                    'border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow',
+                    item.highlight && 'bg-uofg-yellow',
+                  )}
                   href={link.href}
                   {...link.attributes}
                 >
@@ -44,8 +52,10 @@
           </Menu>
         {:else}
           <a
-            class="flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey"
-            class:bg-uofg-yellow={item.highlight}
+            class={twJoin(
+              'flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-grey',
+              item.highlight && 'bg-uofg-yellow',
+            )}
             href={item.href}
           >
             {item.text.toUpperCase()}

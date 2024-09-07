@@ -1,6 +1,6 @@
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
-export const mainNavigation = [
+export const primary = [
   {
     text: 'About',
     href: 'https://uoguelph.ca/about',
@@ -21,9 +21,15 @@ export const mainNavigation = [
     text: 'Student Life',
     href: 'https://www.uoguelph.ca/studentexperience/',
   },
+  {
+    text: 'Search the University of Guelph',
+    href: 'https://uoguelph.ca/search',
+    icon: faSearch,
+    excludeFromMainMenu: true,
+  },
 ];
 
-export const topNavigation = [
+export const top = [
   {
     text: 'Give',
     href: 'https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg',
@@ -87,11 +93,6 @@ export const topNavigation = [
       },
     ],
     icon: faUser,
+    excludeFromMainMenu: true,
   },
 ];
-
-export const search = {
-  text: 'Search the University of Guelph',
-  href: 'https://uoguelph.ca/search',
-  icon: faSearch,
-}
