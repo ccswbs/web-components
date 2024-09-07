@@ -1,5 +1,7 @@
 <script>
   import { getContext } from 'svelte';
+  import Desktop from './desktop.svelte';
+  import Mobile from './mobile.svelte';
 
   const state = getContext('header-state');
 
@@ -8,11 +10,17 @@
   export let url;
 
   let isOverflowing = false;
+  let width;
+  let ref;
+
+  $: console.log(width, ref?.scrollWidth);
 </script>
 
 <nav
   class="block align-items relative h-[5rem] justify-end bg-uofg-grey px-[calc((100%-1320px)/2)] text-3xl lg:h-16 lg:whitespace-nowrap"
   aria-label="Page Specific"
+  bind:clientWidth={width}
+  bind:this={ref}
 >
   <ul class="flex h-full w-fit min-w-full overflow-y-visible items-center justify-end [&>li]:contents relative">
     <li>
@@ -32,9 +40,9 @@
 
     {#if items?.length > 0}
       {#if $state.mode === 'desktop' && !isOverflowing}
-        <span>desktop</span>
+        <Desktop {items} />
       {:else}
-        <span>mobile</span>
+        <Mobile {items} />
       {/if}
     {/if}
   </ul>
