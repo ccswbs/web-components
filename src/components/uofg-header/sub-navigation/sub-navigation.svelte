@@ -26,7 +26,7 @@
 
   onMount(() => {
     overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
-  })
+  });
 </script>
 
 <nav
