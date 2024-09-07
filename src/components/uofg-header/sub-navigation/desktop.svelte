@@ -13,6 +13,7 @@
         class="relative h-full"
         buttonClass="flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow aria-expanded:bg-uofg-yellow [&_svg]:aria-expanded:rotate-180"
         contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
+        buttonAriaLabel={undefined}
         as="ul"
       >
         <span class="flex gap-2 [&>svg]:transition-transform" slot="button">
