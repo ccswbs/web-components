@@ -25,7 +25,9 @@
   }
 
   onMount(() => {
-    overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
+    if ($state?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
+      overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
+    }
   });
 </script>
 
@@ -49,7 +51,7 @@
       </span>
     {/if}
 
-    <ul class="[&>li]:contents h-full flex w-fit" bind:clientWidth={contentWidth}>
+    <ul class="[&>li]:contents h-full flex w-fit !static lg:static" bind:clientWidth={contentWidth}>
       {#if items?.length > 0}
         {#if $state.mode === 'desktop' && (isNaN(overflowWidth) || containerWidth > overflowWidth)}
           <Desktop {items} />
