@@ -14,22 +14,18 @@
   let contentWidth;
   let timeout;
   let overflowWidth;
-  let content;
 
   $: {
     clearTimeout(timeout);
     if ($state?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
       timeout = setTimeout(() => {
         overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
-      }, 250);
+      }, 50);
     }
-
   }
 
   onMount(() => {
-    window.requestAnimationFrame(() => {
-      console.log(content?.scrollWidth);
-    });
+    overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
   })
 </script>
 
@@ -53,7 +49,7 @@
       </span>
     {/if}
 
-    <ul class="[&>li]:contents h-full flex w-fit" bind:clientWidth={contentWidth} bind:this={content}>
+    <ul class="[&>li]:contents h-full flex w-fit" bind:clientWidth={contentWidth}>
       {#if items?.length > 0}
         {#if $state.mode === 'desktop' && (isNaN(overflowWidth) || containerWidth > overflowWidth)}
           <Desktop {items} />
