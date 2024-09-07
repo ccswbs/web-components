@@ -3,23 +3,19 @@ import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 export const primary = [
   {
     text: 'About',
-    href: 'https://uoguelph.ca/about',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/about/',
   },
   {
     text: 'Academics',
-    href: 'https://www.uoguelph.ca/explore-all-programs/',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/programs/',
   },
   {
-    text: 'Admission',
-    href: 'https://uoguelph.ca/admissions',
-  },
-  {
-    text: 'Research',
-    href: 'https://uoguelph.ca/research',
+    text: 'Discover Us',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/discover/',
   },
   {
     text: 'Student Life',
-    href: 'https://www.uoguelph.ca/studentexperience/',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/student-life/',
   },
   {
     text: 'Search the University of Guelph',
@@ -32,40 +28,40 @@ export const primary = [
 export const top = [
   {
     text: 'Give',
-    href: 'https://bbis.alumni.uoguelph.ca/BBIS_Cannon/give/uofg',
+    href: 'https://www.uoguelph.ca/oac/about/giving/',
   },
   {
     text: 'News',
     href: 'https://news.uoguelph.ca/',
   },
   {
+    text: 'Research',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/about/research/'
+  },
+  {
     text: 'Quick Links',
     links: [
       {
-        text: 'Future Students',
-        href: 'https://uoguelph.ca/future-ready',
+        text: 'Living at Ridgetown',
+        href: 'https://preview-ugconthub.netlify.app/ridgetown/living/',
       },
       {
         text: 'Current Students',
-        href: 'https://www.uoguelph.ca/students',
+        href: 'https://www.ridgetownc.com/current/academic-support/',
       },
       {
-        text: 'Alumni & Donors',
-        href: 'https://alumni.uoguelph.ca/',
+        text: 'Alumni',
+        href: 'https://preview-ugconthub.netlify.app/ridgetown/alumni/',
       },
       {
-        text: 'Faculty & Staff',
-        href: 'https://www.uoguelph.ca/faculty',
-      },
-      {
-        text: 'Employers & Partners',
-        href: 'https://cecs.uoguelph.ca/employers-institutions',
+        text: 'Business Development Centre',
+        href: 'https://bdc.ridgetownc.com/',
       },
     ],
   },
   {
     text: 'APPLY NOW',
-    href: 'https://uoguelph.ca/apply/',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/apply/',
     highlight: true,
   },
   {
@@ -73,7 +69,7 @@ export const top = [
     links: [
       {
         text: 'Intranet',
-        href: 'https://intranet.uoguelph.ca/',
+        href: 'https://uoguelphca.sharepoint.com/sites/Ridgetown/SitePages/CollabHome.aspx',
       },
       {
         text: 'WebAdvisor',
@@ -86,10 +82,6 @@ export const top = [
       {
         text: 'CourseLink',
         href: 'https://courselink.uoguelph.ca/',
-      },
-      {
-        text: 'GryphLife',
-        href: 'https://gryphlife.uoguelph.ca/',
       },
     ],
     icon: faUser,
