@@ -5,11 +5,8 @@
   import Desktop from './desktop.svelte';
   import Mobile from './mobile.svelte';
   import { getContext } from 'svelte';
-  import { primary as ridgetown } from '../links/ridgetown-links.js';
-  import { primary as main } from '../links/main-links.js';
 
   const state = getContext('header-state');
-  const links = $state?.variant === 'ridgetown' ? ridgetown : main;
 </script>
 
 <nav

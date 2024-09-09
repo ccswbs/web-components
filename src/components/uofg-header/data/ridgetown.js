@@ -1,6 +1,6 @@
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
-export const primary = [
+export const primaryLinks = [
   {
     text: 'About',
     href: 'https://preview-ugconthub.netlify.app/ridgetown/about/',
@@ -25,7 +25,7 @@ export const primary = [
   },
 ];
 
-export const top = [
+export const topLinks = [
   {
     text: 'Give',
     href: 'https://www.uoguelph.ca/oac/about/giving/',

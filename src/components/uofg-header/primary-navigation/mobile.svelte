@@ -3,10 +3,10 @@
   import Menu from '../../../lib/menu.svelte';
   import FontAwesomeIcon from '../../../lib/font-awesome-icon.svelte';
   import { getContext } from 'svelte';
-  import { primary as mainPrimary } from '../links/main-links.js';
-  import { primary as ridgetownPrimary } from '../links/ridgetown-links.js';
-  import { top as mainTop } from '../links/main-links.js';
-  import { top as ridgetownTop } from '../links/ridgetown-links.js';
+  import { primaryLinks as mainPrimary } from '../data/guelph.js';
+  import { primaryLinks as ridgetownPrimary } from '../data/ridgetown.js';
+  import { topLinks as mainTop } from '../data/guelph.js';
+  import { topLinks as ridgetownTop } from '../data/ridgetown.js';
 
   const state = getContext('header-state');
 

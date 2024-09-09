@@ -1,7 +1,7 @@
 <script>
   import FontAwesomeIcon from '../../../lib/font-awesome-icon.svelte';
-  import { primary as main } from '../links/main-links.js';
-  import { primary as ridgetown } from '../links/ridgetown-links.js';
+  import { primaryLinks as main } from '../data/guelph.js';
+  import { primaryLinks as ridgetown } from '../data/ridgetown.js';
   import { getContext } from 'svelte';
 
   const state = getContext('header-state');

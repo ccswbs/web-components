@@ -2,8 +2,8 @@
   import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
   import Menu from '../../lib/menu.svelte';
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
-  import { top as main } from './links/main-links.js';
-  import { top as ridgetown } from './links/ridgetown-links.js';
+  import { topLinks as main } from './data/guelph.js';
+  import { topLinks as ridgetown } from './data/ridgetown.js';
   import { getContext } from 'svelte';
   import { twJoin } from 'tailwind-merge';
 
