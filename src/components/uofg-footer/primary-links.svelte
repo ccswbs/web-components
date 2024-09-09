@@ -1,8 +1,11 @@
 <script>
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
   import { primaryLinks as guelph } from './data/guelph.js';
+  import { primaryLinks as ridgetown } from './data/ridgetown.js';
+  import { getContext } from 'svelte';
 
-  const links = guelph;
+  const state = getContext('footer-state');
+  const links = $state?.variant === 'ridgetown' ? ridgetown : guelph;
 </script>
 
 <div class="flex justify-center md:col-span-2 md:row-start-2 lg:row-auto">

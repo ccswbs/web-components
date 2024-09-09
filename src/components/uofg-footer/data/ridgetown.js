@@ -1,57 +1,57 @@
 import {
   faFacebookSquare,
   faInstagram,
-  faLinkedin,
-  faSquareXTwitter, faTiktok,
+  faSquareXTwitter,
+  faTiktok,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import {
-  faBriefcase, faCalendar,
-  faCircleCheck, faHandHoldingHeart,
-  faKey, faList,
+  faBriefcase,
+  faCalendar,
+  faCircleCheck,
+  faHandHoldingHeart,
+  faKey,
+  faList,
   faSitemap,
   faTree,
   faUniversalAccess,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const socials = [
-  {
-    text: 'X',
-    icon: faSquareXTwitter,
-    href: 'https://twitter.com/uofg',
-    classes: 'focus:text-[#1da1f2] hover:text-[#1da1f2]',
-  },
-  {
-    text: 'Facebook',
-    icon: faFacebookSquare,
-    href: 'https://www.facebook.com/uofguelph',
-    classes: 'focus:text-[#4267b2] hover:text-[#4267b2]',
-  },
-  {
-    text: 'Instagram',
-    icon: faInstagram,
-    href: 'https://www.instagram.com/uofguelph/',
-    classes: 'focus:text-[#e1306c] hover:text-[#e1306c]',
-  },
-  {
-    text: 'Youtube',
-    icon: faYoutube,
-    href: 'https://www.youtube.com/user/uofguelph',
-    classes: 'focus:text-[#f00] hover:text-[#f00]',
-  },
-  {
-    text: 'LinkedIn',
-    icon: faLinkedin,
-    href: 'https://www.linkedin.com/school/university-of-guelph/',
-    classes: 'focus:text-[#0077b5] hover:text-[#0077b5]',
-  },
-  {
-    text: 'TikTok',
-    icon: faTiktok,
-    href: 'https://www.tiktok.com/@uofguelph',
-    classes: 'focus:text-[#f00] hover:text-[#f00]',
-  },
-];
+export const social = {
+  directory: 'https://www.ridgetownc.com/about/contactus/#socials',
+  links: [
+    {
+      text: 'X',
+      icon: faSquareXTwitter,
+      href: 'https://twitter.com/RidgetownCampus',
+      classes: 'focus:text-[#1da1f2] hover:text-[#1da1f2]',
+    },
+    {
+      text: 'Facebook',
+      icon: faFacebookSquare,
+      href: 'https://www.facebook.com/UofGRidgetownCampus/',
+      classes: 'focus:text-[#4267b2] hover:text-[#4267b2]',
+    },
+    {
+      text: 'Instagram',
+      icon: faInstagram,
+      href: 'https://www.instagram.com/ridgetowncampus/?hl=en',
+      classes: 'focus:text-[#e1306c] hover:text-[#e1306c]',
+    },
+    {
+      text: 'Youtube',
+      icon: faYoutube,
+      href: 'https://www.youtube.com/user/RidgetownCampus/',
+      classes: 'focus:text-[#f00] hover:text-[#f00]',
+    },
+    {
+      text: 'TikTok',
+      icon: faTiktok,
+      href: 'https://www.tiktok.com/@experienceridgetown',
+      classes: 'focus:text-[#f00] hover:text-[#f00]',
+    },
+  ],
+};
 
 export const primaryLinks = [
   {
@@ -109,9 +109,9 @@ export const primaryLinks = [
 ];
 
 export const address = {
-  title: "University of Guelph",
-  street: '50 Stone Road East',
-  city: 'Guelph',
-  postalCode: 'N1G 2W1',
-  phoneNumber: '519-824-4120'
-}
+  title: 'University of Guelph - Ridgetown Campus',
+  street: '120 Main Street East',
+  city: 'Ridgetown',
+  postalCode: 'N0P 2C0',
+  phoneNumber: '519-674-1500',
+};

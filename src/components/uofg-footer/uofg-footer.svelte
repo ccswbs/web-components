@@ -1,6 +1,9 @@
 <svelte:options
   customElement={{
     tag: 'uofg-footer',
+    props: {
+      variant: { reflect: true, type: 'String', attribute: 'variant' },
+    },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
         constructor() {
@@ -36,12 +39,21 @@
   import attachTailwind from '../../lib/attach-tailwind.js';
   import SubFooter from './sub-footer.svelte';
   import Logo from './logo.svelte';
-  import SocialMedia from './social-media.svelte';
+  import SocialMedia from './social.svelte';
   import Copyright from './copyright.svelte';
   import PrimaryLinks from './primary-links.svelte';
   import Address from './address.svelte';
+  import { writable } from 'svelte/store';
+  import { setContext } from 'svelte';
 
   export let subFooter;
+  export let variant;
+
+  const state = writable({
+    variant,
+  });
+
+  setContext('footer-state', state);
 </script>
 
 <footer>
@@ -54,9 +66,7 @@
   >
     <div class="flex flex-col justify-between gap-2">
       <Logo />
-
       <SocialMedia />
-
       <Copyright />
     </div>
 
