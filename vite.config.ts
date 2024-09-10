@@ -8,7 +8,7 @@ const entries = {
   'uofg-web-components': path.resolve(__dirname, 'src/main.js'),
 };
 
-fs.readdirSync(path.resolve(__dirname, 'src', 'components'), { withFileTypes: true }).forEach(file => {
+fs.readdirSync(path.resolve(__dirname, 'src', 'components'), { withFileTypes: true, recursive: true }).forEach(file => {
   if (file.isFile() && file.name.startsWith('uofg-') && file.name.endsWith('.svelte')) {
     entries[path.basename(file.name, '.svelte')] = path.join(file.path, file.name);
   }
