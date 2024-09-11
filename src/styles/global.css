@@ -41,10 +41,6 @@ uofg-header {
   }
 }
 
-uofg-menu {
-  display: block;
-}
-
 uofg-footer {
   display: block;
 }
@@ -59,8 +55,4 @@ uofg-modal {
 uofg-alert {
   display: block;
   max-width: 100rem;
-}
-
-uofg-card {
-  display: block;
 }
