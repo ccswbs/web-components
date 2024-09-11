@@ -39,7 +39,7 @@
   import attachTailwind from '../../lib/attach-tailwind.js';
   import SubFooter from './sub-footer.svelte';
   import Logo from './logo.svelte';
-  import SocialMedia from './social.svelte';
+  import Social from './social.svelte';
   import Copyright from './copyright.svelte';
   import PrimaryLinks from './primary-links.svelte';
   import Address from './address.svelte';
@@ -66,7 +66,7 @@
   >
     <div class="flex flex-col justify-between gap-2">
       <Logo />
-      <SocialMedia />
+      <Social />
       <Copyright />
     </div>
 
