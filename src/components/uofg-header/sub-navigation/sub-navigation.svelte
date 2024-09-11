@@ -2,6 +2,7 @@
   import { getContext, onMount } from 'svelte';
   import Desktop from './desktop.svelte';
   import Mobile from './mobile.svelte';
+  import { twJoin } from 'tailwind-merge';
 
   const state = getContext('header-state');
 
@@ -32,7 +33,10 @@
 </script>
 
 <nav
-  class="block align-items relative h-[5rem] justify-end bg-uofg-grey px-[calc((100%-1320px)/2)] text-3xl lg:h-16 lg:whitespace-nowrap"
+  class={twJoin(
+    'block align-items relative justify-end bg-uofg-grey px-[calc((100%-1320px)/2)] text-3xl lg:whitespace-nowrap',
+    $state?.variant === 'dual-brand' ? 'h-16' : 'h-[5rem] lg:h-16',
+  )}
   aria-label="Page Specific"
   bind:clientWidth={containerWidth}
 >

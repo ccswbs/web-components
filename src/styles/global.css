@@ -19,15 +19,24 @@ uofg-header {
     display: none;
   }
 
-  &:has(*) {
-    height: 10rem !important;
-  }
-
   @media screen and (min-width: 1024px) {
     height: 14rem !important;
+  }
 
-    &:has(*):not([variant='dual-brand']) {
+  &:has(*),
+  &[page-title] {
+    height: 10rem !important;
+
+    @media screen and (min-width: 1024px) {
       height: 18rem !important;
+    }
+
+    &[variant='dual-brand'] {
+      height: 11.5rem !important;
+
+      @media screen and (min-width: 1024px) {
+        height: 14rem !important;
+      }
     }
   }
 }
