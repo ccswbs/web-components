@@ -53,6 +53,7 @@
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faTimes } from '@fortawesome/free-solid-svg-icons';
   import { getAllFocusableElements } from '../lib/get-all-focusable.js';
+  import { twJoin } from 'tailwind-merge';
 
   export let isOpen;
   export let centered;
@@ -176,7 +177,12 @@
 >
   <div
     part="content"
-    class={`z-1 absolute left-1/2 h-fit max-h-full w-fit max-w-full -translate-x-1/2 overflow-auto p-8 transition-transform motion-reduce:transition-none ${isOpen ? 'visible opacity-100' : ''} ${isOpen && centered ? 'translate-y-[calc(-50%_-_50px)]' : ''} ${(!isOpen && !centered) || (isOpen && centered) ? 'translate-y-[-50px]' : ''}`}
+    class={twJoin(
+      'z-1 absolute left-1/2 h-fit max-h-full max-w-full -translate-x-1/2 overflow-auto w-full sm:w-fit sm:p-8 transition-transform motion-reduce:transition-none',
+      isOpen && 'visible opacity-100',
+      isOpen && centered && 'translate-y-[calc(-50%_-_50px)]',
+      ((!isOpen && !centered) || (isOpen && centered)) && 'translate-y-[-50px]',
+    )}
   >
     <button
       class="absolute right-8 top-8 z-[2] flex h-12 w-12 items-center justify-center border-0 bg-transparent text-3xl p-2 text-[var(--uofg-modal-dismiss-color,white)]"
