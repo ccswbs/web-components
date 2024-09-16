@@ -28,11 +28,15 @@ export const primaryLinks = [
 export const topLinks = [
   {
     text: 'Give',
-    href: 'https://www.uoguelph.ca/oac/about/giving/',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/alumni/',
   },
   {
     text: 'News',
     href: 'https://news.uoguelph.ca/',
+  },
+  {
+    text: 'Visit Us',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/campus-tour/'
   },
   {
     text: 'Research',
@@ -42,8 +46,8 @@ export const topLinks = [
     text: 'Quick Links',
     links: [
       {
-        text: 'Living at Ridgetown',
-        href: 'https://preview-ugconthub.netlify.app/ridgetown/living/',
+        text: 'Future Students',
+        href: 'https://preview-ugconthub.netlify.app/ridgetown/discover/',
       },
       {
         text: 'Current Students',
