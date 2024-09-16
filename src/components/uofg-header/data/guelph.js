@@ -7,7 +7,7 @@ export const primaryLinks = [
   },
   {
     text: 'Academics',
-    href: 'https://www.uoguelph.ca/explore-all-programs/',
+    href: 'https://www.uoguelph.ca/programs/undergraduate',
   },
   {
     text: 'Admission',
