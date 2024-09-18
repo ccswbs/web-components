@@ -21,7 +21,7 @@
   <a
     class={twJoin(
       'flex items-center h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full [&>svg}:w-fit',
-      $state?.variant === 'ridgetown' && '[&>svg]:h-2/3',
+      $state?.variant === 'ridgetown' && '[&>svg]:h-2/3 pl-1 md:pl-0',
     )}
     href="https://www.uoguelph.ca"
     aria-label="University of Guelph Home Page"
