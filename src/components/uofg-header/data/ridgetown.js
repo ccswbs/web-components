@@ -10,8 +10,8 @@ export const primaryLinks = [
     href: 'https://preview-ugconthub.netlify.app/ridgetown/programs/',
   },
   {
-    text: 'Discover Us',
-    href: 'https://preview-ugconthub.netlify.app/ridgetown/discover/',
+    text: 'Admissions',
+    href: 'https://preview-ugconthub.netlify.app/ridgetown/apply/',
   },
   {
     text: 'Student Life',
@@ -56,6 +56,10 @@ export const topLinks = [
       {
         text: 'Alumni',
         href: 'https://preview-ugconthub.netlify.app/ridgetown/alumni/',
+      },
+      {
+        text: 'Employer & Partners',
+        href: 'https://www.ridgetownc.com/about/community/',
       },
       {
         text: 'Business Development Centre',
