@@ -12,7 +12,9 @@
     "dev": "vite",
     "build": "vite build",
     "format": "npx prettier --write .",
-    "prepublishOnly": "npm run build && npmignore --auto"
+    "prepublishOnly": "npm run build && npmignore --auto",
+    "track-test-page": "git update-index --no-skip-worktree index.html",
+    "untrack-test-page": "git update-index --skip-worktree index.html"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
