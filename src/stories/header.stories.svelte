@@ -11,7 +11,7 @@
 
 <script>
   import '../components/uofg-header/uofg-header.svelte';
-  import { Story, Template } from '@storybook/addon-svelte-csf';
+  import { Story } from '@storybook/addon-svelte-csf';
 </script>
 
 <Story name="Basic">
