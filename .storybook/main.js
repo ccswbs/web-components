@@ -9,8 +9,9 @@ const config = {
     '@storybook/addon-interactions',
   ],
   framework: {
-    name: '@storybook/web-components-vite',
+    name: '@storybook/svelte-vite',
     options: {},
   },
+  docs: {},
 };
 export default config;
