@@ -41,7 +41,7 @@
   bind:clientWidth={containerWidth}
 >
   <div class="flex h-full w-fit min-w-full overflow-y-visible items-center justify-end [&>li]:contents relative">
-    {#if url}
+    {#if title && url}
       <a
         class="mr-auto flex h-full items-center justify-center px-4 font-bold transition-colors hover:bg-uofg-yellow"
         href={url}
@@ -49,7 +49,7 @@
       >
         {title}
       </a>
-    {:else}
+    {:else if title}
       <span bind:clientWidth={titleWidth} class="mr-auto flex h-full items-center justify-center px-4 font-bold">
         {title}
       </span>
