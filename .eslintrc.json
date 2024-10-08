@@ -3,5 +3,8 @@
     "sourceType": "module",
     "ecmaVersion": "latest"
   },
-  "extends": ["plugin:svelte/recommended"]
+  "extends": [
+    "plugin:svelte/recommended",
+    "plugin:storybook/recommended"
+  ]
 }
