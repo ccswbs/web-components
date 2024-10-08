@@ -1,11 +1,11 @@
 <script>
   import { twJoin } from 'tailwind-merge';
   import Decorative from '../../svg/decorative.svg';
-  import LogoSmall from '../../svg/logo-small.svg';
-  import Logo from '../../svg/logo.svg';
+  import GuelphLogoSmall from '../../svg/logo-small.svg';
+  import GuelphLogo from '../../svg/logo.svg';
+  import RidgetownLogoSmall from '../../svg/logo-ridgetown-small.svg';
+  import RidgetownLogo from '../../svg/logo-ridgetown.svg';
   import { getContext } from 'svelte';
-
-  export let variant;
 
   const state = getContext('header-state');
 </script>
@@ -20,20 +20,20 @@
 
   <a
     class={twJoin(
-      'flex h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full',
-      $state?.mode === 'desktop'
-        ? '[&>svg]:w-[18.4rem]'
-        : variant === 'dual-brand'
-          ? '[&>svg]:w-[7.5rem]'
-          : '[&>svg]:w-[5rem]',
+      'flex items-center h-full w-fit transition-opacity focus:opacity-75 hover:opacity-75 min-[1320px]:absolute min-[1320px]:left-[max(calc((100%-1320px)/2),7.5rem)] [&>svg]:block [&>svg]:h-full [&>svg}:w-fit',
+      $state?.variant === 'ridgetown' && '[&>svg]:h-[60%] pl-1 md:pl-0',
     )}
     href="https://www.uoguelph.ca"
     aria-label="University of Guelph Home Page"
   >
-    {#if $state?.mode === 'desktop'}
-      <Logo />
+    {#if $state?.mode === 'desktop' && $state?.variant === 'ridgetown'}
+      <RidgetownLogo />
+    {:else if $state?.variant === 'ridgetown'}
+      <RidgetownLogoSmall />
+    {:else if $state?.mode === 'desktop'}
+      <GuelphLogo />
     {:else}
-      <LogoSmall />
+      <GuelphLogoSmall />
     {/if}
   </a>
 </div>

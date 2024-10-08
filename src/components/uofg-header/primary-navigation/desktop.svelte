@@ -1,6 +1,11 @@
 <script>
   import FontAwesomeIcon from '../../../lib/font-awesome-icon.svelte';
-  import { primaryLinks as links } from '../data/guelph.js';
+  import { primaryLinks as main } from '../data/guelph.js';
+  import { primaryLinks as ridgetown } from '../data/ridgetown.js';
+  import { getContext } from 'svelte';
+
+  const state = getContext('header-state');
+  const links = $state?.variant === 'ridgetown' ? ridgetown : main;
 </script>
 
 <ul class="flex ml-auto [&>li]:contents text-4xl">

@@ -1,6 +1,11 @@
 <script>
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
-  import { social } from './data/guelph.js';
+  import { social as guelph } from './data/guelph.js';
+  import { social as ridgetown } from './data/ridgetown.js';
+  import { getContext } from 'svelte';
+
+  const state = getContext('footer-state');
+  const social = $state?.variant === 'ridgetown' ? ridgetown : guelph;
 </script>
 
 <ul class="flex gap-3 text-4xl [&>li]:contents">

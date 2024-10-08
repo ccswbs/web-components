@@ -2,8 +2,13 @@
   import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
   import Menu from '../../lib/menu.svelte';
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
-  import { topLinks as links } from './data/guelph.js';
+  import { topLinks as main } from './data/guelph.js';
+  import { topLinks as ridgetown } from './data/ridgetown.js';
+  import { getContext } from 'svelte';
   import { twJoin } from 'tailwind-merge';
+
+  const state = getContext('header-state');
+  const links = $state?.variant === 'ridgetown' ? ridgetown : main;
 </script>
 
 <nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">

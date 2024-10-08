@@ -2,10 +2,15 @@
   import { faBars, faChevronDown } from '@fortawesome/free-solid-svg-icons';
   import Menu from '../../../lib/menu.svelte';
   import FontAwesomeIcon from '../../../lib/font-awesome-icon.svelte';
-  import { primaryLinks as primary } from '../data/guelph.js';
-  import { topLinks as top } from '../data/guelph.js';
+  import { getContext } from 'svelte';
+  import { primaryLinks as mainPrimary } from '../data/guelph.js';
+  import { primaryLinks as ridgetownPrimary } from '../data/ridgetown.js';
+  import { topLinks as mainTop } from '../data/guelph.js';
+  import { topLinks as ridgetownTop } from '../data/ridgetown.js';
 
-  const links = [...primary, ...top];
+  const state = getContext('header-state');
+
+  const links = $state?.variant === 'ridgetown' ? [...ridgetownPrimary, ...ridgetownTop] : [...mainPrimary, ...mainTop];
   const mainMenu = links.filter(link => !link?.excludeFromMainMenu);
   const outer = links.filter(link => link?.excludeFromMainMenu);
 </script>

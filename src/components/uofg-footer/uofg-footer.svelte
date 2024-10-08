@@ -1,6 +1,9 @@
 <svelte:options
   customElement={{
     tag: 'uofg-footer',
+    props: {
+      variant: { reflect: true, type: 'String', attribute: 'variant' },
+    },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
         constructor() {
@@ -40,8 +43,17 @@
   import Copyright from './copyright.svelte';
   import PrimaryLinks from './primary-links.svelte';
   import Address from './address.svelte';
+  import { writable } from 'svelte/store';
+  import { setContext } from 'svelte';
 
   export let subFooter;
+  export let variant;
+
+  const state = writable({
+    variant,
+  });
+
+  setContext('footer-state', state);
 </script>
 
 <footer>

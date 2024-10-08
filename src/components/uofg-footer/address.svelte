@@ -1,7 +1,12 @@
 <script>
   import { faPhoneFlip } from '@fortawesome/free-solid-svg-icons';
   import FontAwesomeIcon from '../../lib/font-awesome-icon.svelte';
-  import { address } from './data/guelph.js';
+  import { address as guelph } from './data/guelph.js';
+  import { address as ridgetown } from './data/ridgetown.js';
+  import { getContext } from 'svelte';
+
+  const state = getContext('footer-state');
+  const address = $state?.variant === 'ridgetown' ? ridgetown : guelph;
 </script>
 
 <address class="flex flex-col justify-between gap-4 not-italic">
