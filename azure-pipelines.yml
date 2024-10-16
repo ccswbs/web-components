@@ -1,0 +1,36 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: ui_tests
+    displayName: 'UI Tests'
+    jobs:
+      - job: Chromatic
+        variables:
+          npm_config_cache: $(Pipeline.Workspace)/.npm
+        steps:
+          - checkout: self
+            displayName: 'Get Full Git History'
+            fetchDepth: 0
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '20.12.2'
+          - task: Cache@2
+            displayName: 'Install and cache dependencies'
+            inputs:
+              key: 'npm | "$(Agent.OS)" | package-lock.json'
+              restoreKeys: |
+                npm | "$(Agent.OS)"
+              path: $(npm_config_cache)
+          - script: npm ci
+            condition: ne(variables.CACHE_RESTORED, 'true')
+          - task: CmdLine@2
+            displayName: 'Run Chromatic'
+            inputs:
+              script: npx chromatic
+            env:
+              CHROMATIC_PROJECT_TOKEN: $(CHROMATIC_PROJECT_TOKEN)
