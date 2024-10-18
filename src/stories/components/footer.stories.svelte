@@ -1,7 +1,7 @@
 <script context="module">
 
   export const meta = {
-    title: "Footer",
+    title: "Components/Footer",
     component: 'uofg-footer',
     parameters: {
       layout: 'fullscreen',
@@ -10,7 +10,7 @@
 </script>
 
 <script>
-  import '../components/uofg-footer/uofg-footer.svelte';
+  import '../../components/uofg-footer/uofg-footer.svelte';
   import { Story } from '@storybook/addon-svelte-csf';
 </script>
 
@@ -18,7 +18,7 @@
   <uofg-footer></uofg-footer>
 </Story>
 
-<Story name="With Sub Footer">
+<Story name="With Links">
   <uofg-footer>
     <a href="#example">Example Menu Link</a>
     <a href="#example">Example Menu Link 1</a>
@@ -28,4 +28,8 @@
     <a href="#example">Example Menu Link 5</a>
     <a href="#example">Example Menu Link 6</a>
   </uofg-footer>
+</Story>
+
+<Story name="Ridgetown">
+  <uofg-footer variant="ridgetown"></uofg-footer>
 </Story>
