@@ -6,7 +6,7 @@
   import { twJoin } from 'tailwind-merge';
 </script>
 
-<nav class="flex h-16 justify-end bg-white px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
+<nav class="flex h-16 justify-end bg-red px-[calc((100%-1320px)/2)] text-3xl" aria-label="Secondary">
   <ul class="flex h-full items-center justify-end [&>li]:contents">
     {#each links as item (item.text || item.title)}
       <li>
