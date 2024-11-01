@@ -29,7 +29,3 @@
     <a href="#example">Example Menu Link 6</a>
   </uofg-footer>
 </Story>
-
-<Story name="Ridgetown">
-  <uofg-footer variant="ridgetown"></uofg-footer>
-</Story>
