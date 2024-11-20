@@ -72,8 +72,8 @@ export const topLinks = [
     text: 'Account Menu',
     links: [
       {
-        text: 'Intranet',
-        href: 'https://intranet.uoguelph.ca/',
+        text: 'U of G Insider',
+        href: 'https://uoguelphca.sharepoint.com/',
       },
       {
         text: 'WebAdvisor',
