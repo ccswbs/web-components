@@ -15,7 +15,7 @@
             class="relative h-full"
             buttonClass={twJoin(
               `flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-light-grey aria-expanded:bg-light-grey`,
-              item.icon && '[&_svg]:aria-expanded:rotate-180)}',
+              item.icon && '[&_svg]:aria-expanded:rotate-180)} aspect-square',
             )}
             contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-light-grey [&>li]:contents"
             as="ul"
