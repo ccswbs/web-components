@@ -3,7 +3,7 @@
   import { primaryLinks as links } from '../data/guelph.js';
 </script>
 
-<ul class="flex ml-auto [&>li]:contents text-xl">
+<ul class="flex ml-auto [&>li]:contents text-[2.2rem]">
   {#each links as item}
     <li>
       {#if item.icon}
