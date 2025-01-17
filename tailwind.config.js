@@ -1,14 +1,104 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+const baseFontSize = 10;
 
 module.exports = {
   content: ['./src/**/*.{html,js,ts,svelte}'],
+  darkMode: 'selector',
   theme: {
     extend: {
+      spacing: () => ({
+        ...Array.from({ length: 96 }, (_, index) => index * 0.5)
+          .filter(i => i)
+          .reduce((acc, i) => ({ ...acc, [i]: `${i / (baseFontSize / 4)}rem` }), {}),
+      }),
+      fontSize: {
+        'xs': [
+          `${(16 * 0.75) / baseFontSize}rem`,
+          {
+            lineHeight: `${16 / baseFontSize}rem`,
+          },
+        ],
+        'sm': [
+          `${(16 * 0.875) / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 1.25) / baseFontSize}rem`,
+          },
+        ],
+        'base': [
+          `${16 / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 1.5) / baseFontSize}rem`,
+          },
+        ],
+        'lg': [
+          `${(16 * 1.125) / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 1.75) / baseFontSize}rem`,
+          },
+        ],
+        'xl': [
+          `${(16 * 1.25) / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 1.75) / baseFontSize}rem`,
+          },
+        ],
+        '2xl': [
+          `${(16 * 1.5) / baseFontSize}rem`,
+          {
+            ineHeight: `${(16 * 2) / baseFontSize}rem`,
+          },
+        ],
+        '3xl': [
+          `${(16 * 1.875) / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 2.25) / baseFontSize}rem`,
+          },
+        ],
+        '4xl': [
+          `${(16 * 2.25) / baseFontSize}rem`,
+          {
+            lineHeight: `${(16 * 2.5) / baseFontSize}rem`,
+          },
+        ],
+        '5xl': [
+          `${(16 * 3) / baseFontSize}rem`,
+          {
+            lineHeight: 16 / baseFontSize,
+          },
+        ],
+        '6xl': [
+          `${(16 * 3.75) / baseFontSize}rem`,
+          {
+            lineHeight: 16 / baseFontSize,
+          },
+        ],
+        '7xl': [
+          `${(16 * 4.5) / baseFontSize}rem`,
+          {
+            lineHeight: 16 / baseFontSize,
+          },
+        ],
+        '8xl': [
+          `${(16 * 6) / baseFontSize}rem`,
+          {
+            lineHeight: 16 / baseFontSize,
+          },
+        ],
+        '9xl': [
+          `${(16 * 8) / baseFontSize}rem`,
+          {
+            lineHeight: 16 / baseFontSize,
+          },
+        ],
+      },
       fontFamily: {
-        condensed: ['Roboto Condensed', 'Arial', 'sans-serif'],
+        condensed: ['Roboto Condensed', ...defaultTheme.fontFamily.sans],
+        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'uofg-red': {
+        'red': {
           50: '#fff0f1',
           100: '#ffe2e4',
           200: '#ffc9cf',
@@ -22,7 +112,7 @@ module.exports = {
           950: '#520016',
           DEFAULT: '#c20430',
         },
-        'uofg-yellow': {
+        'yellow': {
           50: '#fffbeb',
           100: '#fff5c6',
           200: '#ffe988',
@@ -36,7 +126,7 @@ module.exports = {
           950: '#461b02',
           DEFAULT: '#ffc72a',
         },
-        'uofg-blue': {
+        'blue': {
           50: '#f1f8fa',
           100: '#ddecf0',
           200: '#bedae3',
@@ -50,7 +140,7 @@ module.exports = {
           950: '#192833',
           DEFAULT: '#69a3b9',
         },
-        'uofg-green': {
+        'green': {
           50: '#f1fbea',
           100: '#def5d2',
           200: '#c1ebab',
@@ -64,7 +154,7 @@ module.exports = {
           950: '#11280b',
           DEFAULT: '#3c8221',
         },
-        'uofg-grey': {
+        'light-grey': {
           50: '#f8f8f8',
           100: '#f0f0f0',
           200: '#dddddd',
@@ -78,7 +168,7 @@ module.exports = {
           950: '#282828',
           DEFAULT: '#dddddd',
         },
-        'uofg-charcoal': {
+        'dark-grey': {
           50: '#f7f7f7',
           100: '#e3e3e3',
           200: '#c8c8c8',
@@ -98,5 +188,5 @@ module.exports = {
   corePlugins: {
     preflight: true,
   },
-  important: false,
+  important: true,
 };

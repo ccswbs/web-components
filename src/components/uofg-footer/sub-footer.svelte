@@ -1,12 +1,12 @@
 <script>
-  export let links;
+  let { links } = $props();
 </script>
 
-<ul class="flex flex-wrap items-center justify-center bg-white p-6 px-[max(calc((100%-1320px)/2),2rem)]">
+<ul class="flex flex-wrap items-center justify-center bg-white p-3 px-[max(calc((100%-1320px)/2),2rem)]">
   {#each links as { text, href }}
-    <li class="p-6">
+    <li class="p-3">
       <a
-        class="transition-all decoration-transparent text-[#2e74bb] hover:text-[#1a4168] focus:text-[#1a4168] hover:underline focus:underline hover:decoration-current focus:decoration-current"
+        class="transition-all decoration-transparent text-blue hover:text-blue-800 focus:text-blue-800 hover:underline focus:underline hover:decoration-current focus:decoration-current"
         {href}
       >
         {text}

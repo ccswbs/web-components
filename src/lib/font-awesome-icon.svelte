@@ -1,5 +1,5 @@
 <script>
-  export let icon;
+  let { icon } = $props();
 
   const width = icon.icon[0];
   const height = icon.icon[1];

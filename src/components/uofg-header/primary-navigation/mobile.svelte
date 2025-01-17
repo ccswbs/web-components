@@ -21,12 +21,14 @@
           contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents"
           as="ul"
         >
-          <FontAwesomeIcon slot="button" icon={item.icon} />
+          {#snippet button()}
+            <FontAwesomeIcon icon={item.icon} />
+          {/snippet}
 
           {#each item.links as link}
             <li class="[&>*]:first:mt-4 [&>*]:last:mb-4">
               <a
-                class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow"
+                class="border-0 border-b border-solid border-light-grey-500 p-4 transition-colors hover:bg-yellow"
                 href={link.href}
               >
                 {link.text}
@@ -55,31 +57,34 @@
       contentClass="absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents max-h-[calc(100vh-5rem)] overflow-y-auto"
       as="ul"
     >
-      <FontAwesomeIcon slot="button" icon={faBars} />
+      {#snippet button()}
+        <FontAwesomeIcon icon={faBars} />
+      {/snippet}
 
       {#each mainMenu as item}
         <li class="[&>*]:first:mt-4 [&>*]:last:mb-4">
           {#if item.links}
             <Menu
               class="relative w-full"
-              buttonClass="flex border-0 border-b border-solid border-uofg-grey-500 w-full items-center justify-between gap-2 p-4 transition-colors hover:bg-uofg-grey focus:bg-uofg-grey aria-expanded:bg-uofg-grey [&_svg]:aria-expanded:rotate-180"
+              buttonClass="flex border-0 border-b border-solid border-light-grey-500 w-full items-center justify-between gap-2 p-2 transition-colors hover:bg-light-grey focus:bg-light-grey aria-expanded:bg-light-grey [&_svg]:aria-expanded:rotate-180"
               contentClass="flex flex-col w-full flex-col bg-white text-black [&>li]:contents"
               as="ul"
               autoCollapse={false}
             >
-              <span
-                class="w-full flex gap-2 justify-between [&>svg]:transition-transform"
-                class:bg-uofg-yellow={item.highlight}
-                slot="button"
-              >
-                <span class="mr-auto">{item.text}</span>
-                <FontAwesomeIcon icon={faChevronDown} />
-              </span>
+              {#snippet button()}
+                <span
+                  class="w-full flex items-center gap-2 justify-between [&>svg]:transition-transform"
+                  class:bg-yellow={item.highlight}
+                >
+                  <span class="mr-auto">{item.text}</span>
+                  <FontAwesomeIcon icon={faChevronDown} />
+                </span>
+              {/snippet}
 
               {#each item.links as link}
                 <li>
                   <a
-                    class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey"
+                    class="border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-light-grey"
                     href={link.href}
                     {...link.attributes}
                   >
@@ -90,8 +95,8 @@
             </Menu>
           {:else}
             <a
-              class="border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-grey focus:bg-uofg-grey"
-              class:bg-uofg-yellow={item.highlight}
+              class="border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-light-grey focus:bg-light-grey"
+              class:bg-yellow={item.highlight}
               href={item.href}
             >
               {item.text}

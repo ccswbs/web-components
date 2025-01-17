@@ -20,7 +20,7 @@
 
 <div class="flex flex-col text-3xl">
   <div
-    class="flex items-center bg-uofg-red p-8 text-4xl text-white [&>svg]:mr-4 [&>svg]:h-[1.5em] [&>svg]:fill-current"
+    class="flex items-center bg-red p-8 text-4xl text-white [&>svg]:mr-4 [&>svg]:h-[1.5em] [&>svg]:fill-current"
   >
     <FontAwesomeIcon icon={faCircleExclamation} />
     <slot name="title" />
@@ -33,7 +33,7 @@
     <slot name="message" />
   </div>
 
-  <div class="flex bg-uofg-grey px-8 py-4 text-2xl">
+  <div class="flex bg-light-grey px-8 py-4 text-2xl">
     <slot name="footer" />
   </div>
 </div>

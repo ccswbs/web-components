@@ -3,7 +3,7 @@
   import { social } from './data/guelph.js';
 </script>
 
-<ul class="flex gap-3 text-4xl [&>li]:contents">
+<ul class="flex gap-3 text-2xl [&>li]:contents">
   {#each social.links as { href, text, icon, classes }}
     <li>
       <a {href} aria-label={text} class={`transition-colors ${classes}`}>
