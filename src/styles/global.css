@@ -28,8 +28,8 @@ uofg-header {
       height: 14rem !important;
       background: linear-gradient(
         180deg,
-        rgba(221, 221, 221, 1) 0%,
-        rgba(221, 221, 221, 1) 28%,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 28%,
         rgba(0, 0, 0, 1) 28%,
         rgba(0, 0, 0, 1) 100%
       );
