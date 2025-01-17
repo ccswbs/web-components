@@ -13,8 +13,10 @@ Test pages:
 
 - U of G Homepage - https://uoguelph.ca
 - U of G Library - https://lib.uoguelph.ca
-- Any Content Hub Page
+- Any Content Hub Page ex. https://uoguelph.ca/president
+- Any published ugnext page: https://uoguelph.ca/programs/undergradute
 - U of G News - https://news.uoguelph.ca
+- uofg-files-web pages - https://uoguelph.ca/maps
 
 Steps:
 
