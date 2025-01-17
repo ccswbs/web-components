@@ -9,4 +9,13 @@ Brief description of the proposed changes
 
 Test Version: x.x.x
 
-Insert steps.
+Test pages: 
+
+- U of G Homepage - https://uoguelph.ca
+- U of G Library - https://lib.uoguelph.ca
+- Any Content Hub Page
+- U of G News - https://news.uoguelph.ca
+
+Steps:
+
+1. 
