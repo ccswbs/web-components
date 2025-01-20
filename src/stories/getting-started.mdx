@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# Introduction
+
+This is a library of web components designed for use across various University of Guelph websites. These components are built with [Svelte](https://svelte.dev/), a compiler/framework that simplifies the development of component libraries.
+
+## Adding Components to a Page
+
+The recommended method for including the web components in your page is to use [unpkg](https://www.unpkg.com), a fast, globally available CDN for npm packages.
+
+To always load the latest version, add the following to the `<head>` of your HTML:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@uoguelph/web-components/dist/uofg-web-components/uofg-web-components.css"
+/>
+<script
+  type="module"
+  src="https://unpkg.com/@uoguelph/web-components/dist/uofg-web-components/uofg-web-components.esm.js"
+></script>
+```
+
+### Including a single component
+
+Using `uofg-web-components.esm.js` will load all the web-components in the library, which may not be what you desire.
+
+You can load each component individually, and thus can load only the components you are planning on using, by replacing the `uofg-web-components.esm.js` in the `src` attribute in the `script` with the name of the component you want. For example, if I only want to load the header:
+
+```html
+<script
+  type="module"
+  src="https://unpkg.com/@uoguelph/web-components/dist/uofg-web-components/uofg-header.esm.js"
+></script>
+```
+
+### Best Practice: Specify a Version Range
+
+While loading the latest version ensures you're using the most current features, it’s not always best practice. New releases may introduce breaking changes that could impact your page’s functionality. Instead, it’s safer to specify a version range following semantic versioning (semver).
+
+Semantic versioning follows the format `x1.x2.x3`:
+
+- **Major (x1)**: Potentially breaking changes.
+- **Minor (x2)**: New features, backward compatible.
+- **Patch (x3)**: Bug fixes, backward compatible.
+
+For example, specifying `1.x.x` will ensure you get the latest release of version 1 (without breaking changes). Here's how you can do it:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@uoguelph/web-components@1.x.x/dist/uofg-web-components/uofg-web-components.css"
+/>
+<script
+  type="module"
+  src="https://unpkg.com/@uoguelph/web-components@1.x.x/dist/uofg-web-components/uofg-web-components.esm.js"
+></script>
+```
+
+Using a version range like this will prevent unexpected issues and ensure stability until you’re ready to upgrade to a new major release.
+
+For more details, refer to the [unpkg documentation](https://www.unpkg.com).
+
+## Fonts
+
+Some components, such as the `uofg-header`, are designed with specific fonts in mind, like **Roboto Condensed**. This font is not typically available by default in most browsers or systems. To ensure your components look as intended, we recommend adding the required fonts via Google Fonts:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet" />
+```
+
+While the components will still function without these fonts, their appearance may differ slightly from the intended design.

@@ -8,6 +8,7 @@
     },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
+        subNavigation = [];
         constructor() {
           super();
           attachTailwind(this.shadowRoot);
@@ -71,6 +72,10 @@
   }}
 />
 
+<script module>
+  const MENU_CHAR_LIMIT = 35;
+</script>
+
 <script>
   import attachTailwind from '../../lib/attach-tailwind.js';
   import TopNavigation from './top-navigation.svelte';
@@ -79,38 +84,36 @@
   import { writable } from 'svelte/store';
   import { setContext } from 'svelte';
 
-  export let subNavigation;
-  export let pageTitle;
-  export let pageURL;
-  export let variant;
+  let { subNavigation, pageTitle, pageURL, variant } = $props();
 
-  let windowWidth;
+  let windowWidth = $state();
   const BREAKPOINT = 1024;
-  const MENU_CHAR_LIMIT = 35;
 
-  const state = writable({
-    mode: windowWidth >= BREAKPOINT ? 'desktop' : 'mobile',
+  const headerState = writable({
+    mode: 'mobile',
     variant,
   });
 
-  setContext('header-state', state);
+  setContext('header-state', headerState);
 
-  $: state.set({
-    mode: windowWidth >= BREAKPOINT ? 'desktop' : 'mobile',
-    variant,
+  $effect(() => {
+    headerState.set({
+      mode: windowWidth >= BREAKPOINT ? 'desktop' : 'mobile',
+      variant,
+    });
   });
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<header class="relative z-10 w-full font-condensed text-3xl text-black">
-  {#if $state.mode === 'desktop' && variant !== 'dual-brand'}
+<header class="relative z-10 w-full font-condensed text-black">
+  {#if $headerState.mode === 'desktop' && variant !== 'dual-brand'}
     <TopNavigation />
   {/if}
 
   <PrimaryNavigation />
 
-  {#if subNavigation.length > 0 || pageTitle}
+  {#if subNavigation?.length > 0 || pageTitle}
     <SubNavigation title={pageTitle} url={pageURL} items={subNavigation} />
   {/if}
 </header>

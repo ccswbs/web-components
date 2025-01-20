@@ -41,7 +41,7 @@
   import PrimaryLinks from './primary-links.svelte';
   import Address from './address.svelte';
 
-  export let subFooter;
+  let { subFooter } = $props();
 </script>
 
 <footer>
@@ -50,7 +50,7 @@
   {/if}
 
   <div
-    class="flex flex-col content-center gap-8 bg-black px-[max(calc((100%-1320px)/2),2rem)] py-8 text-white md:grid md:grid-cols-2 lg:grid-cols-4"
+    class="flex flex-col content-center gap-6 bg-black px-[max(calc((100%-1320px)/2),2rem)] py-6 text-white md:grid md:grid-cols-2 lg:grid-cols-4"
   >
     <div class="flex flex-col justify-between gap-2">
       <Logo />

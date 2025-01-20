@@ -4,29 +4,27 @@
   import Mobile from './mobile.svelte';
   import { twJoin } from 'tailwind-merge';
 
-  const state = getContext('header-state');
+  const headerState = getContext('header-state');
 
-  export let items;
-  export let title;
-  export let url;
+  let { items, title, url } = $props();
 
-  let containerWidth;
-  let titleWidth;
-  let contentWidth;
+  let containerWidth = $state();
+  let titleWidth = $state();
+  let contentWidth = $state();
   let timeout;
-  let overflowWidth;
+  let overflowWidth = $state();
 
-  $: {
+  $effect(() => {
     clearTimeout(timeout);
-    if ($state?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
+    if ($headerState?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
       timeout = setTimeout(() => {
         overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
       }, 50);
     }
-  }
+  });
 
   onMount(() => {
-    if ($state?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
+    if ($headerState?.mode === 'desktop' && containerWidth - titleWidth < contentWidth) {
       overflowWidth = isNaN(overflowWidth) ? containerWidth : Math.max(containerWidth, overflowWidth);
     }
   });
@@ -34,8 +32,8 @@
 
 <nav
   class={twJoin(
-    'block align-items relative justify-end bg-uofg-grey px-[calc((100%-1320px)/2)] text-3xl lg:whitespace-nowrap',
-    $state?.variant === 'dual-brand' ? 'h-16' : 'h-[5rem] lg:h-16',
+    'block align-items relative justify-end bg-light-grey px-[calc((100%-1320px)/2)] text-lg lg:whitespace-nowrap',
+    $headerState?.variant === 'dual-brand' ? 'h-10' : 'h-[5rem] lg:h-10',
   )}
   aria-label="Page Specific"
   bind:clientWidth={containerWidth}
@@ -43,21 +41,21 @@
   <div class="flex h-full w-fit min-w-full overflow-y-visible items-center justify-end [&>li]:contents relative">
     {#if title && url}
       <a
-        class="mr-auto flex h-full items-center justify-center px-4 font-bold transition-colors hover:bg-uofg-yellow"
+        class="mr-auto flex h-full items-center justify-center px-3 font-bold transition-colors hover:bg-yellow"
         href={url}
         bind:clientWidth={titleWidth}
       >
         {title}
       </a>
     {:else if title}
-      <span bind:clientWidth={titleWidth} class="mr-auto flex h-full items-center justify-center px-4 font-bold">
+      <span bind:clientWidth={titleWidth} class="mr-auto flex h-full items-center justify-center px-3 font-bold">
         {title}
       </span>
     {/if}
 
     <ul class="[&>li]:contents h-full flex w-fit !static lg:static" bind:clientWidth={contentWidth}>
       {#if items?.length > 0}
-        {#if $state.mode === 'desktop' && (isNaN(overflowWidth) || containerWidth > overflowWidth)}
+        {#if $headerState.mode === 'desktop' && (isNaN(overflowWidth) || containerWidth > overflowWidth)}
           <Desktop {items} />
         {:else}
           <Mobile {items} />

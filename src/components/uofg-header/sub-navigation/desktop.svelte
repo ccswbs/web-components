@@ -3,7 +3,7 @@
   import FontAwesomeIcon from '../../../lib/font-awesome-icon.svelte';
   import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-  export let items;
+  let { items } = $props();
 </script>
 
 {#each items as item (item.text || item.title)}
@@ -11,21 +11,23 @@
     <li>
       <Menu
         class="relative h-full"
-        buttonClass="flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow aria-expanded:bg-uofg-yellow [&_svg]:aria-expanded:rotate-180"
-        contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-uofg-grey [&>li]:contents"
+        buttonClass="flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-yellow aria-expanded:bg-yellow [&_svg]:aria-expanded:rotate-180"
+        contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-light-grey [&>li]:contents"
         buttonAriaLabel={undefined}
         as="ul"
       >
-        <span class="flex gap-2 [&>svg]:transition-transform" slot="button">
-          <span>{item.title}</span>
-          <FontAwesomeIcon icon={faChevronDown} />
-        </span>
+        {#snippet button()}
+          <span class="flex items-center gap-2 [&>svg]:transition-transform">
+            <span>{item.title}</span>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </span>
+        {/snippet}
 
         {#each item.links as link}
           <li>
             <a
               {...link.attributes}
-              class={`border-0 border-b border-solid border-uofg-grey-500 p-4 transition-colors hover:bg-uofg-yellow ${link.attributes?.class ?? ''}`}
+              class={`border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-yellow ${link.attributes?.class ?? ''}`}
               href={link.href}
             >
               {link.text}
@@ -38,7 +40,7 @@
     <li>
       <a
         {...item.attributes}
-        class={`flex h-full items-center justify-center gap-2 px-4 transition-colors hover:bg-uofg-yellow ${item.attributes?.class ?? ''}`}
+        class={`flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-yellow ${item.attributes?.class ?? ''}`}
         href={item.href}
       >
         {item.text}

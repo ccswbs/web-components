@@ -6,26 +6,26 @@
   import Mobile from './mobile.svelte';
   import { getContext } from 'svelte';
 
-  const state = getContext('header-state');
+  const headerState = getContext('header-state');
 </script>
 
 <nav
   class={twJoin(
-    'relative w-full justify-between flex lg:h-[10rem] bg-black px-[calc((100%-1320px)/2)] text-3xl text-white',
-    $state?.variant === 'dual-brand' ? 'h-[7.5rem]' : 'h-[5rem]',
+    'relative w-full justify-between flex lg:h-25 bg-black px-[calc((100%-1320px)/2)] text-lg text-white',
+    $headerState?.variant === 'dual-brand' ? 'h-[7.5rem]' : 'h-12.5',
   )}
   aria-label="Primary"
 >
   <Logo />
 
-  {#if $state?.variant === 'dual-brand'}
+  {#if $headerState?.variant === 'dual-brand'}
     <a
       href="https://www.guelphhumber.ca"
-      class="w-auto h-full p-6 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"
+      class="w-auto h-full p-4 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"
     >
       <UofGHLogo />
     </a>
-  {:else if $state?.mode === 'desktop'}
+  {:else if $headerState?.mode === 'desktop'}
     <Desktop />
   {:else}
     <Mobile />

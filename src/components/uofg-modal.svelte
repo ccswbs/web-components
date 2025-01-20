@@ -49,22 +49,26 @@
 />
 
 <script>
+  import { run } from 'svelte/legacy';
+
   import attachTailwind from '../lib/attach-tailwind.js';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faTimes } from '@fortawesome/free-solid-svg-icons';
   import { getAllFocusableElements } from '../lib/get-all-focusable.js';
   import { twJoin } from 'tailwind-merge';
 
-  export let isOpen;
-  export let centered;
-  export let autoOpen;
-  export let label;
-  export let alertDialog;
-  export let staticBackdrop;
-  export let dismissButton;
-  export let container;
-  export let el;
-  export let inertElements;
+  let {
+    isOpen = $bindable(),
+    centered,
+    autoOpen,
+    label,
+    alertDialog,
+    staticBackdrop,
+    dismissButton,
+    container,
+    el,
+    inertElements,
+  } = $props();
 
   const handleOnClick = e => {
     if (staticBackdrop && e.target === e.currentTarget) {
@@ -94,13 +98,13 @@
     }
   };
 
-  $: {
+  $effect(() => {
     if (autoOpen) {
       isOpen = true;
     }
-  }
+  });
 
-  $: {
+  $effect(() => {
     if (isOpen) {
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
@@ -140,9 +144,9 @@
         }
 
         current = parent;
-
-        el.dispatchEvent(new CustomEvent('opened', { bubbles: true, composed: true }));
       }
+
+      el.dispatchEvent(new CustomEvent('opened', { bubbles: true, composed: true }));
     } else {
       // Remove the inert attribute from all elements that we marked as inert when the modal was opened.
       for (const element of inertElements) {
@@ -157,7 +161,7 @@
 
     // Prevent scrolling of the body when the modal is open.
     document.body.style.overflow = isOpen ? 'hidden' : '';
-  }
+  });
 </script>
 
 <div
@@ -170,9 +174,9 @@
   aria-modal={isOpen ? 'true' : ''}
   aria-label={label}
   tabIndex={-1}
-  on:click={handleOnClick}
-  on:keyup={handleKeyUp}
-  on:focusout={handleFocusOut}
+  onclick={handleOnClick}
+  onkeyup={handleKeyUp}
+  onfocusout={handleFocusOut}
   bind:this={container}
 >
   <div
@@ -185,11 +189,10 @@
     )}
   >
     <button
-      class="absolute right-8 top-8 z-[2] flex h-12 w-12 items-center justify-center border-0 bg-transparent text-3xl p-2 text-[var(--uofg-modal-dismiss-color,white)]"
-      part="dismiss-button"
+      class="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 z-[2] flex aspect-square w-8 items-center justify-center text-white text-lg transition-colors bg-dark-grey hover:bg-red focus:bg-red rounded-full p-2"
       aria-label="Close modal"
       bind:this={dismissButton}
-      on:click={() => (isOpen = false)}
+      onclick={() => (isOpen = false)}
     >
       <FontAwesomeIcon icon={faTimes} />
     </button>
