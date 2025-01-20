@@ -50,3 +50,4 @@ dist
 
 tmp
 *storybook.log
+/storybook-static
