@@ -10,7 +10,6 @@ Brief description of the proposed changes
 # Test Plan
 
 Test Version: x.x.x
-Storybook URL: https://<branch-name>--670579a0567165b3797aebfa.chromatic.com
 
 Test pages: 
 
