@@ -49,3 +49,4 @@ dist
 .DS_Store
 
 tmp
+*storybook.log
