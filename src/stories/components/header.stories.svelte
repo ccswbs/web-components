@@ -1,17 +1,14 @@
 <script context="module">
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import '../../components/uofg-header/uofg-header.svelte';
 
-  export const meta = {
-    title: "Components/Header",
+  const { Story } = defineMeta({
+    title: 'Components/Header',
     component: 'uofg-header',
     parameters: {
       layout: 'fullscreen',
     },
-  }
-</script>
-
-<script>
-  import '../../components/uofg-header/uofg-header.svelte';
-  import { Story } from '@storybook/addon-svelte-csf';
+  });
 </script>
 
 <Story name="Basic">
