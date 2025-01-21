@@ -6,7 +6,7 @@
     title: 'Components/Footer',
     component: 'uofg-footer',
     parameters: {
-      layout: 'fullscreen',
+      layout: 'padded',
     },
   });
 </script>

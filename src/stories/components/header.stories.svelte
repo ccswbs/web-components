@@ -6,7 +6,7 @@
     title: 'Components/Header',
     component: 'uofg-header',
     parameters: {
-      layout: 'fullscreen',
+      layout: 'padded',
     },
   });
 </script>
@@ -25,14 +25,30 @@
 
 <Story name="With Sub Navigation">
   <uofg-header page-title="Example Topic/Department">
-    <a href="#example">Example Menu Link</a>
-    <a href="#example">Example Menu Link 2</a>
+    <a href="#example">Example Link</a>
+    <a href="#example">Example Link 2</a>
 
     <ul data-title="Example Menu">
       <li><a href="#example">Example Menu Link 1</a></li>
       <li><a href="#example">This is a really long Example Menu Link 2</a></li>
       <li><a href="#example">Example Menu Link 3</a></li>
     </ul>
+  </uofg-header>
+</Story>
+
+<Story name="With Overflowing Sub Navigation">
+  <uofg-header page-title="Example Topic/Department">
+    <a href="#example">Example Link</a>
+    <a href="#example">Example Link 2</a>
+
+    <ul data-title="Example Menu">
+      <li><a href="#example">Example Menu Link 1</a></li>
+      <li><a href="#example">This is a really long Example Menu Link 2</a></li>
+      <li><a href="#example">Example Menu Link 3</a></li>
+    </ul>
+
+    <a href="#example">This is a really long Example Link 3</a>
+    <a href="#example">This is a really long Example Link 4</a>
   </uofg-header>
 </Story>
 
