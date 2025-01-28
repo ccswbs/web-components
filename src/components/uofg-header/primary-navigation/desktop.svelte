@@ -16,7 +16,7 @@
         </a>
       {:else}
         <a
-          class="flex h-full items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pt-6 transition-colors hover:border-yellow hover:text-yellow"
+          class="flex h-full text-center items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pt-6 transition-colors hover:border-yellow hover:text-yellow"
           href={item.href}
         >
           {item.text}
