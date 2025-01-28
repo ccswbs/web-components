@@ -30,7 +30,7 @@
     href="https://www.uoguelph.ca"
     aria-label="University of Guelph Home Page"
   >
-    {#if $headerState?.mode === 'desktop' || $headerState?.variant === 'dual-brand'}
+    {#if $headerState?.mode === 'desktop'}
       <Logo />
     {:else}
       <LogoSmall />
