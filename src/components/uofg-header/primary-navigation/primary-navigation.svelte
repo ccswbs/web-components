@@ -23,6 +23,7 @@
       href="https://www.guelphhumber.ca"
       class="w-auto h-full p-4 ml-auto transition-opacity focus:opacity-75 hover:opacity-75"
     >
+      <span class="sr-only">University of Guelph-Humber Homepage</span>
       <UofGHLogo />
     </a>
   {:else if $headerState?.mode === 'desktop'}
