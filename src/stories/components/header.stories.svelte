@@ -6,7 +6,7 @@
     title: 'Components/Header',
     component: 'uofg-header',
     parameters: {
-      layout: 'padded',
+      layout: 'fullscreen',
     },
   });
 </script>
