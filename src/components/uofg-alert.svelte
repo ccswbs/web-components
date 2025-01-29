@@ -37,14 +37,19 @@
   </div>
 
   <div
-    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="message"]::slotted(*)]:text-base [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold border-light-grey border-t-0 border`}
+    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold border-light-grey border-t-0 border`}
     class:border-b={!$$slots?.footer}
   >
     <slot name="subtitle" />
-    <slot name="message" />
+
+    <span
+      class={`[&>slot[name=\"message"]::slotted(*)]:text-base [&>slot[name="message"]::slotted(a)]:text-blue [&>slot[name="message"]::slotted(a)]:px-1 [&>slot[name="message"]::slotted(a:hover)]:bg-blue [&>slot[name="message"]::slotted(a:hover)]:text-white [&>slot[name="message"]::slotted(a:hover)]:transition-colors [&>slot[name="message"]::slotted(a:hover)]:decoration-transparent`}
+    >
+      <slot name="message" />
+    </span>
   </div>
 
-  <div class="flex bg-light-grey text-lg" class:px-4={$$slots?.footer} class:py-2={$$slots?.footer}>
+  <div class="flex bg-light-grey" class:px-4={$$slots?.footer} class:py-2={$$slots?.footer}>
     <slot name="footer" />
   </div>
 </div>
