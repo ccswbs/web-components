@@ -11,9 +11,8 @@
   <span>{address.postalCode}</span>
   <a
     href={`tel:${address.phoneNumber}`}
-    class="flex justify-center items-center w-fit gap-2 border-0 border-b-2 border-transparent text-blue-400 transition-colors focus:border-current hover:border-current"
+    class="underline decoration-transparent transition-colors focus:decoration-blue-400 hover:decoration-blue-400 text-blue-400"
   >
-    <FontAwesomeIcon icon={faPhoneFlip} />
-    <span>{address.phoneNumber}</span>
+    {address.phoneNumber}
   </a>
 </address>

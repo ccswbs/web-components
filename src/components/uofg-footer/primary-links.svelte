@@ -5,15 +5,14 @@
 
 <div class="flex justify-center md:col-span-2 md:row-start-2 lg:row-auto">
   <ul class="w-full flex flex-col gap-2 md:grid md:grid-cols-2 [&>li]:contents">
-    {#each links as { href, title, icon, text }}
+    {#each links as { href, title, text }}
       <li>
         <a
           {href}
           title={title ?? ''}
-          class="flex justify-center items-center w-fit gap-2 border-0 border-b-2 border-transparent transition-colors focus:border-white hover:border-white [&>svg]:fill-yellow"
+          class="underline decoration-transparent transition-colors focus:decoration-white hover:decoration-white"
         >
-          <FontAwesomeIcon {icon} />
-          <span>{text}</span>
+          {text}
         </a>
       </li>
     {/each}
