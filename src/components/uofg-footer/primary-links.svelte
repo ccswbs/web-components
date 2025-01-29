@@ -10,7 +10,7 @@
         <a
           {href}
           title={title ?? ''}
-          class="flex justify-center items-center w-fit gap-2 border-0 border-b-2 border-dotted border-transparent transition-colors focus:border-white hover:border-white [&>svg]:fill-yellow"
+          class="flex justify-center items-center w-fit gap-2 border-0 border-b-2 border-transparent transition-colors focus:border-white hover:border-white [&>svg]:fill-yellow"
         >
           <FontAwesomeIcon {icon} />
           <span>{text}</span>

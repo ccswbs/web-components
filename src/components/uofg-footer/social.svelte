@@ -14,7 +14,7 @@
 </ul>
 
 <a
-  class="w-fit border-0 border-b-2 border-dotted border-transparent transition-colors focus:border-white hover:border-white"
+  class="w-fit border-0 border-b-2 border-transparent transition-colors focus:border-white hover:border-white"
   href={social.directory}
 >
   Social Media Directory
