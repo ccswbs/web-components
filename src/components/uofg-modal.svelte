@@ -71,7 +71,7 @@
   } = $props();
 
   const handleOnClick = e => {
-    if (staticBackdrop && e.target === e.currentTarget) {
+    if (!staticBackdrop && e.target === e.currentTarget) {
       isOpen = false;
     }
   };
@@ -184,12 +184,13 @@
     class={twJoin(
       'z-1 absolute left-1/2 h-fit max-h-full max-w-full -translate-x-1/2 overflow-auto w-full sm:w-fit sm:p-8 transition-transform motion-reduce:transition-none',
       isOpen && 'visible opacity-100',
-      isOpen && centered && 'translate-y-[calc(-50%_-_50px)]',
-      ((!isOpen && !centered) || (isOpen && centered)) && 'translate-y-[-50px]',
+      !isOpen && !centered && 'translate-y-[-50px]',
+      !isOpen && centered && 'translate-y-[calc(-50%_-_50px)]',
+      isOpen && centered && 'translate-y-[50%]',
     )}
   >
     <button
-      class="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 z-[2] flex aspect-square w-8 items-center justify-center text-white text-lg transition-colors bg-dark-grey hover:bg-red focus:bg-red rounded-full p-2"
+      class="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 z-[2] flex aspect-square w-8 items-center justify-center text-white text-lg transition-colors bg-black hover:bg-red focus:bg-red rounded-full p-2"
       aria-label="Close modal"
       bind:this={dismissButton}
       onclick={() => (isOpen = false)}
