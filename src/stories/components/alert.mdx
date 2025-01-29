@@ -1,0 +1,31 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as AlertStories from './alert.stories.svelte';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+The alert component is used to display information that should be catching the user's attention.
+It is typically paired with our modal component.
+
+## Usage
+
+### Basic
+
+<Canvas of={AlertStories.Basic} sourceState="shown" />
+
+### With a subtitle
+
+<Canvas of={AlertStories.WithSubtitle} sourceState="shown" />
+
+### With a footer
+
+<Canvas of={AlertStories.WithFooter} sourceState="shown" />
+
+### Color Variants
+
+<Canvas of={AlertStories.Yellow} sourceState="shown" />
+<Canvas of={AlertStories.Blue} sourceState="shown" />
+<Canvas of={AlertStories.Green} sourceState="shown" />
+```
