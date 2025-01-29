@@ -11,7 +11,7 @@
   <span>{address.postalCode}</span>
   <a
     href={`tel:${address.phoneNumber}`}
-    class="underline decoration-transparent transition-colors focus:decoration-blue-400 hover:decoration-blue-400 text-blue-400"
+    class="w-fit underline decoration-transparent transition-colors focus:decoration-blue-400 hover:decoration-blue-400 text-blue-400"
   >
     {address.phoneNumber}
   </a>
