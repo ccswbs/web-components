@@ -36,9 +36,11 @@
     $headerState?.variant === 'dual-brand' ? 'h-10' : 'h-[5rem] lg:h-10',
   )}
   aria-label="Page Specific"
-  bind:clientWidth={containerWidth}
 >
-  <div class="flex h-full w-fit min-w-full overflow-y-visible items-center justify-end [&>li]:contents relative">
+  <div
+    class="flex h-full min-w-full overflow-y-visible items-center justify-end [&>li]:contents relative"
+    bind:clientWidth={containerWidth}
+  >
     {#if title && url}
       <a
         class="mr-auto flex h-full items-center justify-center px-3 font-bold transition-colors hover:bg-yellow"
