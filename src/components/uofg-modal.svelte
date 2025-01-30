@@ -49,8 +49,6 @@
 />
 
 <script>
-  import { run } from 'svelte/legacy';
-
   import attachTailwind from '../lib/attach-tailwind.js';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faTimes } from '@fortawesome/free-solid-svg-icons';
