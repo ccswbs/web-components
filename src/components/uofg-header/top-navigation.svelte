@@ -26,7 +26,7 @@
                 {#if item.icon}
                   <FontAwesomeIcon icon={item.icon} />
                 {:else}
-                  <span>{item.text.toUpperCase()}</span>
+                  <span>{item.text}</span>
                   <FontAwesomeIcon icon={faChevronDown} />
                 {/if}
               </span>
@@ -55,7 +55,7 @@
             )}
             href={item.href}
           >
-            {item.text.toUpperCase()}
+            {item.text}
           </a>
         {/if}
       </li>
