@@ -14,7 +14,7 @@
           <Menu
             class="relative h-full"
             buttonClass={twJoin(
-              `flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-light-grey aria-expanded:bg-light-grey`,
+              `flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-[#DDDDDD] aria-expanded:bg-[#DDDDDD]`,
               item.icon && '[&_svg]:aria-expanded:rotate-180)} aspect-square',
             )}
             contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-light-grey [&>li]:contents"
@@ -50,7 +50,7 @@
         {:else}
           <a
             class={twJoin(
-              'flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-light-grey',
+              'flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-[#DDDDDD]',
               item.highlight && 'bg-yellow',
             )}
             href={item.href}

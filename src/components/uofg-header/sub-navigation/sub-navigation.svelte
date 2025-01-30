@@ -32,7 +32,7 @@
 
 <nav
   class={twJoin(
-    'block align-items relative justify-end bg-light-grey px-[calc((100%-1320px)/2)] text-lg lg:whitespace-nowrap',
+    'block align-items relative justify-end bg-[#DDDDDD] px-[calc((100%-1320px)/2)] text-lg lg:whitespace-nowrap',
     $headerState?.variant === 'dual-brand' ? 'h-10' : 'h-[5rem] lg:h-10',
   )}
   aria-label="Page Specific"
