@@ -21,10 +21,10 @@
   </button>
   <uofg-modal id="basic-modal" label="Basic Modal">
     <uofg-alert>
-      <span slot="title">YOUR TITLE HERE</span>
-      <span slot="subtitle">YOUR SUBTITLE HERE</span>
-      <span slot="message">YOUR ALERT MESSAGE HERE</span>
-      <span slot="footer">YOUR FOOTER CONTENT HERE</span>
+      <span slot="title">Alert title</span>
+      <span slot="message">Alert message</span>
+      <span slot="subtitle">Alert subtitle</span>
+      <span slot="footer">Alert footer content</span>
     </uofg-alert>
   </uofg-modal>
 </Story>
@@ -38,10 +38,10 @@
   </button>
   <uofg-modal id="basic-modal" label="Basic Modal" static-backdrop>
     <uofg-alert>
-      <span slot="title">YOUR TITLE HERE</span>
-      <span slot="subtitle">YOUR SUBTITLE HERE</span>
-      <span slot="message">YOUR ALERT MESSAGE HERE</span>
-      <span slot="footer">YOUR FOOTER CONTENT HERE</span>
+      <span slot="title">Alert title</span>
+      <span slot="message">Alert message</span>
+      <span slot="subtitle">Alert subtitle</span>
+      <span slot="footer">Alert footer content</span>
     </uofg-alert>
   </uofg-modal>
 </Story>
@@ -55,10 +55,10 @@
   </button>
   <uofg-modal id="basic-modal" label="Basic Modal" centered>
     <uofg-alert>
-      <span slot="title">YOUR TITLE HERE</span>
-      <span slot="subtitle">YOUR SUBTITLE HERE</span>
-      <span slot="message">YOUR ALERT MESSAGE HERE</span>
-      <span slot="footer">YOUR FOOTER CONTENT HERE</span>
+      <span slot="title">Alert title</span>
+      <span slot="message">Alert message</span>
+      <span slot="subtitle">Alert subtitle</span>
+      <span slot="footer">Alert footer content</span>
     </uofg-alert>
   </uofg-modal>
 </Story>
