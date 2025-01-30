@@ -185,8 +185,8 @@
       'z-1 absolute left-1/2 h-fit max-h-full max-w-full -translate-x-1/2 overflow-auto w-full sm:w-fit sm:p-8 transition-transform motion-reduce:transition-none',
       isOpen && 'visible opacity-100',
       !isOpen && !centered && 'translate-y-[-50px]',
-      !isOpen && centered && 'translate-y-[calc(-50%_-_50px)]',
-      isOpen && centered && 'translate-y-[50%]',
+      !isOpen && centered && 'translate-y-[calc(-50%_-_50px)] top-1/2',
+      isOpen && centered && 'translate-y-[-50%] top-1/2',
     )}
   >
     <button
