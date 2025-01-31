@@ -104,9 +104,9 @@ export const primaryLinks = [
     href: 'https://www.uoguelph.ca/registrar/calendars/graduate/current/',
   },
   {
-    text: 'Program Plans',
+    text: 'Admission',
     icon: faList,
-    href: 'https://admission.uoguelph.ca/programs',
+    href: 'https://uoguelph.ca/admission',
   },
   {
     text: 'Give to U of G',
