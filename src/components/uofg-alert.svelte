@@ -39,7 +39,7 @@
   </div>
 
   <div
-    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold border-light-grey border-t-0 border`}
+    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold border-grey-muted border-t-0 border`}
     class:border-b={!$$slots?.footer}
   >
     <slot name="subtitle" />
