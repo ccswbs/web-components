@@ -188,7 +188,7 @@
     )}
   >
     <button
-      class="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 z-[2] flex aspect-square w-8 items-center justify-center text-white text-lg transition-colors bg-black hover:bg-red focus:bg-red rounded-full p-2"
+      class="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 z-[2] flex aspect-square w-8 items-center justify-center border border-black/30 text-black-contrast text-lg transition-colors bg-black hover:bg-red focus:bg-red hover:text-red-contrast focus:text-red-contrast rounded-full p-2"
       aria-label="Close modal"
       bind:this={dismissButton}
       onclick={() => (isOpen = false)}
