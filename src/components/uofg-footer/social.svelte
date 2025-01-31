@@ -3,7 +3,7 @@
   import { social } from './data/guelph.js';
 </script>
 
-<ul class="flex gap-3 text-2xl [&>li]:contents">
+<ul class="flex gap-3 text-xl [&>li]:contents">
   {#each social.links as { href, text, icon, classes }}
     <li>
       <a {href} aria-label={text} class={`transition-colors ${classes}`}>
@@ -12,10 +12,3 @@
     </li>
   {/each}
 </ul>
-
-<a
-  class="w-fit underline decoration-transparent transition-colors focus:decoration-white hover:decoration-white"
-  href={social.directory}
->
-  Social Media Directory
-</a>

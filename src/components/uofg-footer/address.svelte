@@ -4,7 +4,7 @@
   import { address } from './data/guelph.js';
 </script>
 
-<address class="flex flex-col justify-between gap-4 not-italic">
+<address class="flex flex-col gap-1 not-italic">
   <strong>{address.title}</strong>
   <span>{address.street},</span>
   <span>{address.city}, Ontario, Canada</span>
