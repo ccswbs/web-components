@@ -19,7 +19,7 @@
             )}
             contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-grey-muted text-grey-muted-contrast [&>li]:contents"
             as="ul"
-            buttonAriaLabel={item.icon ? item.text : undefined}
+            label={item.icon ? item.text : undefined}
           >
             {#snippet button()}
               <span class="flex items-center gap-2 [&>svg]:transition-transform" class:bg-yellow={item.highlight}>

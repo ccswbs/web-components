@@ -11,7 +11,7 @@
     class="h-full"
     buttonClass="flex h-full aspect-square items-center justify-center gap-2 px-4 transition-colors hover:bg-yellow focus:bg-yellow aria-expanded:bg-yellow hover:text-yellow-contrast focus:text-yellow-contrast aria-expanded:text-yellow-contrast"
     contentClass="whitespace-normal absolute right-0 top-full z-50 flex w-full flex-col bg-white px-4 text-black shadow-md lg:w-[30rem] [&>li]:contents max-h-[calc(100vh-5rem)] overflow-y-auto"
-    buttonAriaLabel="Sub Navigation Menu"
+    label="Sub Navigation Menu"
     as="ul"
   >
     {#snippet button()}
