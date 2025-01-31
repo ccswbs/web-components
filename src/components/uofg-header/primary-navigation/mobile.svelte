@@ -12,7 +12,7 @@
 
 <ul class="flex h-full [&>li]:contents">
   {#each outer as item (item.text || item.title)}
-    <li>
+    <li data-testid="outer-link">
       {#if item.links}
         <Menu
           class="h-full w-fit"
@@ -28,8 +28,9 @@
           {#each item.links as link}
             <li class="[&>*]:first:mt-4 [&>*]:last:mb-4">
               <a
-                class="border-0 border-b border-solid border-light-grey-500 p-4 transition-colors hover:bg-yellow"
+                class="border-0 border-b border-solid border-grey/50 p-2 transition-colors hover:bg-grey-muted"
                 href={link.href}
+                {...link.attributes}
               >
                 {link.text}
               </a>
@@ -66,7 +67,7 @@
           {#if item.links}
             <Menu
               class="relative w-full"
-              buttonClass="flex border-0 border-b border-solid border-light-grey-500 w-full items-center justify-between gap-2 p-2 transition-colors hover:bg-light-grey focus:bg-light-grey aria-expanded:bg-light-grey [&_svg]:aria-expanded:rotate-180"
+              buttonClass="flex border-0 border-b border-solid border-grey/50 w-full items-center justify-between gap-2 p-2 transition-colors hover:bg-grey-muted focus:bg-grey-muted aria-expanded:bg-grey-muted [&_svg]:aria-expanded:rotate-180"
               contentClass="flex flex-col w-full flex-col bg-white text-black [&>li]:contents"
               as="ul"
               autoCollapse={false}
@@ -84,7 +85,7 @@
               {#each item.links as link}
                 <li>
                   <a
-                    class="border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-light-grey"
+                    class="border-0 border-b border-solid border-grey/50 p-2 transition-colors hover:bg-grey-muted"
                     href={link.href}
                     {...link.attributes}
                   >
@@ -95,7 +96,7 @@
             </Menu>
           {:else}
             <a
-              class="border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-light-grey focus:bg-light-grey"
+              class="border-0 border-b border-solid border-grey/50 p-2 transition-colors hover:bg-grey-muted focus:bg-grey-muted"
               class:bg-yellow={item.highlight}
               href={item.href}
             >

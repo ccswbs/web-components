@@ -5,8 +5,6 @@
   import Logo from '../../svg/logo.svg';
   import { getContext } from 'svelte';
 
-  let { variant } = $props();
-
   const headerState = getContext('header-state');
 </script>
 

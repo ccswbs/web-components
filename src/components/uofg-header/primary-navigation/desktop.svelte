@@ -8,7 +8,7 @@
     <li>
       {#if item.icon}
         <a
-          class="flex h-full items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pb-6 pt-8 text-yellow transition-colors hover:border-yellow hover:text-white [&>svg]:fill-current"
+          class="flex h-full items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pb-6 pt-8 text-yellow-text transition-colors hover:border-yellow hover:text-white [&>svg]:fill-current"
           href={item.href}
           aria-label={item.text}
         >
@@ -16,7 +16,7 @@
         </a>
       {:else}
         <a
-          class="flex h-full text-center items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pt-6 transition-colors hover:border-yellow hover:text-yellow"
+          class="flex h-full text-center items-center justify-center border-0 border-b-8 border-solid border-transparent p-4 pt-6 transition-colors hover:border-yellow hover:text-yellow-text"
           href={item.href}
         >
           {item.text}

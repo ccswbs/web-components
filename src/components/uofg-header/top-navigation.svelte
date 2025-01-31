@@ -14,10 +14,10 @@
           <Menu
             class="relative h-full"
             buttonClass={twJoin(
-              `flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-[#DDDDDD] aria-expanded:bg-[#DDDDDD]`,
+              `flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-grey-muted aria-expanded:bg-grey-muted hover:text-grey-muted-contrast aria-expanded:text-grey-muted-contrast`,
               item.icon && '[&_svg]:aria-expanded:rotate-180)} aspect-square',
             )}
-            contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-light-grey [&>li]:contents"
+            contentClass="absolute right-0 top-full z-50 flex min-w-[20rem] flex-col bg-grey-muted text-grey-muted-contrast [&>li]:contents"
             as="ul"
             buttonAriaLabel={item.icon ? item.text : undefined}
           >
@@ -36,8 +36,8 @@
               <li>
                 <a
                   class={twJoin(
-                    'border-0 border-b border-solid border-light-grey-500 p-2 transition-colors hover:bg-yellow',
-                    item.highlight && 'bg-yellow',
+                    'border-0 border-b border-solid border-grey/50 p-2 transition-colors hover:bg-yellow hover:text-yellow-contrast',
+                    item.highlight && 'bg-yellow text-yellow-contrast',
                   )}
                   href={link.href}
                   {...link.attributes}
@@ -50,8 +50,8 @@
         {:else}
           <a
             class={twJoin(
-              'flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-[#DDDDDD]',
-              item.highlight && 'bg-yellow',
+              'flex h-full items-center justify-center gap-2 px-2 transition-colors hover:bg-grey-muted hover:text-grey-muted-contrast',
+              item.highlight && 'bg-yellow text-yellow-contrast',
             )}
             href={item.href}
           >

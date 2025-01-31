@@ -224,9 +224,9 @@ module.exports = {
           text: '#686764',
           contrast: '#fff',
           muted: {
-            DEFAULT: '#f5f5f5',
-            focus: '#f5f5f5',
-            text: '#f5f5f5',
+            DEFAULT: '#DDDDDD',
+            focus: '#DDDDDD',
+            text: '#DDDDDD',
             contrast: '#000',
           },
           light: {
