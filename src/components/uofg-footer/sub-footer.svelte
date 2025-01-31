@@ -6,7 +6,7 @@
   {#each links as { text, href }}
     <li class="p-3">
       <a
-        class="transition-all decoration-transparent text-blue hover:text-blue-800 focus:text-blue-800 hover:underline focus:underline hover:decoration-current focus:decoration-current"
+        class="transition-all decoration-transparent text-blue hover:text-blue-focus focus:text-blue-focus hover:underline focus:underline hover:decoration-current focus:decoration-current"
         {href}
       >
         {text}
