@@ -1,28 +1,33 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 819.54 168.95">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 718.9 79.5">
+  <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
   <defs>
     <style>
-      .cls-1 {
+      .st0 {
+      fill: #fff;
+      font-family: MyriadPro-Regular, 'Myriad Pro';
+      font-size: 44.3px;
+      }
+
+      .st0, .st1 {
+      isolation: isolate;
+      }
+
+      .st2 {
       fill: #221f20;
       }
 
-      .cls-2 {
-      fill: #fff;
-      font-family: MyriadPro-Regular, 'Myriad Pro';
-      font-size: 44.28px;
-      }
-
-      .cls-3 {
-      letter-spacing: 0em;
-      }
-
-      .cls-4 {
+      .st3 {
       fill: #e51937;
       }
     </style>
   </defs>
   <g>
-    <rect class="cls-1" x="52.23" y="41.77" width="715.86" height="75.98"/>
-    <path class="cls-4" d="M766.59,43.27v72.98H53.73V43.27h712.86M769.59,40.27H50.73v78.98h718.86V40.27h0Z"/>
+    <rect class="st2" x="1.5" y="1.5" width="715.9" height="76.5"/>
+    <path class="st3" d="M715.9,3v73.5H3V3h712.9M718.9,0H0v79.5h718.9V0h0Z"/>
   </g>
-  <text class="cls-2" transform="translate(274.94 93.06)"><tspan x="0" y="0">IMP</tspan><tspan class="cls-3" x="69.75" y="0">R</tspan><tspan x="93.71" y="0">OVE LIFE</tspan></text>
+  <g class="st1">
+    <text class="st0" transform="translate(107.3 54.3)"><tspan x="0" y="0">IMP</tspan></text>
+    <text class="st0" transform="translate(177 54.3)"><tspan x="0" y="0">R</tspan></text>
+    <text class="st0" transform="translate(201 54.3)"><tspan x="0" y="0">OVE LIFE NO PADDING</tspan></text>
+  </g>
 </svg>
