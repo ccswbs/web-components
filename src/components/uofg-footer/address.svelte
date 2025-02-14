@@ -4,11 +4,11 @@
 </script>
 
 <address class="flex flex-col gap-1 not-italic">
-  <strong>{address.title}</strong>
-  <span>{address.street},</span>
-  <span>{address.city}, Ontario, Canada</span>
-  <span>{address.postalCode}</span>
-  <div class="flex items-center h-full">
+  <strong class="flex-1">{address.title}</strong>
+  <span class="flex-1">{address.street},</span>
+  <span class="flex-1">{address.city}, Ontario, Canada</span>
+  <span class="flex-1">{address.postalCode}</span>
+  <div class="flex flex-1 items-center h-full">
     <Link href={`tel:${address.phoneNumber}`}>{address.phoneNumber}</Link>
   </div>
 </address>

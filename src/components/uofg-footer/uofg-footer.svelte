@@ -53,7 +53,7 @@
   <div
     class="flex flex-col content-center gap-6 bg-black px-[max(calc((100%-1320px)/2),2rem)] py-12 text-black-contrast md:grid md:grid-cols-2 lg:grid-cols-4"
   >
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-1 mb-1">
       <Logo />
       <Social />
       <Link href={social.directory}>Social Media Directory</Link>
