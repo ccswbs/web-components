@@ -13,8 +13,6 @@
 />
 
 <script>
-  import { run } from 'svelte/legacy';
-
   import attachTailwind from '../lib/attach-tailwind.js';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -31,9 +29,9 @@
     });
   };
 
-  run(() => {
+  $effect(() => {
     visible = scrollY > 50;
-  });
+  })
 </script>
 
 <svelte:window bind:scrollY />
@@ -41,7 +39,7 @@
 <button
   onclick={scrollToTop}
   class={twJoin(
-    'flex z-10 justify-center items-center text-lg w-10 h-10 border border-white bg-black fixed bottom-8 right-8 text-white hover:bg-red focus:bg-red transition',
+    'flex z-10 justify-center items-center text-lg w-10 h-10 border border-white bg-black text-black-contrast fixed bottom-8 right-8 hover:bg-red focus:bg-red hover:text-red-contrast focus:text-red-contrast transition',
     visible ? 'opacity-100' : 'opacity-0',
   )}
 >

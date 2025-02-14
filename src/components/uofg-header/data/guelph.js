@@ -64,7 +64,7 @@ export const topLinks = [
     ],
   },
   {
-    text: 'APPLY NOW',
+    text: 'Apply Now',
     href: 'https://uoguelph.ca/apply/',
     highlight: true,
   },

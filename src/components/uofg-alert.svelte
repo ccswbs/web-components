@@ -1,6 +1,9 @@
 <svelte:options
   customElement={{
     tag: 'uofg-alert',
+    props: {
+      color: { reflect: true, type: 'String', attribute: 'color' },
+    },
     extend: customElementConstructor => {
       return class extends customElementConstructor {
         constructor() {
@@ -16,24 +19,39 @@
   import attachTailwind from '../lib/attach-tailwind.js';
   import FontAwesomeIcon from '../lib/font-awesome-icon.svelte';
   import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+  import { twJoin } from 'tailwind-merge';
+
+  let { color = 'red' } = $props();
 </script>
 
 <div class="flex flex-col">
   <div
-    class="flex items-center bg-red p-4 text-lg text-white [&>svg]:mr-4 [&>svg]:h-[1.5em] [&>svg]:fill-current"
+    class={twJoin(
+      `flex items-center p-4 text-lg [&>svg]:mr-4 [&>svg]:h-[1.5em] [&>svg]:fill-current`,
+      color === 'red' && 'bg-red text-red-contrast',
+      color === 'yellow' && 'bg-yellow text-yellow-contrast',
+      color === 'blue' && 'bg-blue text-blue-contrast',
+      color === 'green' && 'bg-green text-green-contrast',
+    )}
   >
     <FontAwesomeIcon icon={faCircleExclamation} />
     <slot name="title" />
   </div>
 
   <div
-    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="message"]::slotted(*)]:text-base [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold`}
+    class={`flex flex-col bg-white px-6 py-3 [&>slot[name="subtitle"]::slotted(*)]:mb-4 [&>slot[name="subtitle"]::slotted(*)]:text-xl [&>slot[name="subtitle"]::slotted(*)]:font-bold border-grey-muted border-t-0 border`}
+    class:border-b={!$$slots?.footer}
   >
     <slot name="subtitle" />
-    <slot name="message" />
+
+    <span
+      class={`[&>slot[name=\"message"]::slotted(*)]:text-base [&>slot[name="message"]::slotted(a)]:text-blue-text [&>slot[name="message"]::slotted(a)]:px-1 [&>slot[name="message"]::slotted(a:hover)]:bg-blue [&>slot[name="message"]::slotted(a:hover)]:text-blue-contrast [&>slot[name="message"]::slotted(a:hover)]:transition-colors [&>slot[name="message"]::slotted(a:hover)]:decoration-transparent`}
+    >
+      <slot name="message" />
+    </span>
   </div>
 
-  <div class="flex bg-light-grey px-4 py-2 text-lg">
+  <div class="flex bg-grey-light text-grey-light-contrast" class:px-4={$$slots?.footer} class:py-2={$$slots?.footer}>
     <slot name="footer" />
   </div>
 </div>

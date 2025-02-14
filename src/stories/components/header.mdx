@@ -24,7 +24,7 @@ The title can also act as a link, typically leading to the homepage of the topic
 
 <Canvas of={HeaderStories.WithPageLink} sourceState="shown" />
 
-### With Sub Navigation Links and Menus
+### With Sub-navigation Links and Menus
 
 The header also allows for a collection of links and dropdowns to be displayed within the sub navigation.
 
@@ -33,6 +33,16 @@ This pairs well with the topic/category title, allowing for a more detailed navi
 <Canvas of={HeaderStories.WithSubNavigation} sourceState="shown" />
 
 **Note:** Currently, nested dropdowns will render as if they were not nested at all.
+
+### Overflowing Sub-navigation
+
+Sometimes you may have several links and menus within the sub-navigation.
+Normally, this would cause overflow on desktop.
+The header will detect when it overflows
+and switch the desktop sub-navigation
+to show a menu containing all the sub navigation items similar to how it does on mobile.
+
+<Canvas of={HeaderStories.WithOverflowingSubNavigation} sourceState="shown" />
 
 ## Attributes
 
