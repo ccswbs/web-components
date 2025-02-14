@@ -8,5 +8,7 @@
   <span>{address.street},</span>
   <span>{address.city}, Ontario, Canada</span>
   <span>{address.postalCode}</span>
-  <Link href={`tel:${address.phoneNumber}`}>{address.phoneNumber}</Link>
+  <div class="flex items-center h-full">
+    <Link href={`tel:${address.phoneNumber}`}>{address.phoneNumber}</Link>
+  </div>
 </address>
