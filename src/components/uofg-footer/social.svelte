@@ -7,7 +7,7 @@
 <ul class="flex gap-2 text-xl [&>li]:contents">
   {#each social.links as { href, text, icon, classes }}
     <li>
-      <a {href} aria-label={text} class={twJoin(`border border-current transition-colors focus:border-transparent hover:border-transparent p-0.5 [&>*]:aspect-square`, classes)}>
+      <a {href} aria-label={text} class={twJoin(`border border-current transition-colors focus:border-transparent hover:border-transparent p-1 [&>*]:aspect-square`, classes)}>
         <FontAwesomeIcon {icon} />
       </a>
     </li>
