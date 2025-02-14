@@ -1,10 +1,10 @@
 import {
-  faFacebookSquare,
   faInstagram,
-  faLinkedin,
-  faSquareXTwitter,
   faTiktok,
   faYoutube,
+  faFacebookF,
+  faLinkedinIn,
+  faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faBriefcase,
@@ -23,39 +23,39 @@ export const social = {
   links: [
     {
       text: 'X',
-      icon: faSquareXTwitter,
+      icon: faXTwitter,
       href: 'https://twitter.com/uofg',
-      classes: 'focus:text-[#1da1f2] hover:text-[#1da1f2]',
+      classes: 'focus:text-black hover:text-black focus:bg-white hover:bg-white',
     },
     {
       text: 'Facebook',
-      icon: faFacebookSquare,
+      icon: faFacebookF,
       href: 'https://www.facebook.com/uofguelph',
-      classes: 'focus:text-[#4267b2] hover:text-[#4267b2]',
+      classes: 'focus:text-white hover:text-white focus:bg-[#0866ff] hover:bg-[#0866ff]',
     },
     {
       text: 'Instagram',
       icon: faInstagram,
       href: 'https://www.instagram.com/uofguelph/',
-      classes: 'focus:text-[#e1306c] hover:text-[#e1306c]',
+      classes: 'focus:text-white hover:text-white focus:bg-[#d62976] hover:bg-[#d62976]',
     },
     {
       text: 'Youtube',
       icon: faYoutube,
       href: 'https://www.youtube.com/user/uofguelph',
-      classes: 'focus:text-[#f00] hover:text-[#f00]',
+      classes: 'focus:text-white hover:text-white focus:bg-[#ff0000] hover:bg-[#ff0000]',
     },
     {
       text: 'LinkedIn',
-      icon: faLinkedin,
+      icon: faLinkedinIn,
       href: 'https://www.linkedin.com/school/university-of-guelph/',
-      classes: 'focus:text-[#0077b5] hover:text-[#0077b5]',
+      classes: 'focus:text-white hover:text-white focus:bg-[#0a66c2] hover:bg-[#0a66c2]',
     },
     {
       text: 'TikTok',
       icon: faTiktok,
       href: 'https://www.tiktok.com/@uofguelph',
-      classes: 'focus:text-[#f00] hover:text-[#f00]',
+      classes: 'focus:text-black hover:text-black focus:bg-white hover:bg-white',
     },
   ],
 };
