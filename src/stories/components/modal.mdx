@@ -1,0 +1,237 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as ModalStories from './modal.stories.svelte';
+
+<Meta of={ModalStories} />
+
+# Modal
+
+This is a utility component, and its content is meant to be styled by the developer using it.
+It makes it simpler to make accessible and animated modal content in your pages.
+
+## Usage
+
+### Basic
+
+<Canvas of={ModalStories.Basic} sourceState="shown" />
+
+### With Static Backdrop
+
+Static backdrop means the modal will not close when the users click on the the background of the modal.
+
+<Canvas of={ModalStories.WithStaticBackdrop} sourceState="shown" />
+
+### Centered
+
+The modal content can also be vertically centered in addition to horizontally.
+
+<Canvas of={ModalStories.Centered} sourceState="shown" />
+
+## Known Issues
+
+- On older browsers (particularly ones who do not support the [inert attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert)), VoiceOver on macOS/IPadOS/IOS can focus outside the modal when it is open and the user uses reading mode rather than tabbing.
+
+## Properties
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Attribute</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>alertDialog</code>
+      </td>
+      <td>
+        <code>alert-dialog</code>
+      </td>
+      <td>
+        Used to determine whether the modal should be rendered as an alert dialog. This is useful for when you want to
+        use the modal to alert the user of something, rather than to ask the user to make a decision. If this is set to
+        true, the modal will be rendered with a role of &quot;alertdialog&quot; instead of &quot;dialog&quot;.
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>autoOpen</code>
+      </td>
+      <td>
+        <code>auto-open</code>
+      </td>
+      <td>
+        Used to determine whether the modal should open automatically when the component is first rendered. It is
+        important to ensure this is only set to true for ONE modal on the page.
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>centered</code>
+      </td>
+      <td>
+        <code>centered</code>
+      </td>
+      <td>Used to determine whether the modal content is centered vertically.</td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        <code>label</code>
+      </td>
+      <td>
+        The label for the modal. It is recommended that you set this to describe the modal&#39;s content. This is
+        required for accessibility.
+      </td>
+      <td>
+        <code>string</code>
+      </td>
+      <td>
+        <code>undefined</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>staticBackdrop</code>
+      </td>
+      <td>
+        <code>static-backdrop</code>
+      </td>
+      <td>
+        Used to determine whether clicking on the backdrop of the modal will close the modal. If this is set to true,
+        clicking on the backdrop will NOT close the modal.
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>
+        <code>false</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>closed</code>
+      </td>
+      <td>Dispatched whenever the modal is closed whether by user interaction or programmatically (e.g. close()).</td>
+      <td>
+        <code>CustomEvent&lt;void&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>opened</code>
+      </td>
+      <td>Dispatched whenever the modal is opened whether by user interaction or programmatically (e.g. open()).</td>
+      <td>
+        <code>CustomEvent&lt;void&gt;</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Methods
+
+### `close() => void`
+
+Closes the modal.
+
+#### Returns
+
+Type: `void`
+
+### `getState() => boolean`
+
+Get the current state of the modal.
+
+#### Returns
+
+Type: `boolean`
+
+A boolean which is true when the modal is open, or false when the modal is closed.
+
+### `open() => void`
+
+Opens the modal.
+
+#### Returns
+
+Type: `void`
+
+### `setState(value: boolean) => void`
+
+Set the state of the modal.
+
+#### Parameters
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>value</code>
+      </td>
+      <td>
+        <code>boolean</code>
+      </td>
+      <td>The new state, set it to true to open the modal, or false to close the modal.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Returns
+
+Type: `void`
+
+### `toggle() => boolean`
+
+Toggle the state of the modal.
+
+#### Returns
+
+Type: `boolean`
+
+A boolean which is true if the modal opened or false if the modal closed.
